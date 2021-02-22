@@ -141,7 +141,7 @@ end
 directory "#{BUILDDIR}/modules"
 file "#{BUILDDIR}/modules" => BUILDDIR do |_t|
   if Dir["modules/*"].empty?
-    sh "librarian-puppet install --verbose --path #{BUILDDIR}/modules"
+    sh "/opt/puppetlabs/bolt/bin/r10k puppetfile install --verbose --moduledir=#{BUILDDIR}/modules"
   else
     cp_r "modules/", BUILDDIR
   end

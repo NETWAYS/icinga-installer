@@ -1,6 +1,5 @@
 forge 'https://forgeapi.puppetlabs.com/'
 
-mod 'install',			:local => true
 mod 'puppetlabs/apache'
 mod 'puppetlabs/apt'
 mod 'puppet/archive'
@@ -19,6 +18,10 @@ mod 'camptocamp/systemd'
 mod 'puppetlabs/translate'
 mod 'puppetlabs/vcsrepo'
 mod 'puppet/zypprepo'
+
+mod 'install',
+  :git=> 'https://github.com/NETWAYS/puppet-icinga-installer.git',
+  :branch => 'master'
 
 mod 'icinga',
   :git=> 'https://github.com/Icinga/puppet-icinga.git',
