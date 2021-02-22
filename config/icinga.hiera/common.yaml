@@ -1,0 +1,5 @@
+---
+icinga2::features:
+  - checker
+  - notification
+icinga2::purge_features: false
