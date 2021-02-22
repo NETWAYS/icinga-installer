@@ -67,7 +67,7 @@ rescue LoadError
   pin_task = false
 end
 
-BUILDDIR = File.expand_path(ENV['BUILDDIR'] || '_build')
+BUILDDIR = File.expand_path(ENV['BUILDDIR'] || 'build')
 PREFIX = ENV['PREFIX'] || '/usr/local'
 BINDIR = ENV['BINDIR'] || "#{PREFIX}/bin"
 LIBDIR = ENV['LIBDIR'] || "#{PREFIX}/lib"
