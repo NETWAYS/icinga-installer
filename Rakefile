@@ -67,7 +67,7 @@ rescue LoadError
   pin_task = false
 end
 
-BUILDDIR = File.expand_path(ENV['BUILDDIR'] || 'build')
+BUILDDIR = File.expand_path(ENV['BUILDDIR'] || '_build')
 PREFIX = ENV['PREFIX'] || '/usr/local'
 BINDIR = ENV['BINDIR'] || "#{PREFIX}/bin"
 LIBDIR = ENV['LIBDIR'] || "#{PREFIX}/lib"
@@ -141,7 +141,7 @@ end
 directory "#{BUILDDIR}/modules"
 file "#{BUILDDIR}/modules" => BUILDDIR do |_t|
   if Dir["modules/*"].empty?
-    sh "/opt/puppetlabs/bolt/bin/r10k puppetfile install --verbose --moduledir=#{BUILDDIR}/modules"
+    sh "r10k puppetfile install --verbose --moduledir=#{BUILDDIR}/modules"
   else
     cp_r "modules/", BUILDDIR
   end
