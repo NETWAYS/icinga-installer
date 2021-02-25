@@ -23,6 +23,7 @@ $ icinga-installer [-i] -S standalone
 Example on Debian Stretch:
 
 ```
+$ apt install apt-transport-https
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 $ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian stretch main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
