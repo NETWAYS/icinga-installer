@@ -41,7 +41,7 @@ $ echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /e
 $ echo "https://apt.puppet.com/puppet6-release-buster.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
-$apt install icinga-installer puppet-agent
+$ apt install icinga-installer puppet-agent
 $ icinga-installer [-i] -S standalone
 ```
 
