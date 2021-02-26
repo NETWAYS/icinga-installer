@@ -3,10 +3,11 @@
 Example on CentOS 7:
 
 ```bash
-$ dnf install https://yum.puppet.com/puppet6/puppet6-release-el-7.noarch.rpm
-$ dnf install https://packages.netways.de/extras/epel/7/noarch/netways-extras-release/netways-extras-release-7-1.el7.netways.noarch.rpm
+$ yum install https://yum.puppet.com/puppet6/puppet6-release-el-7.noarch.rpm
+$ yum install https://packages.netways.de/extras/epel/7/noarch/netways-extras-release/netways-extras-release-7-1.el7.netways.noarch.rpm
+$ yum install centos-release-scl
 
-$ dnf install icinga-installer puppet-agent
+$ yum install icinga-installer
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -16,7 +17,7 @@ Example on CentOS 8:
 $ dnf install https://yum.puppet.com/puppet6/puppet6-release-el-8.noarch.rpm
 $ dnf install https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
 
-$ dnf install icinga-installer puppet-agent
+$ dnf install icinga-installer
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -30,6 +31,8 @@ $ echo "deb https://packages.netways.de/extras/debian stretch main" | sudo tee /
 $ echo "https://apt.puppet.com/puppet6-release-stretch.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
+$ apt install icinga-installer
+$ icinga-installer [-i] -S standalone
 ```
 
 Example on Debian Buster:
@@ -41,7 +44,7 @@ $ echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /e
 $ echo "https://apt.puppet.com/puppet6-release-buster.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
-$ apt install icinga-installer puppet-agent
+$ apt install icinga-installer
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -54,7 +57,7 @@ $ echo "deb https://packages.netways.de/extras/ubuntu bionic main" | sudo tee /e
 $ echo "https://apt.puppet.com/puppet6-release-bionic.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
-$apt install icinga-installer puppet-agent
+$apt install icinga-installer
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -67,7 +70,7 @@ $ echo "deb https://packages.netways.de/extras/ubuntu focal main" | sudo tee /et
 $ echo "https://apt.puppet.com/puppet6-release-focal.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
-$apt install icinga-installer puppet-agent
+$apt install icinga-installer
 $ icinga-installer [-i] -S standalone
 ```
 
