@@ -8,10 +8,6 @@ $ yum install https://packages.netways.de/extras/epel/7/noarch/netways-extras-re
 $ yum install centos-release-scl
 
 $ yum install icinga-installer
-
-Puppet-Agent is installed automatically but isn't in path:
-$ . . /etc/profile.d/puppet-agent.sh
-
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -22,10 +18,6 @@ $ dnf install https://yum.puppet.com/puppet6/puppet6-release-el-8.noarch.rpm
 $ dnf install https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
 
 $ dnf install icinga-installer
-
-Puppet-Agent is installed automatically but isn't in path:
-$ . . /etc/profile.d/puppet-agent.sh
-
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -40,10 +32,6 @@ $ echo "https://apt.puppet.com/puppet6-release-stretch.deb" | sudo tee /etc/apt/
 $ apt update
 
 $ apt install icinga-installer
-
-Puppet-Agent is installed automatically but isn't in path:
-$ . . /etc/profile.d/puppet-agent.sh
-
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -57,10 +45,6 @@ $ echo "https://apt.puppet.com/puppet6-release-buster.deb" | sudo tee /etc/apt/s
 $ apt update
 
 $ apt install icinga-installer
-
-Puppet-Agent is installed automatically but isn't in path:
-$ . . /etc/profile.d/puppet-agent.sh
-
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -74,10 +58,6 @@ $ echo "https://apt.puppet.com/puppet6-release-bionic.deb" | sudo tee /etc/apt/s
 $ apt update
 
 $apt install icinga-installer
-
-Puppet-Agent is installed automatically but isn't in path:
-$ . . /etc/profile.d/puppet-agent.sh
-
 $ icinga-installer [-i] -S standalone
 ```
 
@@ -91,10 +71,6 @@ $ echo "https://apt.puppet.com/puppet6-release-focal.deb" | sudo tee /etc/apt/so
 $ apt update
 
 $apt install icinga-installer
-
-Puppet-Agent is installed automatically but isn't in path:
-$ . . /etc/profile.d/puppet-agent.sh
-
 $ icinga-installer [-i] -S standalone
 ```
 
