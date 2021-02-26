@@ -2,6 +2,7 @@
 require 'rubygems'
 require 'kafo'
 
+ENV['PATH'] += ':/opt/puppetlabs/bin'
 CONFIG_DIR = 'config/'.freeze
 
 # Run the install
