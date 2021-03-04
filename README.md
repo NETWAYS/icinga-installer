@@ -1,5 +1,20 @@
 # Puppet modules for managing Icinga
 
+Setup an Icinga 2 with MySQL support for IDO, an Apache and Icinga Web 2 using PHP-FPM. For Icinga Web 2 also a MySQL Backend is installed by default. To switch to PostgreSQL use the interactive Mode (icinga-installer -i).
+
+By default the Icinga and EPEL repository are included by the installer.
+
+The default Admin-Account for Icinga Web 2 is 'icingaadmin' and 'icinga' as password.
+
+```bash
+$ icinga-installer [-i] -S server|worker|agent
+```
+
+From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
+
+
+## Setup
+
 Example on CentOS 7:
 
 ```bash
@@ -8,7 +23,6 @@ $ yum install https://packages.netways.de/extras/epel/7/noarch/netways-extras-re
 $ yum install centos-release-scl
 
 $ yum install icinga-installer
-$ icinga-installer [-i] -S standalone
 ```
 
 Example on CentOS 8:
@@ -18,7 +32,6 @@ $ dnf install https://yum.puppet.com/puppet6/puppet6-release-el-8.noarch.rpm
 $ dnf install https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
 
 $ dnf install icinga-installer
-$ icinga-installer [-i] -S standalone
 ```
 
 Example on Debian Stretch:
@@ -32,7 +45,6 @@ $ echo "https://apt.puppet.com/puppet6-release-stretch.deb" | sudo tee /etc/apt/
 $ apt update
 
 $ apt install icinga-installer
-$ icinga-installer [-i] -S standalone
 ```
 
 Example on Debian Buster:
@@ -45,7 +57,6 @@ $ echo "https://apt.puppet.com/puppet6-release-buster.deb" | sudo tee /etc/apt/s
 $ apt update
 
 $ apt install icinga-installer
-$ icinga-installer [-i] -S standalone
 ```
 
 Example on Ubuntu Bionic Beaver:
@@ -58,7 +69,6 @@ $ echo "https://apt.puppet.com/puppet6-release-bionic.deb" | sudo tee /etc/apt/s
 $ apt update
 
 $apt install icinga-installer
-$ icinga-installer [-i] -S standalone
 ```
 
 Example on Ubuntu Focal Fossa:
@@ -71,11 +81,5 @@ $ echo "https://apt.puppet.com/puppet6-release-focal.deb" | sudo tee /etc/apt/so
 $ apt update
 
 $apt install icinga-installer
-$ icinga-installer [-i] -S standalone
 ```
 
-Setup an Icinga 2 with MySQL support for IDO, an Apache and Icinga Web 2 using PHP-FPM. For Icinga Web 2 also a MySQL Backend is installed by default. To switch to PostgreSQL use the interactive Mode (icinga-installer -i).
-
-By default the Icinga and EPEL repository are included by the installer.
-
-The default Admin-Account for Icinga Web 2 is 'icingaadmin' and 'icinga' as password.
