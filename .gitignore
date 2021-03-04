@@ -1,6 +1,4 @@
-!/modules
-/modules/*
-!/modules/install
+/modules/
 last_scenario.yaml
 *.gem
 *.rbc

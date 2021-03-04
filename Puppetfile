@@ -5,7 +5,6 @@ mod 'puppetlabs/apt'
 mod 'puppet/archive'
 mod 'puppetlabs/concat'
 mod 'puppet/extlib'
-mod 'icinga/icinga2'
 mod 'icinga/icingaweb2'
 mod 'puppetlabs/inifile'
 mod 'puppetlabs/mysql'
@@ -26,3 +25,7 @@ mod 'install',
 mod 'icinga',
   :git=> 'https://github.com/Icinga/puppet-icinga.git',
   :branch => 'enhancement/profiles'
+
+mod 'icinga2',
+  :git=> 'https://github.com/Icinga/puppet-icinga2.git',
+  :branch => 'enhancement/allow-signing-on-server'

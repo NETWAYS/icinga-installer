@@ -1,0 +1,21 @@
+# Format:
+# <classname>: false - don't include this class
+# <classname>: true - include and use the defaults
+# <classname>:
+#   <param>: <value> - include and override the default(s)
+#
+# See params.pp in each class for what options are available
+
+---
+icinga::repos: true
+install: true
+install::server:
+  global_zones:
+  - global-templates
+  - linux-commands
+  - windows-commands
+install::web:
+  backend: true
+  create_backend_database: true
+  frontend: true
+  create_database: true

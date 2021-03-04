@@ -9,12 +9,7 @@
 ---
 icinga::repos: true
 install: true
-install::server:
+install::agent:
+  parent_zone: main
   global_zones:
   - linux-commands
-  - windows-commands
-install::web:
-  backend: true
-  create_backend_database: true
-  frontend: true
-  create_database: true
