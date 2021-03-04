@@ -13,6 +13,24 @@ $ icinga-installer [-i] -S server|worker|agent
 From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
 
 
+## Scenarios
+
+### Server
+
+If your server should have connected workers, you've to configure those in `/etc/icinga-installer/custom-hiera.yaml`:
+
+```
+---
+icinga::server::workers:
+  dmz:
+    endpoints:
+      'worker.dmzdomain':
+        host: 192.168.66.92
+```
+
+The example above describes a server with one worker zone `dmz` served by one Icinga instance `worker.dmzdomain` (192.168.66.92).
+
+
 ## Setup
 
 Example on CentOS 7:
