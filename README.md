@@ -1,4 +1,4 @@
-# Puppet modules for managing Icinga
+# Simple installer for Icinga based on Puppet modules
 
 Example on CentOS 7:
 
