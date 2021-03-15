@@ -1,0 +1,34 @@
+---
+:name: Server-PostgreSQL
+:description: ''
+:enabled: true
+:log_dir: "./_build/"
+:store_dir: ''
+:log_name: server-pgsql.log
+:log_level: debug
+:no_prefix: false
+:mapping: {}
+:answer_file: "./config/server-pgsql-answers.yaml"
+:installer_dir: "."
+:module_dirs: "./_build/modules/"
+:colors: true
+:color_of_background: :dark
+:hook_dirs: []
+:custom: {}
+:facts: {}
+:low_priority_modules:
+- icinga::repos
+- install
+- install::server
+- install::web
+:verbose: true
+:verbose_log_level: notice
+:skip_puppet_version_check: false
+:parser_cache_path: "./_build/parser_cache/sserver-pgsql.yaml"
+:ignore_undocumented: true
+:order:
+- icinga::repos
+- install::server
+- install
+- install::web
+:hiera_config: "./config/icinga-hiera.yaml"
