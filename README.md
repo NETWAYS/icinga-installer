@@ -4,10 +4,13 @@ Setup an Icinga 2 with MySQL support for IDO, an Apache and Icinga Web 2 using P
 
 By default the Icinga and EPEL repository are included by the installer.
 
+Requirements:
+ * Puppet >= 5.5.10 < 7
+
 The default Admin-Account for Icinga Web 2 is 'icingaadmin' and 'icinga' as password.
 
 ```bash
-$ icinga-installer [-i] -S server|worker|agent
+$ icinga-installer [-i] -S server|server-pgsql|worker|agent
 ```
 
 From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
@@ -70,8 +73,6 @@ Example on Debian Buster:
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 $ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
-$ echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
-$ echo "https://apt.puppet.com/puppet6-release-buster.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
 $ apt install icinga-installer
