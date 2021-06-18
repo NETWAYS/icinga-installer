@@ -13,16 +13,9 @@ mod 'puppetlabs/stdlib',	'6.6.0'
 mod 'camptocamp/systemd',	'2.12.0'
 mod 'puppetlabs/translate',	'2.2.0'
 mod 'puppetlabs/vcsrepo',	'3.2.1'
-mod 'icinga/icingaweb2',	'3.0.1'
+mod 'icinga/icinga2',		'3.1.3'
+mod 'icinga/icingaweb2',	'3.1.0'
+mod 'icinga/icinga',		'2.3.0'
 
 mod 'install',
-  :git=> 'https://github.com/NETWAYS/puppet-icinga-installer.git',
-  :branch => 'master'
-
-mod 'icinga',
-  :git=> 'https://github.com/Icinga/puppet-icinga.git',
-  :branch => 'enhancement/profiles'
-
-mod 'icinga2',
-  :git=> 'https://github.com/Icinga/puppet-icinga2.git',
-  :branch => 'enhancement/allow-signing-on-server'
+  :local => true

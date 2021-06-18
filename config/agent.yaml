@@ -17,16 +17,16 @@
 :custom: {}
 :facts: {}
 :low_priority_modules:
-- icinga::repos
+- agent
+- plugins
 - install
-- install::agent
 :verbose: true
 :verbose_log_level: notice
 :skip_puppet_version_check: false
 :parser_cache_path: "./_build/parser_cache/agent.yaml"
 :ignore_undocumented: true
 :order:
-- icinga::repos
-- install::agent
 - install
+- install::plugins
+- install::agent
 :hiera_config: "./config/icinga-hiera.yaml"

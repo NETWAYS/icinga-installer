@@ -7,8 +7,9 @@
 # See params.pp in each class for what options are available
 
 ---
-icinga::repos: true
-install: true
+install:
+  manage_extras: false
+install::plugins: true
 install::agent:
   parent_zone: main
   global_zones:

@@ -1,2 +1,0 @@
----
-icinga::repos::manage_epel: true

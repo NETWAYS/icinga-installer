@@ -1,9 +1,9 @@
-#!/usr/bin/env ruby
+#!/usr/bin/ruby
 require 'rubygems'
 require 'kafo'
 
 ENV['PATH'] += ':/opt/puppetlabs/bin'
-CONFIG_DIR = 'config/'.freeze
+CONFIG_DIR = 'config/'
 
 # Run the install
 @result = Kafo::KafoConfigure.run
