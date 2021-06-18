@@ -18,4 +18,5 @@ mod 'icinga/icingaweb2',	'3.1.0'
 mod 'icinga/icinga',		'2.3.0'
 
 mod 'install',
-  :local => true
+  :git => 'https://github.com/netways/puppet-icinga-installer.git',
+  :branch => 'master'
