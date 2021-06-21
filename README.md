@@ -10,7 +10,7 @@ Requirements:
 The default Admin-Account for Icinga Web 2 is 'icingaadmin' and 'icinga' as password.
 
 ```bash
-$ icinga-installer [-i] -S server|server-pgsql|worker|agent
+$ icinga-installer [-i] -S server|worker|agent
 ```
 
 From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
