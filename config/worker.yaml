@@ -1,6 +1,6 @@
 ---
 :name: Worker
-:description: ''
+:description: 'Install Icinga and configure it as a worker aka satellite'
 :enabled: true
 :log_dir: "./_build/"
 :store_dir: ''

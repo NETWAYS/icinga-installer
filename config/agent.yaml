@@ -1,6 +1,6 @@
 ---
 :name: Agent
-:description: ''
+:description: 'Install Icinga and configure it as an agent'
 :enabled: true
 :log_dir: "./_build/"
 :store_dir: ''

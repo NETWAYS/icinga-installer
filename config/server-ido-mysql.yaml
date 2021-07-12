@@ -1,9 +1,10 @@
 ---
-:answer_file: "./config/server-answers.yaml"
+:name: Server-IDO-MySQL
+:description: 'Install Icinga incl. Web GUI and  and configure it as a server with a MySQL database as IDO backend'
+:answer_file: "./config/server-ido-mysql-answers.yaml"
 :color_of_background: :dark
 :colors: true
 :custom: {}
-:description: ''
 :enabled: true
 :facts: {}
 :hiera_config: "./config/icinga-hiera.yaml"
@@ -12,7 +13,7 @@
 :installer_dir: "."
 :log_dir: "./_build/"
 :log_level: debug
-:log_name: server.log
+:log_name: server-ido-mysql.log
 :low_priority_modules:
 - web
 - feature
@@ -21,7 +22,6 @@
 - install
 :mapping: {}
 :module_dirs: "./_build/modules/"
-:name: Server
 :no_prefix: false
 :order:
 - install
@@ -33,7 +33,7 @@
 - icinga2::feature::gelf
 - icinga2::feature::elasticsearch
 - install::web
-:parser_cache_path: "./_build/parser_cache/sserver.yaml"
+:parser_cache_path: "./_build/parser_cache/server-ido-mysql.yaml"
 :skip_puppet_version_check: false
 :store_dir: ''
 :verbose: true

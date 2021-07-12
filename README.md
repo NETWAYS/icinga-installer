@@ -10,7 +10,7 @@ Requirements:
 The default Admin-Account for Icinga Web 2 is 'icingaadmin' and 'icinga' as password.
 
 ```bash
-$ icinga-installer [-i] -S server|worker|agent
+$ icinga-installer [-i] -S server-ido-mysql|server-ido-pgsql|worker|agent
 ```
 
 From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
@@ -18,7 +18,7 @@ From the second run onwards, the -S option must be omitted because the host is n
 
 ## Scenarios
 
-### Server
+### Servers
 
 If your server should have connected workers, you've to configure those in `/etc/icinga-installer/custom-hiera.yaml`:
 
@@ -72,7 +72,7 @@ Example on Debian Buster:
 
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
+$ echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
 $ apt update
 
 $ apt install icinga-installer
