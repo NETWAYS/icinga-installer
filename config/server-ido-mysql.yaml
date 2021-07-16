@@ -18,14 +18,12 @@
 - web
 - feature
 - server
-- plugins
 - install
 :mapping: {}
 :module_dirs: "./_build/modules/"
 :no_prefix: false
 :order:
 - install
-- install::plugins
 - install::server
 - icinga2::feature::graphite
 - icinga2::feature::influxdb

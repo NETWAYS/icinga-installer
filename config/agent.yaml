@@ -18,7 +18,6 @@
 :facts: {}
 :low_priority_modules:
 - agent
-- plugins
 - install
 :verbose: true
 :verbose_log_level: notice
@@ -27,6 +26,5 @@
 :ignore_undocumented: true
 :order:
 - install
-- install::plugins
 - install::agent
 :hiera_config: "./config/icinga-hiera.yaml"
