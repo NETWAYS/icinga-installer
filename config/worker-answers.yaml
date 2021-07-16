@@ -1,7 +1,6 @@
 ---
 install: 
   manage_extras: false
-install::plugins: true
 install::worker:
   parent_zone: main
   global_zones:
