@@ -58,11 +58,11 @@ $ dnf install icinga-installer
 Example on Debian Stretch:
 
 ```
-$ apt install apt-transport-https
+$ apt install apt-transport-https gnupg
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 $ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian stretch main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
-$ echo "https://apt.puppet.com/puppet6-release-stretch.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
+$ echo "deb https://apt.puppet.com/puppet6-release-stretch.deb stretch main" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
 $ apt install icinga-installer
