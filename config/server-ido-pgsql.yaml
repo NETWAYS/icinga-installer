@@ -1,6 +1,6 @@
 ---
-:name: Server-IDO-PgSQL
-:description: 'Install Icinga incl. Web GUI and configure it as a server with a PostgreSQL database as IDO backend'
+:name: Server-IDO-PostgreSQL
+:description: 'Install Icinga incl. Web GUI and  and configure it as a server with a PostgreSQL database as IDO backend'
 :answer_file: "./config/server-ido-pgsql-answers.yaml"
 :color_of_background: :dark
 :colors: true
@@ -19,7 +19,7 @@
 - server
 - repos
 :mapping:
- :install::repos:
+  :install::repos:
     :dir_name: install
     :manifest_name: repos
     :params_name: params
