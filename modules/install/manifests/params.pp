@@ -8,9 +8,6 @@ class install::params {
   case $facts['os']['family'] {
     'debian': {
       $manage_epel    = false
-      $manage_plugins = true
-      $manage_extras  = true
-      $basic_plugins  = [ 'monitoring-plugins-basic', 'netways-plugins-mem' ]
 
       case $facts['os']['name'] {
         'debian': {
@@ -28,50 +25,12 @@ class install::params {
 
     'redhat': {
       $configure_backports = false
-      $nagios_plugins = [
-        'nagios-plugins',
-        'nagios-plugins-by_ssh',
-        'nagios-plugins-cluster',
-        'nagios-plugins-dhcp',
-        'nagios-plugins-disk',
-        'nagios-plugins-dummy',
-        'nagios-plugins-file_age',
-        'nagios-plugins-icmp',
-        'nagios-plugins-http',
-        'nagios-plugins-ide_smart',
-        'nagios-plugins-ircd',
-        'nagios-plugins-load',
-        'nagios-plugins-log',
-        'nagios-plugins-mrtg',
-        'nagios-plugins-mrtgtraf',
-        'nagios-plugins-nagios',
-        'nagios-plugins-nt',
-        'nagios-plugins-ntp',
-        'nagios-plugins-nwstat',
-        'nagios-plugins-overcr',
-        'nagios-plugins-ping',
-        'nagios-plugins-procs',
-        'nagios-plugins-real',
-        'nagios-plugins-sensors',
-        'nagios-plugins-smtp',
-        'nagios-plugins-ssh',
-        'nagios-plugins-swap',
-        'nagios-plugins-tcp',
-        'nagios-plugins-time',
-        'nagios-plugins-ups',
-        'nagios-plugins-users', ]
       case $facts['os']['name'] {
         'redhat','centos': {
           $manage_epel    = true
-          $manage_plugins = true
-          $manage_extras  = true
-          $basic_plugins  =  $nagios_plugins +  [ 'netways-plugins-mem' ]
         } # os: redhat
         default: {
           $manage_epel    = false
-          $manage_plugins = true
-          $manage_extras  = true
-          $basic_plugins  = $nagios_plugins
         }
       }
     } # family: redhat

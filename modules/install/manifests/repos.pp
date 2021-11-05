@@ -33,8 +33,8 @@ class install::repos(
   Boolean $manage_nightly      = false,
   Boolean $configure_backports = $install::params::configure_backports,
   Boolean $manage_epel         = $install::params::manage_epel,
-  Boolean $manage_plugins      = $install::params::manage_plugins,
-  Boolean $manage_extras       = $install::params::manage_extras,
+  Boolean $manage_plugins      = true,
+  Boolean $manage_extras       = true,
 ) inherits install::params {
 
   class { 'icinga::repos':
