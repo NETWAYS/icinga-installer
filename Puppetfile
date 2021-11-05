@@ -15,7 +15,7 @@ mod 'puppetlabs/translate',	'2.2.0'
 mod 'puppetlabs/vcsrepo',	'3.2.1'
 mod 'icinga/icinga2',		'3.1.3'
 mod 'icinga/icingaweb2',	'3.1.0'
-mod 'icinga/icinga',		'2.4.0'
+mod 'icinga/icinga',		'2.4.1'
 
 mod 'install',
   :local => true
