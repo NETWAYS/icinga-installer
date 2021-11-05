@@ -8,7 +8,10 @@ install::web:
   manage_frontend: true
   db_type: pgsql
   create_database: true
-  business_processes: true
+  enable_director: true
+  director_db_type: pgsql
+  create_director_database: true
+  enable_business_process: true
 install::feature::elasticsearch: false
 install::feature::gelf: false
 install::feature::graphite: false
