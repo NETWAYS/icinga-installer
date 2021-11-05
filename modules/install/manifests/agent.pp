@@ -23,7 +23,7 @@ class install::agent(
   Stdlib::Host            $ca_server,
   Hash[String, Hash]      $parent_endpoints,
   String                  $parent_zone       = 'main',
-  Array[String]           $global_zones      = [],
+  Array[String]           $global_zones      = ['linux-commands'],
   Enum['file', 'syslog']  $logging_type  = 'syslog',
   Icinga2::LogSeverity    $logging_level = 'critical',
 ) inherits install::params {

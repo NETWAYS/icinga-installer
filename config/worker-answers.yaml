@@ -1,9 +1,4 @@
 ---
 install::repos: 
   manage_extras: false
-install::worker:
-  parent_zone: main
-  global_zones:
-  - global-templates
-  - linux-commands
-  - windows-commands
+install::worker: true

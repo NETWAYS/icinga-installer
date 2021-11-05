@@ -1,7 +1,4 @@
 ---
 install::repos:
   manage_extras: false
-install::agent:
-  parent_zone: main
-  global_zones:
-  - linux-commands
+install::agent: true

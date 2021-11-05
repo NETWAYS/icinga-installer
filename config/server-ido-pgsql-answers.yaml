@@ -1,17 +1,11 @@
 ---
 install::repos: true
-install::server:
-  global_zones:
-  - global-templates
-  - linux-commands
-  - windows-commands
-  logging_type: syslog
-  logging_level: critical
+install::server: true
 install::web:
-  backend: true
+  manage_backend: true
   backend_db_type: pgsql
   create_backend_database: true
-  frontend: true
+  manage_frontend: true
   db_type: pgsql
   create_database: true
   business_processes: true

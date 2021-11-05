@@ -25,7 +25,7 @@
 class install::server(
   Boolean                  $ca            = true,
   String                   $zone          = 'main',
-  Array[String]            $global_zones  = [],
+  Array[String]            $global_zones  = ['linux-commands', 'windows-commands', 'global-templates'],
   String                   $ticket_salt   = $install::params::ticket_salt,
   String                   $web_api_pass  = $install::params::web_api_password,
   Enum['file', 'syslog']   $logging_type  = 'syslog',
@@ -34,7 +34,7 @@ class install::server(
 
   class { 'icinga::server':
     ca            => $ca,
-    config_server => $ca,
+    config_server => lookup('icinga::server::config_server', undef, undef, $ca),
     zone          => $zone,
     global_zones  => $global_zones,
     ticket_salt   => $ticket_salt,

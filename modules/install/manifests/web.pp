@@ -3,7 +3,7 @@
 #
 # == Parameters:
 #
-# @param [Boolean] backend
+# @param [Boolean] manage_backend
 #   Enable/disable feature IDO and Database
 #
 # @param [Enum['mysql', 'pgsql']] backend_db_type
@@ -27,41 +27,41 @@
 # @param [Boolean] create_backend_database
 #   Enable/disable initial creation of the database for the backend.
 #
-# @param [Boolean] frontend
+# @param [Boolean] manage_frontend
 #   Eanable/disable installation of Icinga Web 2.
 #
-# @param [Enum['mysql', 'pgsql']] db_type 	condition: $frontend
+# @param [Enum['mysql', 'pgsql']] db_type 	condition: $manage_frontend
 #   Set Icinga Web 2 database type.
 #
-# @param [Stdlib::Host] db_host			condition: $frontend
+# @param [Stdlib::Host] db_host			condition: $manage_frontend
 #   Database host to connect.
 #
-# @param [Optional[Stdlib::Port]] db_port	condition: $frontend
+# @param [Optional[Stdlib::Port]] db_port	condition: $manage_frontend
 #   Database port to connect.
 #
-# @param [String] db_name			condition: $frontend
+# @param [String] db_name			condition: $manage_frontend
 #   Database to connect.
 #
-# @param [String] db_username			condition: $frontend
+# @param [String] db_username			condition: $manage_frontend
 #   Account name to logon database.
 #
-# @param [String] db_password			condition: $frontend
+# @param [String] db_password			condition: $manage_frontend
 #   Account password to logon database.
 #
-# @param [Boolean] create_database		condition: $frontend
+# @param [Boolean] create_database		condition: $manage_frontend
 #   Enable/disable initial creation of the frontend database.
 #
-# @param [Stdlib::Host] api_host	  	condition: $frontend
+# @param [Stdlib::Host] api_host	  	condition: $manage_frontend
 #   Icinga API endpoint to send commands.
 #
-# @param [String] api_password  		condition: $frontend
+# @param [String] api_password  		condition: $manage_frontend
 #   Icinga API password for user icingaweb2.
 #
-# @param [Boolean] business_processes		condition: $frontend
+# @param [Boolean] business_processes		condition: $manage_frontend
 #   Eanable/disable installation of Icinga Web 2 module Business Process.
 #
 class install::web(
-  Boolean                  $backend                 = false,
+  Boolean                  $manage_backend          = false,
   Enum['mysql', 'pgsql']   $backend_db_type         = 'mysql',
   Stdlib::Host             $backend_db_host         = 'localhost',
   Optional[Stdlib::Port]   $backend_db_port         = undef,
@@ -69,7 +69,7 @@ class install::web(
   String                   $backend_db_username     = 'icinga2',
   String                   $backend_db_password     = $install::params::backend_db_password,
   Boolean                  $create_backend_database = false,  
-  Boolean                  $frontend                = false,
+  Boolean                  $manage_frontend         = false,
   Enum['mysql', 'pgsql']   $db_type                 = 'mysql',
   Stdlib::Host             $db_host                 = 'localhost',
   Optional[Stdlib::Port]   $db_port                 = undef,
@@ -82,7 +82,7 @@ class install::web(
   Boolean                  $business_processes      = false,
 ) inherits install::params {
 
-  if $backend {
+  if $manage_backend {
     class { 'icinga::ido':
       db_type         => $backend_db_type,
       db_host         => $backend_db_host,
@@ -93,7 +93,7 @@ class install::web(
     }
   }
 
-  if $frontend {
+  if $manage_frontend {
     class { 'icinga::web':
       db_type          => $db_type,
       db_host          => $db_host,

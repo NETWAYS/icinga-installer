@@ -27,7 +27,7 @@ class install::worker(
   String                  $zone,
   Hash[String, Hash]      $parent_endpoints,
   String                  $parent_zone       = 'main',
-  Array[String]           $global_zones      = [],
+  Array[String]           $global_zones      = ['linux-commands', 'windows-commands', 'global-templates'],
   Enum['file', 'syslog']  $logging_type  = 'syslog',
   Icinga2::LogSeverity    $logging_level = 'critical',
 ) inherits install::params {
