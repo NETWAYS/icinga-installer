@@ -7,11 +7,6 @@ install::server:
   - windows-commands
   logging_type: syslog
   logging_level: critical
-icinga2::feature::graphite: false
-icinga2::feature::influxdb: false
-icinga2::feature::livestatus: false
-icinga2::feature::gelf: false
-icinga2::feature::elasticsearch: false
 install::web:
   backend: true
   create_backend_database: true

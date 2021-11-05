@@ -1,0 +1,75 @@
+{
+  "name": "icinga-installer",
+  "version": "0.5.0",
+  "author": "NETWAYS",
+  "summary": "Puppet Module for the Icinga-Installer.",
+  "license": "Apache-2.0",
+  "source": "git://github.com/netways/icinga-installer",
+  "project_page": "https://github.com/netways/icinga-installer",
+  "issues_url": "https://github.com/netways/icinga-installer/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 5.0.0 < 8.0.0"
+    },
+    {
+      "name": "icinga/icinga2",
+      "version_requirement": ">= 2.0.0 < 4.0.0"
+    },
+    {
+      "name": "puppetlabs/apt",
+      "version_requirement": ">= 6.0.0 < 9.0.0"
+    },
+    {
+      "name": "puppet/zypprepo",
+      "version_requirement": ">= 2.2.1 < 5.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9",
+        "10",
+        "11"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04",
+        "20.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.5.0 < 7.0.0"
+    }
+  ],
+  "tags": [
+    "monitoring"
+  ]
+}

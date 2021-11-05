@@ -16,7 +16,6 @@
 :log_name: server-ido-mysql.log
 :low_priority_modules:
 - web
-- feature
 - server
 - repos
 :mapping:
@@ -33,11 +32,6 @@
 :order:
 - install::repos
 - install::server
-- icinga2::feature::graphite
-- icinga2::feature::influxdb
-- icinga2::feature::livestatus
-- icinga2::feature::gelf
-- icinga2::feature::elasticsearch
 - install::web
 :parser_cache_path: "./_build/parser_cache/server-ido-mysql.yaml"
 :skip_puppet_version_check: false
