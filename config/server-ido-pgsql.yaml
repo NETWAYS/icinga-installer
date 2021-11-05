@@ -18,12 +18,20 @@
 - web
 - feature
 - server
-- install
-:mapping: {}
+- repos
+:mapping:
+ :install::repos:
+    :dir_name: install
+    :manifest_name: repos
+    :params_name: params
+  :install::server:
+    :dir_name: install
+    :manifest_name: server
+    :params_name: params
 :module_dirs: "./_build/modules/"
 :no_prefix: false
 :order:
-- install
+- install::repos
 - install::server
 - icinga2::feature::graphite
 - icinga2::feature::influxdb

@@ -7,7 +7,11 @@
 :log_name: worker.log
 :log_level: debug
 :no_prefix: false
-:mapping: {}
+:mapping:
+ :install::repos:
+    :dir_name: install
+    :manifest_name: repos
+    :params_name: params
 :answer_file: "./config/worker-answers.yaml"
 :installer_dir: "."
 :module_dirs: "./_build/modules/"
@@ -18,13 +22,13 @@
 :facts: {}
 :low_priority_modules:
 - worker
-- install
+- repos
 :verbose: true
 :verbose_log_level: notice
 :skip_puppet_version_check: false
 :parser_cache_path: "./_build/parser_cache/worker.yaml"
 :ignore_undocumented: true
 :order:
-- install
+- install::repos
 - install::worker
 :hiera_config: "./config/icinga-hiera.yaml"

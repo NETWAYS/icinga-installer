@@ -140,7 +140,8 @@ end
 
 directory "#{BUILDDIR}/modules"
 file "#{BUILDDIR}/modules" => BUILDDIR do |_t|
-  if Dir["modules/*"].empty?
+  if Dir["modules/*"].include?('modules/install') and Dir["modules/*"].length < 2
+    cp_r "modules/install/", "#{BUILDDIR}/modules"
     sh "r10k puppetfile install --verbose --moduledir=#{BUILDDIR}/modules"
   else
     cp_r "modules/", BUILDDIR

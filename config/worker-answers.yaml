@@ -1,5 +1,5 @@
 ---
-install: 
+install::repos: 
   manage_extras: false
 install::worker:
   parent_zone: main

@@ -1,5 +1,5 @@
 ---
-install: true
+install::repos: true
 install::server:
   global_zones:
   - global-templates

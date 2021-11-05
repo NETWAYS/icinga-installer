@@ -7,7 +7,11 @@
 :log_name: agent.log
 :log_level: debug
 :no_prefix: false
-:mapping: {}
+:mapping:
+ :install::repos:
+    :dir_name: install
+    :manifest_name: repos
+    :params_name: params
 :answer_file: "./config/agent-answers.yaml"
 :installer_dir: "."
 :module_dirs: "./_build/modules/"
@@ -18,13 +22,13 @@
 :facts: {}
 :low_priority_modules:
 - agent
-- install
+- repos
 :verbose: true
 :verbose_log_level: notice
 :skip_puppet_version_check: false
 :parser_cache_path: "./_build/parser_cache/agent.yaml"
 :ignore_undocumented: true
 :order:
-- install
+- install::repos
 - install::agent
 :hiera_config: "./config/icinga-hiera.yaml"
