@@ -15,6 +15,7 @@
 :log_level: debug
 :log_name: server-ido-pgsql.log
 :low_priority_modules:
+- feature
 - web
 - server
 - repos
@@ -33,6 +34,11 @@
 - install::repos
 - install::server
 - install::web
+- install::feature::elasticsearch
+- install::feature::gelf
+- install::feature::graphite
+- install::feature::influxdb
+- install::feature::livestatus
 :parser_cache_path: "./_build/parser_cache/server-ido-pgsql.yaml"
 :skip_puppet_version_check: false
 :store_dir: ''

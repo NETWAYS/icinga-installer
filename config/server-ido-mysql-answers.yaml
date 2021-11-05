@@ -9,3 +9,8 @@ install::web:
   db_type: mysql
   create_database: true
   business_processes: true
+install::feature::elasticsearch: false
+install::feature::gelf: false
+install::feature::graphite: false
+install::feature::influxdb: false
+install::feature::livestatus: false
