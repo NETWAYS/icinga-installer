@@ -28,7 +28,7 @@
 class install::server(
   Boolean                  $ca                 = true,
   String                   $zone               = 'main',
-  Array[String]            $global_zones       = ['linux-commands', 'windows-commands', 'global-templates'],
+  Array[String]            $global_zones       = ['linux-commands', 'windows-commands', 'global-templates', 'director-global'],
   String                   $ticket_salt        = $install::params::ticket_salt,
   String                   $web_api_pass       = $install::params::web_api_password,
   String                   $director_api_pass  = $install::params::director_api_password,
