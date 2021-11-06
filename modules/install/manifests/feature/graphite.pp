@@ -1,16 +1,16 @@
 # @summary
 #   Configures the Icinga 2 feature graphite.
 #
-# @param [Optional[Stdlib::Host]] host
+# @param [Stdlib::Host] host
 #   Graphite Carbon host address.
 #
-# @param [Optional[Stdlib::Port::Unprivileged]] port
+# @param [Stdlib::Port::Unprivileged] port
 #   Graphite Carbon port.
 #
-# @param [Optional[Boolean]] enable_send_thresholds
+# @param [Boolean] enable_send_thresholds
 #   Send additional threshold metrics.
 #
-# @param [Optional[Boolean]] enable_send_metadata
+# @param [Boolean] enable_send_metadata
 #   Send additional metadata metrics.
 #
 class install::feature::graphite(

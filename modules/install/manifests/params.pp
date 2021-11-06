@@ -1,3 +1,6 @@
+# @summary
+# Class for defaults and password cache data.
+#
 class install::params {
 
   $backend_db_password   = extlib::cache_data('icinga_cache_data', 'ido_db_pass', extlib::random_password(32))

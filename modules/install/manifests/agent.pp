@@ -1,13 +1,13 @@
 # @summary
 #   Class to install Icinga agent
 #
-# @param [Stdlib:Host] ca_server
+# @param [Stdlib::Host] ca_server
 #   The CA to send the certificate request to.
 #
 # @param [String] parent_zone
 #   Name of the parent Icinga zone.
 #
-# @param [Hash[String,Hash]] parent_endpoints
+# @param [Hash[String, Hash]] parent_endpoints
 #   Configures these endpoints of the parent zone.
 #
 # @param [Array[String]] global_zones
