@@ -78,6 +78,16 @@ $ apt update
 $ apt install icinga-installer
 ```
 
+Example on Debian Bullseye:
+
+```
+$ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
+$ echo "deb https://packages.netways.de/extras/debian bullseye main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ apt update
+
+$ apt install icinga-installer
+```
+
 Example on Ubuntu Bionic Beaver:
 
 ```
