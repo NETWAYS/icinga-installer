@@ -6,7 +6,7 @@
 :store_dir: ''
 :log_name: worker.log
 :log_level: debug
-:no_prefix: false
+:no_prefix: true
 :mapping:
  :install::repos:
     :dir_name: install
@@ -23,7 +23,7 @@
 :low_priority_modules:
 - worker
 - repos
-:verbose: true
+:verbose: false
 :verbose_log_level: notice
 :skip_puppet_version_check: false
 :parser_cache_path: "./_build/parser_cache/worker.yaml"

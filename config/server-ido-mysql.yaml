@@ -29,7 +29,7 @@
     :manifest_name: server
     :params_name: params
 :module_dirs: "./_build/modules/"
-:no_prefix: false
+:no_prefix: true
 :order:
 - install::repos
 - install::server
@@ -42,5 +42,5 @@
 :parser_cache_path: "./_build/parser_cache/server-ido-mysql.yaml"
 :skip_puppet_version_check: false
 :store_dir: ''
-:verbose: true
+:verbose: false
 :verbose_log_level: notice
