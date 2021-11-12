@@ -62,7 +62,7 @@ $ apt install apt-transport-https gnupg
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 $ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian stretch main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
-$ echo "deb https://apt.puppet.com/puppet6-release-stretch.deb stretch main" | sudo tee /etc/apt/sources.list.d/puppet6.list
+$ echo "deb https://apt.puppet.com stretch puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
 $ apt install icinga-installer
@@ -72,7 +72,9 @@ Example on Debian Buster:
 
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
+$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ echo "deb http://apt.puppetlabs.com buster puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
 $ apt install icinga-installer
@@ -82,7 +84,9 @@ Example on Debian Bullseye:
 
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
+$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian bullseye main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ echo "deb http://apt.puppetlabs.com bullseye puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
 $ apt install icinga-installer
@@ -94,7 +98,7 @@ Example on Ubuntu Bionic Beaver:
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 $ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
-$ echo "https://apt.puppet.com/puppet6-release-bionic.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
+$ echo "deb http://apt.puppetlabs.com bionic puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
 $apt install icinga-installer
@@ -106,7 +110,7 @@ Example on Ubuntu Focal Fossa:
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 $ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
-$ echo "https://apt.puppet.com/puppet6-release-focal.deb" | sudo tee /etc/apt/sources.list.d/puppet6.list
+$ echo "deb http://apt.puppetlabs.com focal puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
 $apt install icinga-installer
