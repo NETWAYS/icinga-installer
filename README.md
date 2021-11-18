@@ -60,8 +60,8 @@ Example on Debian Stretch:
 ```
 $ apt install apt-transport-https gnupg
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian stretch main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
 $ echo "deb https://apt.puppet.com stretch puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
@@ -72,8 +72,8 @@ Example on Debian Buster:
 
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
 $ echo "deb http://apt.puppetlabs.com buster puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
@@ -84,8 +84,8 @@ Example on Debian Bullseye:
 
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/debian bullseye main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
 $ echo "deb http://apt.puppetlabs.com bullseye puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
@@ -96,8 +96,8 @@ Example on Ubuntu Bionic Beaver:
 
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
 $ echo "deb http://apt.puppetlabs.com bionic puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
@@ -108,8 +108,8 @@ Example on Ubuntu Focal Fossa:
 
 ```
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-$ wget -O - https://apt.puppet.com/DEB-GPG-KEY-puppet | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/netways-extras.list
+$ wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
 $ echo "deb http://apt.puppetlabs.com focal puppet6" | sudo tee /etc/apt/sources.list.d/puppet6.list
 $ apt update
 
