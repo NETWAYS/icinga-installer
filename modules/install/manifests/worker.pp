@@ -19,7 +19,7 @@
 # @param [Enum['file', 'syslog']] logging_type
 #   Switch the log target. Only `file` is supported on Windows.
 #
-# @param [Icinga2::LogSeverity] logging_level
+# @param [Enum['debug', 'information', 'notice', 'warning', 'critical']] logging_level
 #   Set the log level.
 #
 class install::worker(
@@ -29,7 +29,10 @@ class install::worker(
   String                  $parent_zone       = 'main',
   Array[String]           $global_zones      = ['linux-commands', 'windows-commands', 'global-templates', 'director-global'],
   Enum['file', 'syslog']  $logging_type  = 'syslog',
-  Icinga2::LogSeverity    $logging_level = 'critical',
+  Enum[
+    'debug', 'information',
+    'notice', 'warning', 'critical'
+  ]                        $logging_level      = 'critical',
 ) inherits install::params {
 
   class { 'icinga::worker':

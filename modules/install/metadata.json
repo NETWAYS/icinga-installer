@@ -1,6 +1,6 @@
 {
   "name": "icinga-installer",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "NETWAYS",
   "summary": "Puppet Module for the Icinga-Installer.",
   "license": "Apache-2.0",
@@ -50,7 +50,6 @@
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "9",
         "10",
         "11"
       ]
@@ -66,7 +65,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.5.0 < 7.0.0"
+      "version_requirement": ">= 6.1.0 < 8.0.0"
     }
   ],
   "tags": [

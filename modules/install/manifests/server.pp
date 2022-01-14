@@ -22,7 +22,7 @@
 # @param [Enum['file', 'syslog']] logging_type
 #   Switch the log target. Only `file` is supported on Windows.
 #
-# @param [Icinga2::LogSeverity] logging_level
+# @param [Enum['debug', 'information', 'notice', 'warning', 'critical']] logging_level
 #   Set the log level.
 #
 class install::server(
@@ -33,7 +33,10 @@ class install::server(
   String                   $web_api_pass       = $install::params::web_api_password,
   String                   $director_api_pass  = $install::params::director_api_password,
   Enum['file', 'syslog']   $logging_type       = 'syslog',
-  Icinga2::LogSeverity     $logging_level      = 'critical',
+  Enum[
+    'debug', 'information',
+    'notice', 'warning', 'critical'
+  ]                        $logging_level      = 'critical',
 ) inherits install::params {
 
   class { 'icinga::server':
