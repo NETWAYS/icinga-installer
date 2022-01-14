@@ -155,24 +155,53 @@ class install::web(
       backend_db_user  => $backend_db_username,
       backend_db_pass  => $backend_db_password,
     }
-  }
 
-  if $enable_director {
-    class { '::icinga::web::director':
-      db_type         => $director_db_type,
-      db_host         => $director_db_host,
-      db_user         => $director_db_username,
-      db_pass         => $director_db_password,
-      manage_database => $create_director_database,
-      endpoint        => $director_endpoint,
-      api_host        => $director_api_host,
-      api_pass        => $icinga::server::director_api_pass,
+    # Update on RHEL systems
+    # https://github.com/NETWAYS/icinga-installer/issues/24
+    if $facts['os']['family'] == 'redhat' {
+      $new_file_content = "# content removed by icinga-installer\n# https://github.com/NETWAYS/icinga-installer/issues/24\n"
+
+      file { prefix([
+        "/00-base.conf",
+        "/00-dav.conf",
+        "/00-lua.conf",
+        "/00-mpm.conf",
+        "/00-optional.conf",
+        "/00-proxy.conf",
+        "/00-ssl.conf",
+        "/00-systemd.conf",
+        "/01-cgi.conf"], $::apache::mod_dir):
+        ensure  => file,
+        content => $new_file_content,
+        require => Class['apache'],
+      }
+  
+      if Integer($facts['os']['release']['major']) < 8 {
+        file { prefix(["/autoindex.conf", "/userdir.conf", "/welcome.conf"], $::apache::confd_dir):
+          ensure  => file,
+          content => $new_file_content,
+          require => Class['apache'],
+        }
+      }
     }
-  }
 
-  if $enable_business_process {
-    class { 'icingaweb2::module::businessprocess':
-      install_method => 'package',
+    if $enable_director {
+      class { '::icinga::web::director':
+        db_type         => $director_db_type,
+        db_host         => $director_db_host,
+        db_user         => $director_db_username,
+        db_pass         => $director_db_password,
+        manage_database => $create_director_database,
+        endpoint        => $director_endpoint,
+        api_host        => $director_api_host,
+        api_pass        => $icinga::server::director_api_pass,
+      }
+    }
+  
+    if $enable_business_process {
+      class { 'icingaweb2::module::businessprocess':
+        install_method => 'package',
+      }
     }
   }
 
