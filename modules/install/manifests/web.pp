@@ -173,14 +173,14 @@ class install::web(
         "/01-cgi.conf"], $::apache::mod_dir):
         ensure  => file,
         content => $new_file_content,
-        require => Class['apache'],
+        notify => Class['apache::service'],
       }
   
       if Integer($facts['os']['release']['major']) < 8 {
         file { prefix(["/autoindex.conf", "/userdir.conf", "/welcome.conf"], $::apache::confd_dir):
           ensure  => file,
           content => $new_file_content,
-          require => Class['apache'],
+          notify => Class['apache::service'],
         }
       }
     }
