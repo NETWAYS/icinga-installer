@@ -11,7 +11,7 @@ mod 'puppet/php',		'8.0.2'
 mod 'puppetlabs/postgresql',	'7.5.0'
 mod 'puppetlabs/stdlib',	'8.1.0'
 mod 'puppet/systemd',		'3.5.1'
-mod 'icinga/icinga2',		'3.2.1'
+mod 'icinga/icinga2',		'3.2.2'
 mod 'icinga/icingaweb2',	'3.2.3'
 mod 'icinga/icinga',		'2.6.1'
 

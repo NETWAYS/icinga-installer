@@ -196,11 +196,26 @@ class install::web(
         api_host        => $director_api_host,
         api_pass        => $icinga::server::director_api_pass,
       }
+    } else {
+      icingaweb2::module { 'director':
+        ensure         => absent,
+        install_method => 'none',
+      }
+
+      icingaweb2::module { 'fileshipper':
+        ensure         => absent,
+        install_method => 'none',
+      }
     }
   
     if $enable_business_process {
       class { 'icingaweb2::module::businessprocess':
         install_method => 'package',
+      }
+    } else {
+      icingaweb2::module { 'businessprocess':
+        ensure         => absent,
+        install_method => 'none',
       }
     }
   }
