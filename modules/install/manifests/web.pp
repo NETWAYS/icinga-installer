@@ -218,6 +218,6 @@ class install::web(
         install_method => 'none',
       }
     }
-  }
 
+  }
 }
