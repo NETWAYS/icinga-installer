@@ -1,25 +1,25 @@
 # @summary
 #   Configures the Icinga 2 feature elasticsearch.
 #
-# @param [Enum['absent', 'present']] ensure
+# @param ensure
 #   Set to present enables the feature elasticsearch, absent disables it.
 #
-# @param [Stdlib::Host] host
+# @param host
 #    Elasticsearch host address.
 #
-# @param [Stdlib::Port::Unprivileged] port
+# @param port
 #    Elasticsearch HTTP port.
 #
-# @param [String] index
+# @param index
 #    Elasticsearch index name.
 #
-# @param [Optional[String]] username
+# @param username
 #    Elasticsearch user name.
 #
-# @param [Optional[String]] password
+# @param password
 #    Elasticsearch user password. The password parameter isn't parsed anymore.
 #
-# @param [Boolean] enable_send_perfdata
+# @param enable_send_perfdata
 #   Whether to send check performance data metrics.
 #
 class install::feature::elasticsearch(

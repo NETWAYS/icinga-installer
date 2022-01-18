@@ -1,16 +1,16 @@
 # @summary
 #   Configures the Icinga 2 feature livestatus.
 #
-# @param [Enum['tcp', 'unix']] socket_type
+# @param socket_type
 #   Specifies the socket type. Can be either 'tcp' or 'unix'.
 #
-# @param [Stdlib::Host] bind_host                        condition: $socket_type == 'tcp'
+# @param bind_host		condition: $socket_type == 'tcp'
 #   IP address to listen for connections. Only valid when socket_type is 'tcp'.
 #
-# @param [Stdlib::Port::Unprivileged] bind_port          condition: $socket_type == 'tcp'
+# @param bind_port		condition: $socket_type == 'tcp'
 #   Port to listen for connections. Only valid when socket_type is 'tcp'.
 #
-# @param [Stdlib::Absolutepath] socket_path              condition: $socket_type == 'unix'
+# @param socket_path		condition: $socket_type == 'unix'
 #   Specifies the path to the UNIX socket file. Only valid when socket_type is 'unix'.
 #
 class install::feature::livestatus(

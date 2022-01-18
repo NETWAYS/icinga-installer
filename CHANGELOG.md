@@ -1,6 +1,22 @@
 # Change Log
 
-## [v0.5.0](https://github.com/netways/icinga-installer/tree/v0.5.0) (2021-11-06)
+## [v0.6.0](https://github.com/netways/icinga-installer/tree/v0.6.0) (2022-01-18)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v0.5.0...v0.6.0)
+
+**Implemented enhancements:**
+
+- Drop Debian stretch support [\#29](https://github.com/NETWAYS/icinga-installer/issues/29)
+- Add web module fileshipper [\#21](https://github.com/NETWAYS/icinga-installer/issues/21)
+- Support puppet7, drop puppet5 [\#20](https://github.com/NETWAYS/icinga-installer/issues/20)
+
+**Fixed bugs:**
+
+- new apt key for puppet repo [\#19](https://github.com/NETWAYS/icinga-installer/issues/19)
+- Disable businessprocess does not disable the module [\#28](https://github.com/NETWAYS/icinga-installer/issues/28)
+- Disable director does not disable the module [\#25](https://github.com/NETWAYS/icinga-installer/issues/25)
+- Updating Apache after installation breaks Apache config on RHEL [\#24](https://github.com/NETWAYS/icinga-installer/issues/24)
+
+## [v0.5.0](https://github.com/netways/icinga-installer/tree/v0.5.0) (2021-11-08)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.5...v0.5.0)
 
 **Implemented enhancements:**

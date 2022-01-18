@@ -72,7 +72,10 @@ Default value: `'syslog'`
 
 ##### `logging_level`
 
-Data type: `Icinga2::LogSeverity`
+Data type: `Enum[
+    'debug', 'information',
+    'notice', 'warning', 'critical'
+  ]`
 
 Set the log level.
 
@@ -484,7 +487,10 @@ Default value: `'syslog'`
 
 ##### `logging_level`
 
-Data type: `Icinga2::LogSeverity`
+Data type: `Enum[
+    'debug', 'information',
+    'notice', 'warning', 'critical'
+  ]`
 
 Set the log level.
 
@@ -811,7 +817,10 @@ Default value: `'syslog'`
 
 ##### `logging_level`
 
-Data type: `Icinga2::LogSeverity`
+Data type: `Enum[
+    'debug', 'information',
+    'notice', 'warning', 'critical'
+  ]`
 
 Set the log level.
 

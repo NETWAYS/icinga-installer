@@ -1,28 +1,28 @@
 # @summary
 #   Setup a Icinga server.
 #
-# @param [Boolean] ca
+# @param ca
 #   Enables a CA on this node.
 #
-# @param [String] zone
+# @param zone
 #   Name of the Icinga zone.
 #
-# @param [Array[String]] global_zones
+# @param global_zones
 #   List of global zones to configure.
 #
-# @param [String] ticket_salt
+# @param ticket_salt
 #   Set an alternate ticket salt to icinga::ticket_salt from Hiera.
 #
-# @param [String] web_api_pass
+# @param web_api_pass
 #   Icinga API user password.
 #
-# @param [String] director_api_pass
+# @param director_api_pass
 #   Icinga API director user password.
 #
-# @param [Enum['file', 'syslog']] logging_type
+# @param logging_type
 #   Switch the log target. Only `file` is supported on Windows.
 #
-# @param [Enum['debug', 'information', 'notice', 'warning', 'critical']] logging_level
+# @param logging_level
 #   Set the log level.
 #
 class install::server(

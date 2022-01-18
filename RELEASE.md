@@ -20,7 +20,7 @@ gem install puppet-strings --no-ri --no-rdoc
 Generate [REFERENCE.md] via [Puppet Strings]
 ``` bash
 cd modules/install/
-puppet strings generate --format markdown --out ./REFERENCE.md
+puppet strings generate --format markdown --out ../../REFERENCE.md
 ```
 
 ## 3. Version

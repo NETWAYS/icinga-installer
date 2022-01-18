@@ -1,25 +1,25 @@
 # @summary
 #   Configures the Icinga 2 feature influxdb.
 #
-# @param [Stdlib::Host] host
+# @param host
 #    InfluxDB host address.
 #
-# @param [Stdlib::Port] port
+# @param port
 #    InfluxDB HTTP port.
 #
-# @param [String] database
+# @param database
 #    InfluxDB database name.
 #
-# @param [Optional[String]] username
+# @param username
 #    InfluxDB user name.
 #
-# @param [Optional[String]] password
+# @param password
 #    InfluxDB user password. The password parameter isn't parsed anymore.
 #
-# @param [Boolean] enable_send_thresholds
+# @param enable_send_thresholds
 #    Whether to send warn, crit, min & max tagged data.
 #
-# @param [Boolean] enable_send_metadata
+# @param enable_send_metadata
 #    Whether to send check metadata e.g. states, execution time, latency etc.
 #
 class install::feature::influxdb(

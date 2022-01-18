@@ -3,94 +3,94 @@
 #
 # == Parameters:
 #
-# @param [Boolean] manage_backend
+# @param manage_backend
 #   Enable/disable feature IDO and Database
 #
-# @param [Enum['mysql', 'pgsql']] backend_db_type
+# @param backend_db_type
 #   Set IDO backend database type.
 #
-# @param [Stdlib::Host] backend_db_host
+# @param backend_db_host
 #   IDO database host to connect.
 #
-# @param [Optional[Stdlib::Port]] backend_db_port
+# @param backend_db_port
 #   IDO database port to connect.
 #
-# @param [String] backend_db_name
+# @param backend_db_name
 #   Name of the IDO database to connect.
 #
-# @param [String] backend_db_username
+# @param backend_db_username
 #   Account name to logon database.
 #
-# @param [String] backend_db_password
+# @param backend_db_password
 #   Account password to logon database.
 #
-# @param [Boolean] create_backend_database
+# @param create_backend_database
 #   Enable/disable initial creation of the database for the backend.
 #
-# @param [Boolean] manage_frontend
+# @param manage_frontend
 #   Eanable/disable installation of Icinga Web 2.
 #
-# @param [Enum['mysql', 'pgsql']] db_type 	condition: $manage_frontend
+# @param db_type				condition: $manage_frontend
 #   Set Icinga Web 2 database type.
 #
-# @param [Stdlib::Host] db_host			condition: $manage_frontend
+# @param db_host				condition: $manage_frontend
 #   Database host to connect.
 #
-# @param [Optional[Stdlib::Port]] db_port	condition: $manage_frontend
+# @param db_port				condition: $manage_frontend
 #   Database port to connect.
 #
-# @param [String] db_name			condition: $manage_frontend
+# @param db_name				condition: $manage_frontend
 #   Database to connect.
 #
-# @param [String] db_username			condition: $manage_frontend
+# @param db_username				condition: $manage_frontend
 #   Account name to logon database.
 #
-# @param [String] db_password			condition: $manage_frontend
+# @param db_password				condition: $manage_frontend
 #   Account password to logon database.
 #
-# @param [Boolean] create_database		condition: $manage_frontend
+# @param create_database			condition: $manage_frontend
 #   Enable/disable initial creation of the frontend database.
 #
-# @param [Stdlib::Host] api_host	  	condition: $manage_frontend
+# @param api_host				condition: $manage_frontend
 #   Icinga API endpoint to send commands.
 #
-# @param [String] api_password  		condition: $manage_frontend
+# @param api_password				condition: $manage_frontend
 #   Icinga API password for user icingaweb2.
 #
-# @param [Boolean] enable_director              condition: $manage_frontend
+# @param enable_director			condition: $manage_frontend
 #   Enable/disable the Director module.
 #
-# @param [Enum['mysql', 'pgsql']] director_db_type      condition: $enable_director
+# @param director_db_type			condition: $enable_director
 #   Type of your database. Either `mysql` or `pgsql`.
 #
-# @param [Stdlib::Host] director_db_host                condition: $enable_director
+# @param director_db_host			condition: $enable_director
 #   Hostname of the database.
 #
-# @param [Optional[Stdlib::Port]] director_db_port      condition: $enable_director
+# @param director_db_port			condition: $enable_director
 #   Port of the database.
 #
-# @param [String] director_db_name                      condition: $enable_director
+# @param director_db_name			condition: $enable_director
 #   Name of the database.
 #
-# @param [String] director_db_username                  condition: $enable_director
+# @param director_db_username			condition: $enable_director
 #   Username for DB connection.
 #
-# @param [String] director_db_password                  condition: $enable_director
+# @param director_db_password			condition: $enable_director
 #   Password for DB connection.
 #
-# @param [String] director_endpoint                     condition: $enable_director
+# @param director_endpoint			condition: $enable_director
 #   Endpoint object name of Icinga 2 API.
 #
-# @param [Boolean] create_director_database             condition: $enable_director
+# @param create_director_database		condition: $enable_director
 #   Create database and import schema.
 #
-# @param [Stdlib::Host] director_api_host               condition: $enable_director
+# @param director_api_host			condition: $enable_director
 #   Icinga 2 API hostname.
 #
-# @param [String] director_api_password                 condition: $enable_director
+# @param director_api_password			condition: $enable_director
 #   Icinga 2 API password.
 #
-# @param [Boolean] enable_business_process              condition: $manage_frontend
+# @param enable_business_process		condition: $manage_frontend
 #   Eanable/disable installation of Icinga Web 2 module Business Process.
 #
 class install::web(

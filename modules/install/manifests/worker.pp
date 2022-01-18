@@ -1,25 +1,25 @@
 # @summary
 #   Class to install Icinga worker
 #
-# @param [Stdlib::Host] ca_server
+# @param ca_server
 #   The CA to send the certificate request to.
 #
-# @param [String] zone
+# @param zone
 #   Name of the Icinga zone.
 #
-# @param [String] parent_zone
+# @param parent_zone
 #   Name of the parent Icinga zone.
 #
-# @param [Hash[String, Hash]] parent_endpoints
+# @param parent_endpoints
 #   Configures these endpoints of the parent zone.
 #
-# @param [Array[String]] global_zones
+# @param global_zones
 #   List of global zones to configure.
 #
-# @param [Enum['file', 'syslog']] logging_type
+# @param logging_type
 #   Switch the log target. Only `file` is supported on Windows.
 #
-# @param [Enum['debug', 'information', 'notice', 'warning', 'critical']] logging_level
+# @param logging_level
 #   Set the log level.
 #
 class install::worker(

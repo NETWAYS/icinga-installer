@@ -1,16 +1,16 @@
 # @summary
 #   Configures the Icinga 2 feature gelf.
 #
-# @param [Stdlib::Host] host
+# @param host
 #   GELF receiver host address.
 #
-# @param [Stdlib::Port::Unprivileged] port
+# @param port
 #   GELF receiver port.
 #
-# @param [String] source
+# @param source
 #   Source name for this instance.
 #
-# @param [Boolean] enable_send_perfdata
+# @param enable_send_perfdata
 #   Enable performance data for 'CHECK RESULT' events.
 #
 class install::feature::gelf(

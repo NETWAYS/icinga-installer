@@ -1,7 +1,7 @@
 # @summary
 # This class installs monitoring plugins.
 #
-# @param [Variant[String, Array[String]]] basic_plugins
+# @param basic_plugins
 #   Manage what plugins have to be installed.
 #
 class install::plugins(
