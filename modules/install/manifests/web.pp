@@ -156,6 +156,8 @@ class install::web(
       backend_db_pass  => $backend_db_password,
     }
 
+    include ::apache::vhosts
+
     # Update on RHEL systems
     # https://github.com/NETWAYS/icinga-installer/issues/24
     if $facts['os']['family'] == 'redhat' {
