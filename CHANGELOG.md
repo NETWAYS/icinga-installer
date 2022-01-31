@@ -3,12 +3,9 @@
 ## [v0.6.1](https://github.com/netways/icinga-installer/tree/v0.6.1) (2022-01-29)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.0...v0.6.1)
 
-**Implemented enhancements:**
-
-- Add class apache::vhosts [\#30](https://github.com/NETWAYS/icinga-installer/issues/30)
-
 **Fixed bugs:**
 
+- Add misisng class apache::vhosts [\#30](https://github.com/NETWAYS/icinga-installer/issues/30)
 - Update icingaweb2 module - AddCGIPassAuth to Apache config [\#32](https://github.com/NETWAYS/icinga-installer/issues/32)
 
 ## [v0.6.0](https://github.com/netways/icinga-installer/tree/v0.6.0) (2022-01-18)
