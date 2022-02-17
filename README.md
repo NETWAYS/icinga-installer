@@ -36,21 +36,39 @@ The example above describes a server with one worker zone `dmz` served by one Ic
 
 ## Setup
 
-Example on CentOS 7:
+Example on RHEL 7:
 
 ```bash
+$ subscription-manager repos --enable rhel-7-server-optional-rpms
+$ subscription-manager repos --enable rhel-server-rhscl-7-rpms
+
 $ yum install https://packages.netways.de/extras/epel/7/noarch/netways-extras-release/netways-extras-release-7-1.el7.netways.noarch.rpm
 $ yum install https://yum.puppet.com/puppet7/puppet7-release-el-7.noarch.rpm
-$ yum install centos-release-scl
 
 $ yum install icinga-installer
 ```
 
-Example on CentOS 8:
+Example on CentOS 7:
+
+```bash
+$ yum install centos-release-scl
+
+$ yum install https://packages.netways.de/extras/epel/7/noarch/netways-extras-release/netways-extras-release-7-1.el7.netways.noarch.rpm
+$ yum install https://yum.puppet.com/puppet7/puppet7-release-el-7.noarch.rpm
+
+$ yum install icinga-installer
+```
+
+Example for RHEL 8 and CentOS Stream 8:
+
+Icinga Web 2 >= v2.9 requires PHP 7.3 or higher, so we also have to change the default package module for PHP!
 
 ```bash
 $ dnf install https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
 $ dnf install https://yum.puppet.com/puppet7/puppet7-release-el-8.noarch.rpm
+
+$ dnf module reset php
+$ dnf module enable php:7.4
 
 $ dnf install icinga-installer
 ```
