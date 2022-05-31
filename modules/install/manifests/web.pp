@@ -156,6 +156,13 @@ class install::web(
       backend_db_pass  => $backend_db_password,
     }
 
+    file { '/usr/local/share/icingaweb2-modules':
+      ensure => directory,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0755',
+    }
+
     include ::apache::vhosts
 
     # Update on RHEL systems

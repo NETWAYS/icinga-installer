@@ -1,2 +1,3 @@
 ---
 icinga2::purge_features: true
+icingaweb2::module_path: /usr/local/share/icingaweb2-modules
