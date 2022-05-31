@@ -73,6 +73,22 @@ $ dnf module enable php:7.4
 $ dnf install icinga-installer
 ```
 
+**Notice**: For some time now, access to current RPM packages on Icinga has required a paid [subscription](https://icinga.com/subscription). Unfortunately, using older package versions for an Icinga server is not provided for in this project. However, for workers and agents, there should be no issues with the public repos and thus older versions of Icinga 2.
+
+If a subscription exists, it is configured as follows:
+
+```bash
+$ cat /etc/icinga-installer/custom-hiera.yaml
+---
+icinga::repos:
+  icinga-stable-release:
+    baseurl: 'https://packages.icinga.com/subscription/rhel/$releasever/release/'
+    username: <username>
+    password: <password>
+```
+
+Username `<user>` and password `<pass>` must be set according to your subscription.
+
 Example on Debian Buster:
 
 ```
