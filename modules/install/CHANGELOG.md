@@ -3,17 +3,8 @@
 ## [v0.6.2](https://github.com/netways/icinga-installer/tree/v0.6.2) (2022-05-31)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.1...v0.6.2)
 
-**Implemented enhancements:**
-
-- Add additional module path for icingaweb2 [\#40](https://github.com/NETWAYS/icinga-installer/issues/40)
-
-**Fixed bugs:**
-
-- Apache does not start on RHEL7 because of unknown option CGIPassAuth [\#33](https://github.com/NETWAYS/icinga-installer/issues/33)
-
 **Closed issues:**
 
-- Add the requirement of Icinga subscription on RHEL 8 based systems [\#39](https://github.com/NETWAYS/icinga-installer/issues/39)
 - Add to documentation how to setup PHP 7.4 on CentOS8 [\#35](https://github.com/NETWAYS/icinga-installer/issues/35)
 - Add how to install on RHEL to documentation [\#34](https://github.com/NETWAYS/icinga-installer/issues/34)
 

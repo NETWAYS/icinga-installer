@@ -15,11 +15,11 @@ git commit -am "Update AUTHORS"
 ## 2. Reference
 If it is not installed [puppet-strings]:
 ``` bash
+cd modules/install
 gem install puppet-strings --no-ri --no-rdoc
 ```
 Generate [REFERENCE.md] via [Puppet Strings]
 ``` bash
-cd modules/install/
 puppet strings generate --format markdown --out ../../REFERENCE.md
 ```
 
@@ -30,12 +30,12 @@ Update the version number in `metadata.json` of puppet module `install`.
 ## 4. Changelog
 Install [github-changelog-generator]
 ```bash
+cd -
 gem install github_changelog_generator -v 1.13.2
 ```
 
 Generate [CHANGELOG.md]
 ```bash
-cd -
 github_changelog_generator -t <github-access-token> --future-release=v1.0.0 -u netways -p icinga-installer
 ```
 
