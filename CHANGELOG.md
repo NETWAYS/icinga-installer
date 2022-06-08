@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.6.3](https://github.com/netways/icinga-installer/tree/v0.6.3) (2022-06-08)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.2...v0.6.3)
+
+**Fixed bugs:**
+
+- Update puppet module icinga2 to bugfix release 3.3.1 [\#41](https://github.com/NETWAYS/icinga-installer/issues/41)
+
 ## [v0.6.2](https://github.com/netways/icinga-installer/tree/v0.6.2) (2022-05-31)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.1...v0.6.2)
 
