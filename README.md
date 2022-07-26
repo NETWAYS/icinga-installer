@@ -59,9 +59,9 @@ $ yum install https://yum.puppet.com/puppet7/puppet7-release-el-7.noarch.rpm
 $ yum install icinga-installer
 ```
 
-Example for RHEL 8 and CentOS Stream 8:
+Example for RHEL/AlmaLinux/Rocky 8 and CentOS Stream 8:
 
-Icinga Web 2 >= v2.9 requires PHP 7.3 or higher, so we also have to change the default package module for PHP!
+Icinga Web 2 >= v2.9 requires PHP 7.3 or higher, so we have to change the default package module for PHP!
 
 ```bash
 $ dnf install https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
@@ -75,7 +75,7 @@ $ dnf install icinga-installer
 
 **Notice**: For some time now, access to current RPM packages on Icinga has required a paid [subscription](https://icinga.com/subscription). Unfortunately, using older package versions for an Icinga server is not provided for in this project. However, for workers and agents, there should be no issues with the public repos and thus older versions of Icinga 2.
 
-If a subscription exists, it is configured as follows:
+A subscription is required, it is configured as follows:
 
 ```bash
 $ cat /etc/icinga-installer/custom-hiera.yaml

@@ -32,9 +32,9 @@ class install::params {
     'redhat': {
       $configure_backports = false
       case $facts['os']['name'] {
-        'redhat','centos': {
+        'redhat', 'centos', 'almalinux', 'rocky': {
           $manage_epel    = true
-        } # os: redhat
+        }
         default: {
           $manage_epel    = false
         }
