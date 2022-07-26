@@ -30,6 +30,12 @@
 # @param manage_frontend
 #   Eanable/disable installation of Icinga Web 2.
 #
+# @param initial_admin_username			condition: $manage_frontend
+#   Set initial admin username.
+#
+# @param initial_admin_password			condition: $manage_frontend
+#   Set the inital password for the admin user.
+#
 # @param db_type				condition: $manage_frontend
 #   Set Icinga Web 2 database type.
 #
@@ -103,6 +109,8 @@ class install::web(
   String                   $backend_db_password      = $install::params::backend_db_password,
   Boolean                  $create_backend_database  = false,  
   Boolean                  $manage_frontend          = false,
+  String                   $initial_admin_username   = 'icingaadmin',
+  String                   $initial_admin_password   = $install::params::initial_admin_password,
   Enum['mysql', 'pgsql']   $db_type                  = 'mysql',
   Stdlib::Host             $db_host                  = 'localhost',
   Optional[Stdlib::Port]   $db_port                  = undef,

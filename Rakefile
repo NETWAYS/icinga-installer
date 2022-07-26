@@ -188,7 +188,7 @@ task :build => ['build:base', 'build:scenarios']
 
 task :install => :build do
   mkdir_p "#{DATADIR}/icinga-installer"
-  cp_r Dir.glob('{checks,hocks,README.md,LICENSE}'), "#{DATADIR}/icinga-installer"
+  cp_r Dir.glob('{checks,hooks,README.md,LICENSE}'), "#{DATADIR}/icinga-installer"
   cp_r "#{BUILDDIR}/config", "#{DATADIR}/icinga-installer"
 
   mkdir_p "#{SYSCONFDIR}/icinga-installer/scenarios.d"
