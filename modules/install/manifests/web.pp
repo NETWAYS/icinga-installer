@@ -147,21 +147,23 @@ class install::web(
 
   if $manage_frontend {
     class { 'icinga::web':
-      db_type          => $db_type,
-      db_host          => $db_host,
-      db_port          => $db_port,
-      db_name          => $db_name,
-      db_user          => $db_username,
-      db_pass          => $db_password,
-      manage_database  => $create_database,
-      api_host         => $api_host,
-      api_pass         => $api_password,
-      backend_db_type  => $backend_db_type,
-      backend_db_host  => $backend_db_host,
-      backend_db_port  => $backend_db_port,
-      backend_db_name  => $backend_db_name,
-      backend_db_user  => $backend_db_username,
-      backend_db_pass  => $backend_db_password,
+      db_type            => $db_type,
+      db_host            => $db_host,
+      db_port            => $db_port,
+      db_name            => $db_name,
+      db_user            => $db_username,
+      db_pass            => $db_password,
+      default_admin_user => $initial_admin_username,
+      default_admin_pass => $initial_admin_password,
+      manage_database    => $create_database,
+      api_host           => $api_host,
+      api_pass           => $api_password,
+      backend_db_type    => $backend_db_type,
+      backend_db_host    => $backend_db_host,
+      backend_db_port    => $backend_db_port,
+      backend_db_name    => $backend_db_name,
+      backend_db_user    => $backend_db_username,
+      backend_db_pass    => $backend_db_password,
     }
 
     file { '/usr/local/share/icingaweb2-modules':
