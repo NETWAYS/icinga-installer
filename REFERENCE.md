@@ -570,6 +570,8 @@ The following parameters are available in the `install::web` class:
 * [`backend_db_password`](#backend_db_password)
 * [`create_backend_database`](#create_backend_database)
 * [`manage_frontend`](#manage_frontend)
+* [`initial_admin_username`](#initial_admin_username)
+* [`initial_admin_password`](#initial_admin_password)
 * [`db_type`](#db_type)
 * [`db_host`](#db_host)
 * [`db_port`](#db_port)
@@ -663,6 +665,24 @@ Data type: `Boolean`
 Eanable/disable installation of Icinga Web 2.
 
 Default value: ``false``
+
+##### <a name="initial_admin_username"></a>`initial_admin_username`
+
+Data type: `String`
+
+condition: $manage_frontend
+Set initial admin username.
+
+Default value: `'icingaadmin'`
+
+##### <a name="initial_admin_password"></a>`initial_admin_password`
+
+Data type: `String`
+
+condition: $manage_frontend
+Set the inital password for the admin user.
+
+Default value: `$install::params::initial_admin_password`
 
 ##### <a name="db_type"></a>`db_type`
 

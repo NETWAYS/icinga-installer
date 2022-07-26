@@ -1,5 +1,20 @@
 # Change Log
 
+## [v0.7.0](https://github.com/netways/icinga-installer/tree/v0.7.0) (2022-07-26)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.3...v0.7.0)
+
+**Implemented enhancements:**
+
+- Update icingaweb2 module to v3.4.1 [\#47](https://github.com/NETWAYS/icinga-installer/issues/47)
+- Update icinga module to v2.8.0 [\#46](https://github.com/NETWAYS/icinga-installer/issues/46)
+- Update icinga2 module to v3.4.0 [\#45](https://github.com/NETWAYS/icinga-installer/issues/45)
+- Add Alma and Rocky Linux support [\#38](https://github.com/NETWAYS/icinga-installer/issues/38)
+- Add a randomize initial icingaadmin password [\#26](https://github.com/NETWAYS/icinga-installer/issues/26)
+
+**Fixed bugs:**
+
+- Missing epel repo for AlmaLinux und Rocky [\#48](https://github.com/NETWAYS/icinga-installer/issues/48)
+
 ## [v0.6.3](https://github.com/netways/icinga-installer/tree/v0.6.3) (2022-06-08)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.2...v0.6.3)
 

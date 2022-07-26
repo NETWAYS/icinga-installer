@@ -13,9 +13,12 @@ git commit -am "Update AUTHORS"
 ```
 
 ## 2. Reference
-If it is not installed [puppet-strings]:
 ``` bash
 cd modules/install
+```
+
+If it is not installed [puppet-strings]:
+``` bash
 gem install puppet-strings --no-ri --no-rdoc
 ```
 Generate [REFERENCE.md] via [Puppet Strings]
@@ -31,6 +34,9 @@ Update the version number in `metadata.json` of puppet module `install`.
 Install [github-changelog-generator]
 ```bash
 cd -
+```
+
+```bash
 gem install github_changelog_generator -v 1.13.2
 ```
 
