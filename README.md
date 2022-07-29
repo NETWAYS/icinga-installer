@@ -122,7 +122,7 @@ $ wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-ke
 $ echo "deb http://apt.puppetlabs.com bionic puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
 $ apt update
 
-$apt install icinga-installer
+$ apt install icinga-installer
 ```
 
 Example on Ubuntu Focal Fossa:
@@ -134,6 +134,6 @@ $ wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-ke
 $ echo "deb http://apt.puppetlabs.com focal puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
 $ apt update
 
-$apt install icinga-installer
+$ apt install icinga-installer
 ```
 
