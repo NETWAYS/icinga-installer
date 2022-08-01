@@ -1,0 +1,6 @@
+---
+mysql::server::override_options:
+  server:
+    innodb_file_per_table: 1
+    innodb_file_format: Barracuda
+    innodb_large_prefix: 1

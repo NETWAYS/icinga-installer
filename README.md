@@ -1,4 +1,4 @@
-# Simple installer for Icinga based on Puppet modules
+# Simple installer for the Icinga software stack
 
 Setup an Icinga 2 with MySQL support for IDO, an Apache and Icinga Web 2 using PHP-FPM. For Icinga Web 2 also a MySQL Backend is installed by default. To switch to PostgreSQL use the interactive Mode (icinga-installer -i).
 
