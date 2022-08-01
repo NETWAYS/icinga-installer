@@ -7,7 +7,7 @@ By default the Icinga and EPEL repository are included by the installer.
 Requirements:
  * Puppet >= 6.1.0 < 8
 
-The default Admin-Account for Icinga Web 2 is 'icingaadmin' and 'icinga' as password.
+The default Admin-Account for Icinga Web 2 is 'icingaadmin', the random initial password is displayed at the end of the installation process.
 
 ```bash
 $ icinga-installer [-i] -S server-ido-mysql|server-ido-pgsql|worker|agent
