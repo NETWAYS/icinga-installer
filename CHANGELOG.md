@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.7.1](https://github.com/netways/icinga-installer/tree/v0.7.1) (2022-08-01)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v0.7.0...v0.7.1)
+
+**Fixed bugs:**
+
+- Scenario server-ido-mysql failed on RHEL/CentOS 7 [\#49](https://github.com/NETWAYS/icinga-installer/issues/49)
+
 ## [v0.7.0](https://github.com/netways/icinga-installer/tree/v0.7.0) (2022-07-26)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.3...v0.7.0)
 
