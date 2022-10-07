@@ -92,10 +92,10 @@ Username `<user>` and password `<pass>` must be set according to your subscripti
 Example on Debian Buster:
 
 ```
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com buster puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
+echo "deb https://packages.netways.de/extras/debian buster main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
+echo "deb http://apt.puppetlabs.com buster puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
@@ -104,10 +104,10 @@ apt install -y icinga-installer
 Example on Debian Bullseye:
 
 ```
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/debian bullseye main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com bullseye puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
+echo "deb https://packages.netways.de/extras/debian bullseye main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
+echo "deb http://apt.puppetlabs.com bullseye puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
@@ -116,10 +116,10 @@ apt install -y icinga-installer
 Example on Ubuntu Bionic Beaver:
 
 ```
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com bionic puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
+echo "deb https://packages.netways.de/extras/ubuntu bionic main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
+echo "deb http://apt.puppetlabs.com bionic puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
@@ -129,10 +129,10 @@ Example on Ubuntu Focal Fossa:
 
 ```
 apt install -y ca-certificates
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com focal puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
+echo "deb https://packages.netways.de/extras/ubuntu focal main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
+echo "deb http://apt.puppetlabs.com focal puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
