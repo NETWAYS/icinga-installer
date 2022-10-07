@@ -128,6 +128,7 @@ $ apt install icinga-installer
 Example on Ubuntu Focal Fossa:
 
 ```
+$ apt install ca-certificates
 $ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 $ echo "deb https://packages.netways.de/extras/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
 $ wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
