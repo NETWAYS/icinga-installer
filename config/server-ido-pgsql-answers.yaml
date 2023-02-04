@@ -12,8 +12,4 @@ install::web:
   director_db_type: pgsql
   create_director_database: true
   enable_business_process: true
-install::feature::elasticsearch: false
-install::feature::gelf: false
-install::feature::graphite: false
-install::feature::influxdb: false
-install::feature::livestatus: false
+install::features: true

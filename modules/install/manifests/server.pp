@@ -1,31 +1,26 @@
-# @summary
-#   Setup a Icinga server.
+# Setup a Icinga server.
 #
-# @param ca
-#   Enables a CA on this node.
+# == Parameters:
 #
-# @param zone
-#   Name of the Icinga zone.
+# $ca::                        Enables a CA on this node.
 #
-# @param global_zones
-#   List of global zones to configure.
+# $zone::                      Name of the Icinga zone.
 #
-# @param ticket_salt
-#   Set an alternate ticket salt to icinga::ticket_salt from Hiera.
+# $global_zones::              List of global zones to configure.
 #
-# @param web_api_pass
-#   Icinga API user password.
+# $ticket_salt::               Set an alternate ticket salt to icinga::ticket_salt from Hiera.
 #
-# @param director_api_pass
-#   Icinga API director user password.
+# $web_api_pass::              Icinga API web user password.
 #
-# @param logging_type
-#   Switch the log target. Only `file` is supported on Windows.
+# $director_api_pass::         Icinga API director user password.
 #
-# @param logging_level
-#   Set the log level.
+# == Logging parameters:
 #
-class install::server(
+# $logging_type::              Switch the log target.
+#
+# $logging_level::             Set the log level.
+#
+class install::server (
   Boolean                  $ca                 = true,
   String                   $zone               = 'main',
   Array[String]            $global_zones       = ['linux-commands', 'windows-commands', 'global-templates', 'director-global'],

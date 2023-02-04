@@ -1,10 +1,10 @@
 ---
-:name: Server-IDO-MySQL
-:description: 'Install Icinga incl. Web GUI and  and configure it as a server with a MySQL database as IDO backend'
 :answer_file: "./config/server-ido-mysql-answers.yaml"
 :color_of_background: :dark
 :colors: true
 :custom: {}
+:description: Install Icinga incl. Web GUI and  and configure it as a server with
+  a MySQL database as IDO backend
 :enabled: true
 :facts: {}
 :hiera_config: "./config/icinga-hiera.yaml"
@@ -15,8 +15,8 @@
 :log_level: debug
 :log_name: server-ido-mysql.log
 :low_priority_modules:
-- feature
 - web
+- features
 - server
 - repos
 :mapping:
@@ -28,17 +28,18 @@
     :dir_name: install
     :manifest_name: server
     :params_name: params
+  :install::features:
+    :dir_name: install
+    :manifest_name: features
+    :params_name: params
 :module_dirs: "./_build/modules/"
+:name: Server-IDO-MySQL
 :no_prefix: true
 :order:
 - install::repos
 - install::server
+- install::features
 - install::web
-- install::feature::elasticsearch
-- install::feature::gelf
-- install::feature::graphite
-- install::feature::influxdb
-- install::feature::livestatus
 :parser_cache_path: "./_build/parser_cache/server-ido-mysql.yaml"
 :skip_puppet_version_check: false
 :store_dir: ''
