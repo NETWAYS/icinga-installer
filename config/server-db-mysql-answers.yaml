@@ -1,13 +1,17 @@
 ---
 install::repos: true
 install::server: true
+install::icingadb:
+  icingadb: true
+  db_type: mysql
+  create_database: true 
 install::features: true
 install::web:
   icingaweb: true
-  db_type: pgsql
+  db_type: mysql
   create_database: true
   ido_db_type: pgsql
   ido_create_database: true
   director: true
-  director_db_type: pgsql
+  director_db_type: mysql
   director_create_database: true

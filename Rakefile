@@ -81,7 +81,7 @@ DATAROOTDIR = DATADIR = ENV['DATAROOTDIR'] || "#{PREFIX}/share"
 MANDIR = ENV['MANDIR'] || "#{DATAROOTDIR}/man"
 PKGDIR = ENV['PKGDIR'] || File.expand_path('pkg')
 
-SCENARIOS = ['server-ido-mysql', 'server-ido-pgsql', 'worker', 'agent'].freeze
+SCENARIOS = ['server-db-mysql', 'server-db-pgsql', 'server-ido-mysql', 'server-ido-pgsql', 'worker', 'agent'].freeze
 
 exporter_dirs = ENV['PATH'].split(':').push('/usr/bin', ENV['KAFO_EXPORTER'])
 exporter = exporter_dirs.find { |dir| File.executable? "#{dir}/kafo-export-params" } or

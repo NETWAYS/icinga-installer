@@ -1,6 +1,6 @@
 {
   "name": "icinga-installer",
-  "version": "0.7.1",
+  "version": "1.0.0",
   "author": "NETWAYS",
   "summary": "Puppet Module for the Icinga-Installer.",
   "license": "Apache-2.0",
@@ -69,7 +69,6 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "18.04",
         "20.04"
       ]
     }

@@ -1,0 +1,53 @@
+---
+:answer_file: "./config/server-db-mysql-answers.yaml"
+:color_of_background: :dark
+:colors: true
+:custom: {}
+:description: Install Icinga incl. Web GUI and  and configure it as a server with
+  a MySQL database as IDO backend
+:enabled: true
+:facts: {}
+:hiera_config: "./config/icinga-hiera.yaml"
+:hook_dirs: []
+:ignore_undocumented: true
+:installer_dir: "."
+:log_dir: "./_build/"
+:log_level: debug
+:log_name: server-db-mysql.log
+:low_priority_modules:
+- web
+- features
+- icingadb
+- server
+- repos
+:mapping:
+  :install::repos:
+    :dir_name: install
+    :manifest_name: repos
+    :params_name: params
+  :install::server:
+    :dir_name: install
+    :manifest_name: server
+    :params_name: params
+  :install::icingadb:
+    :dir_name: install
+    :manifest_name: icingadb
+    :params_name: params
+  :install::features:
+    :dir_name: install
+    :manifest_name: features
+    :params_name: params
+:module_dirs: "./_build/modules/"
+:name: Server-IcingaDB-MySQL
+:no_prefix: true
+:order:
+- install::repos
+- install::server
+- install::icingadb
+- install::features
+- install::web
+:parser_cache_path: "./_build/parser_cache/server-db-mysql.yaml"
+:skip_puppet_version_check: false
+:store_dir: ''
+:verbose: false
+:verbose_log_level: notice
