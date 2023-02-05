@@ -1,15 +1,14 @@
 ---
 install::repos: true
 install::server: true
+install::features: true
 install::web:
-  manage_backend: true
-  backend_db_type: pgsql
-  create_backend_database: true
-  manage_frontend: true
+  icingaweb: true
   db_type: pgsql
   create_database: true
-  enable_director: true
+  ido_db_type: pgsql
+  ido_create_database: true
+  director: true
   director_db_type: pgsql
-  create_director_database: true
-  enable_business_process: true
-install::features: true
+  director_create_database: true
+  business_process: true

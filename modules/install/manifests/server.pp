@@ -14,8 +14,6 @@
 #
 # $director_api_pass::         Icinga API director user password.
 #
-# == Logging parameters:
-#
 # $logging_type::              Switch the log target.
 #
 # $logging_level::             Set the log level.
@@ -44,6 +42,7 @@ class install::server (
     director_api_pass => $director_api_password,
     logging_type      => $logging_type,
     logging_level     => $logging_level,
+    run_web           => true,
   }
 
 }
