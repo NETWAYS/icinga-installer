@@ -1,114 +1,87 @@
-# @summary
-#   Class to manage IDO and Icinga Web 2.
+# Class to manage Icinga Web 2.
 #
 # == Parameters:
 #
-# @param manage_backend
-#   Enable/disable feature IDO and Database
+# == Icinga Web parameters:
 #
-# @param backend_db_type
-#   Set IDO backend database type.
+# $icingaweb::                                  Eanable/disable installation of Icinga Web.
 #
-# @param backend_db_host
-#   IDO database host to connect.
+# === IcingaWeb:                                condition: $icingaweb
 #
-# @param backend_db_port
-#   IDO database port to connect.
+# $initial_admin_username::                     Set initial admin username.
 #
-# @param backend_db_name
-#   Name of the IDO database to connect.
+# $initial_admin_password::                     Set the inital password for the admin user.
 #
-# @param backend_db_username
-#   Account name to logon database.
+# $db_type::                                    Set Icinga Web database type.
 #
-# @param backend_db_password
-#   Account password to logon database.
+# $db_host::                                    Database host to connect.
 #
-# @param create_backend_database
-#   Enable/disable initial creation of the database for the backend.
+# $db_port::                                    Database port to connect.
 #
-# @param manage_frontend
-#   Eanable/disable installation of Icinga Web 2.
+# $db_name::                                    Database to connect.
 #
-# @param initial_admin_username			condition: $manage_frontend
-#   Set initial admin username.
+# $db_username::                                Account name to logon database.
 #
-# @param initial_admin_password			condition: $manage_frontend
-#   Set the inital password for the admin user.
+# $db_password::                                Account password to logon database.
 #
-# @param db_type				condition: $manage_frontend
-#   Set Icinga Web 2 database type.
+# $create_database::                            Enable initial creation of the database on this host.
 #
-# @param db_host				condition: $manage_frontend
-#   Database host to connect.
+# $api_host::                                   Icinga API endpoint to send commands.
 #
-# @param db_port				condition: $manage_frontend
-#   Database port to connect.
+# $api_password::                               Icinga API password.
 #
-# @param db_name				condition: $manage_frontend
-#   Database to connect.
+# == Monitoring (IDO) parameters:
 #
-# @param db_username				condition: $manage_frontend
-#   Account name to logon database.
+# $ido::                                        Enable the deprecated IDO based monitoring module.
 #
-# @param db_password				condition: $manage_frontend
-#   Account password to logon database.
+# === IDO:                                      condition: $ido
 #
-# @param create_database			condition: $manage_frontend
-#   Enable/disable initial creation of the frontend database.
+# $ido_db_type::                                Set IDO backend database type.
 #
-# @param api_host				condition: $manage_frontend
-#   Icinga API endpoint to send commands.
+# $ido_db_host::                                IDO database host to connect.
 #
-# @param api_password				condition: $manage_frontend
-#   Icinga API password for user icingaweb2.
+# $ido_db_port::                                IDO database port to connect.
 #
-# @param enable_director			condition: $manage_frontend
-#   Enable/disable the Director module.
+# $ido_db_name::                                Name of the IDO database to connect.
 #
-# @param director_db_type			condition: $enable_director
-#   Type of your database. Either `mysql` or `pgsql`.
+# $ido_db_username::                            Account name to logon database.
 #
-# @param director_db_host			condition: $enable_director
-#   Hostname of the database.
+# $ido_db_password::                            Account password to logon database.
 #
-# @param director_db_port			condition: $enable_director
-#   Port of the database.
+# $ido_create_database::                        Enable initial creation of the database on this host.
 #
-# @param director_db_name			condition: $enable_director
-#   Name of the database.
+# == Director parameters:
 #
-# @param director_db_username			condition: $enable_director
-#   Username for DB connection.
+# $director::                                   Enable the Director module.
 #
-# @param director_db_password			condition: $enable_director
-#   Password for DB connection.
+# === Director:                                 condition: $director
 #
-# @param director_endpoint			condition: $enable_director
-#   Endpoint object name of Icinga 2 API.
+# $director_db_type::                           Type of your database. Either `mysql` or `pgsql`.
 #
-# @param create_director_database		condition: $enable_director
-#   Create database and import schema.
+# $director_db_host::                           Hostname of the database.
 #
-# @param director_api_host			condition: $enable_director
-#   Icinga 2 API hostname.
+# $director_db_port::                           Port of the database.
 #
-# @param director_api_password			condition: $enable_director
-#   Icinga 2 API password.
+# $director_db_name::                           Name of the database.
 #
-# @param enable_business_process		condition: $manage_frontend
-#   Eanable/disable installation of Icinga Web 2 module Business Process.
+# $director_db_username::                       Username for DB connection.
 #
-class install::web(
-  Boolean                  $manage_backend           = false,
-  Enum['mysql', 'pgsql']   $backend_db_type          = 'mysql',
-  Stdlib::Host             $backend_db_host          = 'localhost',
-  Optional[Stdlib::Port]   $backend_db_port          = undef,
-  String                   $backend_db_name          = 'icinga2',
-  String                   $backend_db_username      = 'icinga2',
-  String                   $backend_db_password      = $install::params::backend_db_password,
-  Boolean                  $create_backend_database  = false,  
-  Boolean                  $manage_frontend          = false,
+# $director_db_password::                       Password for DB connection.
+#
+# $director_endpoint::                          Endpoint object name of Icinga 2 API.
+#
+# $director_create_database::                   Create database and import schema.
+#
+# $director_api_host::                          Icinga 2 API hostname.
+#
+# $director_api_password::                      Icinga 2 API password.
+#
+# == Business Process parameters:
+#
+# $business_process::                           Enable the Business Process module.
+#
+class install::web (
+  Boolean                  $icingaweb                = false,
   String                   $initial_admin_username   = 'icingaadmin',
   String                   $initial_admin_password   = $install::params::initial_admin_password,
   Enum['mysql', 'pgsql']   $db_type                  = 'mysql',
@@ -120,32 +93,40 @@ class install::web(
   Boolean                  $create_database          = false,  
   Stdlib::Host             $api_host                 = 'localhost',
   String                   $api_password             = $install::params::web_api_password,
-  Boolean                  $enable_director          = false,
+  Boolean                  $ido                      = false,
+  Enum['mysql', 'pgsql']   $ido_db_type              = 'mysql',
+  Stdlib::Host             $ido_db_host              = 'localhost',
+  Optional[Stdlib::Port]   $ido_db_port              = undef,
+  String                   $ido_db_name              = 'icinga2',
+  String                   $ido_db_username          = 'icinga2',
+  String                   $ido_db_password          = $install::params::ido_db_password,
+  Boolean                  $ido_create_database      = false,
+  Boolean                  $director                 = false,
   Enum['mysql', 'pgsql']   $director_db_type         = 'mysql',
   Stdlib::Host             $director_db_host         = 'localhost',
   Optional[Stdlib::Port]   $director_db_port         = undef,
   String                   $director_db_name         = 'director',
   String                   $director_db_username     = 'director',
   String                   $director_db_password     = $install::params::director_db_password,
-  Boolean                  $create_director_database = false,
+  Boolean                  $director_create_database = false,
   String                   $director_endpoint        = $install::params::director_endpoint,
   Stdlib::Host             $director_api_host        = 'localhost',
   String                   $director_api_password    = $install::params::director_api_password,
-  Boolean                  $enable_business_process  = false,
+  Boolean                  $business_process         = false,
 ) inherits install::params {
-
-  if $manage_backend {
+  if $ido and defined(Class['install::server']) {
     class { 'icinga::ido':
-      db_type         => $backend_db_type,
-      db_host         => $backend_db_host,
-      db_port         => $backend_db_port,
-      db_user         => $backend_db_username,
-      db_pass         => $backend_db_password,
-      manage_database => $create_backend_database,  
+      db_type         => $ido_db_type,
+      db_host         => $ido_db_host,
+      db_port         => $ido_db_port,
+      db_name         => $ido_db_name,
+      db_user         => $ido_db_username,
+      db_pass         => $ido_db_password,
+      manage_database => $ido_create_database,  
     }
   }
 
-  if $manage_frontend {
+  if $icingaweb {
     class { 'icinga::web':
       db_type            => $db_type,
       db_host            => $db_host,
@@ -158,12 +139,21 @@ class install::web(
       manage_database    => $create_database,
       api_host           => $api_host,
       api_pass           => $api_password,
-      backend_db_type    => $backend_db_type,
-      backend_db_host    => $backend_db_host,
-      backend_db_port    => $backend_db_port,
-      backend_db_name    => $backend_db_name,
-      backend_db_user    => $backend_db_username,
-      backend_db_pass    => $backend_db_password,
+    }
+
+    if $ido {
+      class { 'icinga::web::monitoring':
+        db_type => $ido_db_type,
+        db_host => $ido_db_host,
+        db_port => $ido_db_port,
+        db_name => $ido_db_name,
+        db_user => $ido_db_username,
+        db_pass => $ido_db_password,
+      }
+    } else {
+      file { "${icingaweb2::globals::conf_dir}/enabledModules/monitoring":
+        ensure => absent,
+      }
     }
 
     file { '/usr/local/share/icingaweb2-modules':
@@ -204,39 +194,34 @@ class install::web(
       }
     }
 
-    if $enable_director {
+    if $director {
       class { '::icinga::web::director':
         db_type         => $director_db_type,
         db_host         => $director_db_host,
         db_user         => $director_db_username,
         db_pass         => $director_db_password,
-        manage_database => $create_director_database,
+        manage_database => $director_create_database,
         endpoint        => $director_endpoint,
         api_host        => $director_api_host,
         api_pass        => $icinga::server::director_api_pass,
       }
     } else {
-      icingaweb2::module { 'director':
-        ensure         => absent,
-        install_method => 'none',
+      file { "${icingaweb2::globals::conf_dir}/enabledModules/director":
+        ensure => absent,
       }
-
-      icingaweb2::module { 'fileshipper':
-        ensure         => absent,
-        install_method => 'none',
+      file { "${icingaweb2::globals::conf_dir}/enabledModules/fileshipper":
+        ensure => absent,
       }
     }
   
-    if $enable_business_process {
+    if $business_process {
       class { 'icingaweb2::module::businessprocess':
         install_method => 'package',
       }
     } else {
-      icingaweb2::module { 'businessprocess':
-        ensure         => absent,
-        install_method => 'none',
+      file { "${icingaweb2::globals::conf_dir}/enabledModules/businessprocess":
+        ensure => absent,
       }
     }
-
   }
 }

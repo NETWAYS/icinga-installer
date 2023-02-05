@@ -1,19 +1,15 @@
 ---
 install::repos: true
 install::server: true
+install::features: true
 install::web:
-  manage_backend: true
-  backend_db_type: mysql
-  create_backend_database: true
-  manage_frontend: true
+  icingaweb: true
   db_type: mysql
   create_database: true
-  enable_director: true
+  ido: true
+  ido_db_type: mysql
+  ido_create_database: true
+  director: true
   director_db_type: mysql
-  create_director_database: true
-  enable_business_process: true
-install::feature::elasticsearch: false
-install::feature::gelf: false
-install::feature::graphite: false
-install::feature::influxdb: false
-install::feature::livestatus: false
+  director_create_database: true
+  business_process: true
