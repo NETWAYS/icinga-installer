@@ -30,6 +30,26 @@
 #
 # $api_password::                               Icinga API password.
 #
+# === IcingaDB:                                 condition: $icingadb
+#
+# $icingadb_db_type::                           Set IcingaDB backend database type.
+#
+# $icingadb_db_host::                           IcingaDB Database host to connect.
+#
+# $icingadb_db_port::                           IcingaDB database port to connect.
+#
+# $icingadb_db_name::                           IcingaDB database name.
+#
+# $icingadb_db_username::                       Account name to logon database.
+#
+# $icingadb_db_password::                       Account password to logon database.
+#
+# $redis_host::                                 Redis host to connect.
+#
+# $redis_port::                                 Redis port to connect.
+#
+# $redis_password::                             Password for Redis connection.
+#
 # == Monitoring (IDO) parameters:
 #
 # $ido::                                        Enable the deprecated IDO based monitoring module.
@@ -93,6 +113,15 @@ class install::web (
   Boolean                  $create_database          = false,  
   Stdlib::Host             $api_host                 = 'localhost',
   String                   $api_password             = $install::params::web_api_password,
+  Enum['mysql', 'pgsql']   $icingadb_db_type         = 'mysql',
+  Stdlib::Host             $icingadb_db_host         = 'localhost',
+  Optional[Stdlib::Port]   $icingadb_db_port         = undef,
+  String                   $icingadb_db_name         = 'icingadb',
+  String                   $icingadb_db_username     = 'icingadb',
+  String                   $icingadb_db_password     = $install::params::icingadb_db_password,
+  Stdlib::Host             $redis_host               = 'localhost',
+  Optional[Stdlib::Port]   $redis_port               = undef,
+  Optional['String']       $redis_password           = undef,
   Boolean                  $ido                      = false,
   Enum['mysql', 'pgsql']   $ido_db_type              = 'mysql',
   Stdlib::Host             $ido_db_host              = 'localhost',
@@ -139,6 +168,24 @@ class install::web (
       manage_database    => $create_database,
       api_host           => $api_host,
       api_pass           => $api_password,
+    }
+
+    if defined(Class['install::icingadb']) {
+      class { 'icinga::web::icingadb':
+        db_type    => $install::icingadb::db_type,
+        db_host    => $install::icingadb::db_host,
+        db_port    => $install::icingadb::db_port,
+        db_name    => $install::icingadb::db_name,
+        db_user    => $install::icingadb::db_username,
+        db_pass    => $install::icingadb::db_password,
+        redis_host => $install::icingadb::redis_host,
+        redis_port => $install::icingadb::redis_port,
+        redis_pass => $install::icingadb::redis_password,
+      }
+    } else {
+      file { "${icingaweb2::globals::conf_dir}/enabledModules/icingadb":
+        ensure => absent,
+      }
     }
 
     if $ido {

@@ -12,4 +12,3 @@ install::web:
   director: true
   director_db_type: mysql
   director_create_database: true
-  business_process: true

@@ -5,6 +5,7 @@ class install::params {
 
   $initial_admin_password = extlib::cache_data('icinga_cache_data', 'web_admin_pass', extlib::random_password(16))
   $ido_db_password        = extlib::cache_data('icinga_cache_data', 'ido_db_pass', extlib::random_password(32))
+  $icingadb_db_password   = extlib::cache_data('icinga_cache_data', 'icingadb_db_pass', extlib::random_password(32))
   $web_db_password        = extlib::cache_data('icinga_cache_data', 'web_db_pass', extlib::random_password(32))
   $director_db_password   = extlib::cache_data('icinga_cache_data', 'director_db_pass', extlib::random_password(32))
   $ticket_salt            = extlib::cache_data('icinga_cache_data', 'server_ticket_salt', extlib::random_password(32))
