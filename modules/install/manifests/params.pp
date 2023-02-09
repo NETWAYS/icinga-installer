@@ -1,8 +1,6 @@
-# @summary
 # Class for defaults and password cache data.
 #
 class install::params {
-
   $initial_admin_password = extlib::cache_data('icinga_cache_data', 'web_admin_pass', extlib::random_password(16))
   $ido_db_password        = extlib::cache_data('icinga_cache_data', 'ido_db_pass', extlib::random_password(32))
   $icingadb_db_password   = extlib::cache_data('icinga_cache_data', 'icingadb_db_pass', extlib::random_password(32))
@@ -48,5 +46,4 @@ class install::params {
   }
 
   $director_endpoint = lookup('icinga::cert_name', undef, undef, $::fqdn)
-
 }

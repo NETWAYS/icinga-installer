@@ -1,28 +1,22 @@
-# @summary
-#   Class to install Icinga worker
+# Class to install Icinga worker
 #
-# @param ca_server
-#   The CA to send the certificate request to.
+# Parameters:
 #
-# @param zone
-#   Name of the Icinga zone.
+# $ca_server::            The CA to send the certificate request to.
 #
-# @param parent_zone
-#   Name of the parent Icinga zone.
+# $zone::                 Name of the Icinga zone.
 #
-# @param parent_endpoints
-#   Configures these endpoints of the parent zone.
+# $parent_zone::          Name of the parent Icinga zone.
 #
-# @param global_zones
-#   List of global zones to configure.
+# $parent_endpoints::     Configures these endpoints of the parent zone.
 #
-# @param logging_type
-#   Switch the log target. Only `file` is supported on Windows.
+# $global_zones::         List of global zones to configure.
 #
-# @param logging_level
-#   Set the log level.
+# $logging_type::         Switch the log target. Only `file` is supported on Windows.
 #
-class install::worker(
+# $logging_level::        Set the log level.
+#
+class install::worker (
   Stdlib::Host            $ca_server,
   String                  $zone,
   Hash[String, Hash]      $parent_endpoints,
@@ -34,7 +28,6 @@ class install::worker(
     'notice', 'warning', 'critical'
   ]                        $logging_level      = 'critical',
 ) inherits install::params {
-
   class { 'icinga::worker':
     ca_server        => $ca_server,
     zone             => $zone,
@@ -44,5 +37,4 @@ class install::worker(
     logging_type     => $logging_type,
     logging_level    => $logging_level,
   }
-
 }

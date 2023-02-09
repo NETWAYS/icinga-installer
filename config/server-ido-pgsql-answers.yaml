@@ -1,6 +1,7 @@
 ---
 install::repos: true
 install::server: true
+install::icingadb: false
 install::features: true
 install::web:
   icingaweb: true

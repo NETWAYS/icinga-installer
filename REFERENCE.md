@@ -7,18 +7,15 @@
 ### Classes
 
 * [`install`](#install): Template class
-* [`install::agent`](#installagent): Class to install Icinga agent
-* [`install::feature::elasticsearch`](#installfeatureelasticsearch): Configures the Icinga 2 feature elasticsearch.
-* [`install::feature::gelf`](#installfeaturegelf): Configures the Icinga 2 feature gelf.
-* [`install::feature::graphite`](#installfeaturegraphite): Configures the Icinga 2 feature graphite.
-* [`install::feature::influxdb`](#installfeatureinfluxdb): Configures the Icinga 2 feature influxdb.
-* [`install::feature::livestatus`](#installfeaturelivestatus): Configures the Icinga 2 feature livestatus.
+* [`install::agent`](#installagent): Class to install Icinga agent  Parameters:  $ca_server::            The CA to send the certificate request to.  $parent_zone::          Name 
+* [`install::features`](#installfeatures): Manage Icinga 2 features  == Parameters:  == Graphite parameters:  $graphite::                  Enable graphite feature?  === Graphite:      
+* [`install::icingadb`](#installicingadb): Manage IcingaDB  == Parameters:  $icingadb::                   Enable the IcingaDB daemon. Otherwise, these parameters only apply to Icinga s
 * [`install::params`](#installparams): Class for defaults and password cache data.
-* [`install::plugins`](#installplugins): This class installs monitoring plugins.
+* [`install::plugins`](#installplugins): This class installs monitoring plugins.  Parameters:  $basic_plugins::               Manage what plugins have to be installed.
 * [`install::repos`](#installrepos): This class manages the stages stable, testing and snapshot of packages.icinga.com repository and depending on the operating system platform s
-* [`install::server`](#installserver): Setup a Icinga server.
-* [`install::web`](#installweb): Class to manage IDO and Icinga Web 2.
-* [`install::worker`](#installworker): Class to install Icinga worker
+* [`install::server`](#installserver): Setup a Icinga server.  == Parameters:  $ca::                        Enables a CA on this node.  $zone::                      Name of the Ici
+* [`install::web`](#installweb): Class to manage Icinga Web 2.  == Parameters:  == Icinga Web parameters:  $icingaweb::                                  Eanable/disable insta
+* [`install::worker`](#installworker): Class to install Icinga worker  Parameters:  $ca_server::            The CA to send the certificate request to.  $zone::                 Name
 
 ## Classes
 
@@ -30,13 +27,27 @@ Template class
 
 Class to install Icinga agent
 
+Parameters:
+
+$ca_server::            The CA to send the certificate request to.
+
+$parent_zone::          Name of the parent Icinga zone.
+
+$parent_endpoints::     Configures these endpoints of the parent zone.
+
+$global_zones::         List of global zones to configure.
+
+$logging_type::         Switch the log target. Only `file` is supported on Windows.
+
+$logging_level::        Set the log level.
+
 #### Parameters
 
 The following parameters are available in the `install::agent` class:
 
 * [`ca_server`](#ca_server)
-* [`parent_zone`](#parent_zone)
 * [`parent_endpoints`](#parent_endpoints)
+* [`parent_zone`](#parent_zone)
 * [`global_zones`](#global_zones)
 * [`logging_type`](#logging_type)
 * [`logging_level`](#logging_level)
@@ -45,27 +56,27 @@ The following parameters are available in the `install::agent` class:
 
 Data type: `Stdlib::Host`
 
-The CA to send the certificate request to.
 
-##### <a name="parent_zone"></a>`parent_zone`
-
-Data type: `String`
-
-Name of the parent Icinga zone.
-
-Default value: `'main'`
 
 ##### <a name="parent_endpoints"></a>`parent_endpoints`
 
 Data type: `Hash[String, Hash]`
 
-Configures these endpoints of the parent zone.
+
+
+##### <a name="parent_zone"></a>`parent_zone`
+
+Data type: `String`
+
+
+
+Default value: `'main'`
 
 ##### <a name="global_zones"></a>`global_zones`
 
 Data type: `Array[String]`
 
-List of global zones to configure.
+
 
 Default value: `['linux-commands']`
 
@@ -73,7 +84,7 @@ Default value: `['linux-commands']`
 
 Data type: `Enum['file', 'syslog']`
 
-Switch the log target. Only `file` is supported on Windows.
+
 
 Default value: `'syslog'`
 
@@ -84,291 +95,539 @@ Data type: `Enum[
     'notice', 'warning', 'critical'
   ]`
 
-Set the log level.
+
 
 Default value: `'critical'`
 
-### <a name="installfeatureelasticsearch"></a>`install::feature::elasticsearch`
+### <a name="installfeatures"></a>`install::features`
 
-Configures the Icinga 2 feature elasticsearch.
+Manage Icinga 2 features
+
+== Parameters:
+
+== Graphite parameters:
+
+$graphite::                  Enable graphite feature?
+
+=== Graphite:                condition: $graphite
+
+$graphite_host::             Destination host for graphite data.
+
+$graphite_port::             Graphite Carbon port.
+
+$graphite_send_thresholds::  Send additional threshold metrics.
+
+$graphite_send_metadata::    Send additional metadata metrics.
+
+== InfluxDB2 parameters:
+
+$influxdb2::                 Enable influxdb2 feature?
+
+=== InfluxDB2:               condition: $influxdb2
+
+$influxdb2_host::            Destionation host for influxdb2 data.
+
+$influxdb2_port::            InfluxDB HTTP port.
+
+$influxdb2_bucket::          InfluxDB bucket name.
+
+$influxdb2_organization::    InfluxDB organization name.
+
+$influxdb2_auth_token::      InfluxDB authentication token.
+
+$influxdb2_send_thresholds:: Whether to send warn, crit, min & max tagged data.
+
+$influxdb2_send_metadata::   Whether to send check metadata e.g. states, execution time, latency etc.
+
+== Livestatus parameters:
+
+$livestatus::                Enable Livestatus feature?
+
+=== Livestatus:              condition: $livestatus
+
+$livestatus_socket_type::    Specifies the socket type. Can be either 'tcp' or 'unix'.
+
+==== Livestatus_TCP:         condition: $livestatus_socket_type == 'tcp'
+
+$livestatus_bind_host::      IP address to listen for connections.
+
+$livestatus_bind_port::      Port to listen for connections.
+
+==== Livestatus_Socket:      condition: $livestatus_socket_type == 'unix'
+
+$livestatus_socket_path::    Specifies the path to the UNIX socket file.
+
+== Elasicsearch parameters:
+
+$elasticsearch::             Enable Elasticsearch feature?
+
+=== Elasticsearch:           condition: $elasticsearch
+
+$elastic_host::              Elasticsearch host address.
+
+$elastic_port::              Elasticsearch HTTP port.
+
+$elastic_index::             Elasticsearch index name.
+
+$elastic_username::          Elasticsearch user name.
+
+$elastic_ password::         Elasticsearch user password. The password parameter isn't parsed anymore.
+
+$elastic_send_perfdata::     Whether to send check performance data metrics.
+
+== GELF parameters:
+
+$gelf::                      Enable GELF feature?
+
+=== GELF:                    condition: $gelf
+
+$gelf_host::                 GELF receiver host address.
+
+$gelf_port::                 GELF receiver port.
+
+$gelf_source::               Source name for this instance.
+
+$gelf_send_perfdata::        Enable performance data for 'CHECK RESULT' events.
 
 #### Parameters
 
-The following parameters are available in the `install::feature::elasticsearch` class:
+The following parameters are available in the `install::features` class:
 
-* [`ensure`](#ensure)
-* [`host`](#host)
-* [`port`](#port)
-* [`index`](#index)
-* [`username`](#username)
-* [`password`](#password)
-* [`enable_send_perfdata`](#enable_send_perfdata)
+* [`graphite`](#graphite)
+* [`graphite_host`](#graphite_host)
+* [`graphite_port`](#graphite_port)
+* [`graphite_send_thresholds`](#graphite_send_thresholds)
+* [`graphite_send_metadata`](#graphite_send_metadata)
+* [`influxdb2`](#influxdb2)
+* [`influxdb2_host`](#influxdb2_host)
+* [`influxdb2_port`](#influxdb2_port)
+* [`influxdb2_bucket`](#influxdb2_bucket)
+* [`influxdb2_organization`](#influxdb2_organization)
+* [`influxdb2_auth_token`](#influxdb2_auth_token)
+* [`influxdb2_send_thresholds`](#influxdb2_send_thresholds)
+* [`influxdb2_send_metadata`](#influxdb2_send_metadata)
+* [`livestatus`](#livestatus)
+* [`livestatus_socket_type`](#livestatus_socket_type)
+* [`livestatus_bind_host`](#livestatus_bind_host)
+* [`livestatus_bind_port`](#livestatus_bind_port)
+* [`livestatus_socket_path`](#livestatus_socket_path)
+* [`elasticsearch`](#elasticsearch)
+* [`elastic_host`](#elastic_host)
+* [`elastic_port`](#elastic_port)
+* [`elastic_index`](#elastic_index)
+* [`elastic_username`](#elastic_username)
+* [`elastic_password`](#elastic_password)
+* [`elastic_send_perfdata`](#elastic_send_perfdata)
+* [`gelf`](#gelf)
+* [`gelf_host`](#gelf_host)
+* [`gelf_port`](#gelf_port)
+* [`gelf_source`](#gelf_source)
+* [`gelf_send_perfdata`](#gelf_send_perfdata)
 
-##### <a name="ensure"></a>`ensure`
-
-Data type: `Enum['absent', 'present']`
-
-Set to present enables the feature elasticsearch, absent disables it.
-
-Default value: `present`
-
-##### <a name="host"></a>`host`
-
-Data type: `Stdlib::Host`
-
-Elasticsearch host address.
-
-Default value: `'127.0.0.1'`
-
-##### <a name="port"></a>`port`
-
-Data type: `Stdlib::Port::Unprivileged`
-
-Elasticsearch HTTP port.
-
-Default value: `9200`
-
-##### <a name="index"></a>`index`
-
-Data type: `String`
-
-Elasticsearch index name.
-
-Default value: `'icinga2'`
-
-##### <a name="username"></a>`username`
-
-Data type: `Optional[String]`
-
-Elasticsearch user name.
-
-Default value: ``undef``
-
-##### <a name="password"></a>`password`
-
-Data type: `Optional[String]`
-
-Elasticsearch user password. The password parameter isn't parsed anymore.
-
-Default value: ``undef``
-
-##### <a name="enable_send_perfdata"></a>`enable_send_perfdata`
+##### <a name="graphite"></a>`graphite`
 
 Data type: `Boolean`
 
-Whether to send check performance data metrics.
+
 
 Default value: ``false``
 
-### <a name="installfeaturegelf"></a>`install::feature::gelf`
-
-Configures the Icinga 2 feature gelf.
-
-#### Parameters
-
-The following parameters are available in the `install::feature::gelf` class:
-
-* [`host`](#host)
-* [`port`](#port)
-* [`source`](#source)
-* [`enable_send_perfdata`](#enable_send_perfdata)
-
-##### <a name="host"></a>`host`
+##### <a name="graphite_host"></a>`graphite_host`
 
 Data type: `Stdlib::Host`
 
-GELF receiver host address.
 
-Default value: `'127.0.0.1'`
-
-##### <a name="port"></a>`port`
-
-Data type: `Stdlib::Port::Unprivileged`
-
-GELF receiver port.
-
-Default value: `12201`
-
-##### <a name="source"></a>`source`
-
-Data type: `String`
-
-Source name for this instance.
-
-Default value: `'icinga2'`
-
-##### <a name="enable_send_perfdata"></a>`enable_send_perfdata`
-
-Data type: `Boolean`
-
-Enable performance data for 'CHECK RESULT' events.
-
-Default value: ``false``
-
-### <a name="installfeaturegraphite"></a>`install::feature::graphite`
-
-Configures the Icinga 2 feature graphite.
-
-#### Parameters
-
-The following parameters are available in the `install::feature::graphite` class:
-
-* [`host`](#host)
-* [`port`](#port)
-* [`enable_send_thresholds`](#enable_send_thresholds)
-* [`enable_send_metadata`](#enable_send_metadata)
-
-##### <a name="host"></a>`host`
-
-Data type: `Stdlib::Host`
-
-Graphite Carbon host address.
 
 Default value: `'localhost'`
 
-##### <a name="port"></a>`port`
+##### <a name="graphite_port"></a>`graphite_port`
 
 Data type: `Stdlib::Port::Unprivileged`
 
-Graphite Carbon port.
+
 
 Default value: `2003`
 
-##### <a name="enable_send_thresholds"></a>`enable_send_thresholds`
+##### <a name="graphite_send_thresholds"></a>`graphite_send_thresholds`
 
 Data type: `Boolean`
 
-Send additional threshold metrics.
+
 
 Default value: ``false``
 
-##### <a name="enable_send_metadata"></a>`enable_send_metadata`
+##### <a name="graphite_send_metadata"></a>`graphite_send_metadata`
 
 Data type: `Boolean`
 
-Send additional metadata metrics.
+
 
 Default value: ``false``
 
-### <a name="installfeatureinfluxdb"></a>`install::feature::influxdb`
+##### <a name="influxdb2"></a>`influxdb2`
 
-Configures the Icinga 2 feature influxdb.
+Data type: `Boolean`
 
-#### Parameters
 
-The following parameters are available in the `install::feature::influxdb` class:
 
-* [`host`](#host)
-* [`port`](#port)
-* [`database`](#database)
-* [`username`](#username)
-* [`password`](#password)
-* [`enable_send_thresholds`](#enable_send_thresholds)
-* [`enable_send_metadata`](#enable_send_metadata)
+Default value: ``false``
 
-##### <a name="host"></a>`host`
+##### <a name="influxdb2_host"></a>`influxdb2_host`
 
 Data type: `Stdlib::Host`
 
-InfluxDB host address.
+
 
 Default value: `'localhost'`
 
-##### <a name="port"></a>`port`
+##### <a name="influxdb2_port"></a>`influxdb2_port`
 
 Data type: `Stdlib::Port`
 
-InfluxDB HTTP port.
+
 
 Default value: `8086`
 
-##### <a name="database"></a>`database`
+##### <a name="influxdb2_bucket"></a>`influxdb2_bucket`
 
 Data type: `String`
 
-InfluxDB database name.
+
 
 Default value: `'icinga2'`
 
-##### <a name="username"></a>`username`
+##### <a name="influxdb2_organization"></a>`influxdb2_organization`
 
-Data type: `Optional[String]`
+Data type: `String`
 
-InfluxDB user name.
 
-Default value: ``undef``
 
-##### <a name="password"></a>`password`
+Default value: `'CHANGEME'`
 
-Data type: `Optional[String]`
+##### <a name="influxdb2_auth_token"></a>`influxdb2_auth_token`
 
-InfluxDB user password. The password parameter isn't parsed anymore.
+Data type: `String`
 
-Default value: ``undef``
 
-##### <a name="enable_send_thresholds"></a>`enable_send_thresholds`
 
-Data type: `Boolean`
+Default value: `'CHANGEME'`
 
-Whether to send warn, crit, min & max tagged data.
-
-Default value: ``false``
-
-##### <a name="enable_send_metadata"></a>`enable_send_metadata`
+##### <a name="influxdb2_send_thresholds"></a>`influxdb2_send_thresholds`
 
 Data type: `Boolean`
 
-Whether to send check metadata e.g. states, execution time, latency etc.
+
 
 Default value: ``false``
 
-### <a name="installfeaturelivestatus"></a>`install::feature::livestatus`
+##### <a name="influxdb2_send_metadata"></a>`influxdb2_send_metadata`
 
-Configures the Icinga 2 feature livestatus.
+Data type: `Boolean`
 
-#### Parameters
 
-The following parameters are available in the `install::feature::livestatus` class:
 
-* [`socket_type`](#socket_type)
-* [`bind_host`](#bind_host)
-* [`bind_port`](#bind_port)
-* [`socket_path`](#socket_path)
+Default value: ``false``
 
-##### <a name="socket_type"></a>`socket_type`
+##### <a name="livestatus"></a>`livestatus`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="livestatus_socket_type"></a>`livestatus_socket_type`
 
 Data type: `Enum['tcp', 'unix']`
 
-Specifies the socket type. Can be either 'tcp' or 'unix'.
+
 
 Default value: `unix`
 
-##### <a name="bind_host"></a>`bind_host`
+##### <a name="livestatus_bind_host"></a>`livestatus_bind_host`
 
 Data type: `Stdlib::Host`
 
-condition: $socket_type == 'tcp'
-IP address to listen for connections. Only valid when socket_type is 'tcp'.
+
 
 Default value: `'127.0.0.1'`
 
-##### <a name="bind_port"></a>`bind_port`
+##### <a name="livestatus_bind_port"></a>`livestatus_bind_port`
 
 Data type: `Stdlib::Port::Unprivileged`
 
-condition: $socket_type == 'tcp'
-Port to listen for connections. Only valid when socket_type is 'tcp'.
+
 
 Default value: `6558`
 
-##### <a name="socket_path"></a>`socket_path`
+##### <a name="livestatus_socket_path"></a>`livestatus_socket_path`
 
 Data type: `Stdlib::Absolutepath`
 
-condition: $socket_type == 'unix'
-Specifies the path to the UNIX socket file. Only valid when socket_type is 'unix'.
+
 
 Default value: `'/var/run/icinga2/cmd/livestatus'`
+
+##### <a name="elasticsearch"></a>`elasticsearch`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="elastic_host"></a>`elastic_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="elastic_port"></a>`elastic_port`
+
+Data type: `Stdlib::Port::Unprivileged`
+
+
+
+Default value: `9200`
+
+##### <a name="elastic_index"></a>`elastic_index`
+
+Data type: `String`
+
+
+
+Default value: `'icinga2'`
+
+##### <a name="elastic_username"></a>`elastic_username`
+
+Data type: `Optional[String]`
+
+
+
+Default value: ``undef``
+
+##### <a name="elastic_password"></a>`elastic_password`
+
+Data type: `Optional[String]`
+
+
+
+Default value: ``undef``
+
+##### <a name="elastic_send_perfdata"></a>`elastic_send_perfdata`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="gelf"></a>`gelf`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="gelf_host"></a>`gelf_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="gelf_port"></a>`gelf_port`
+
+Data type: `Stdlib::Port::Unprivileged`
+
+
+
+Default value: `12201`
+
+##### <a name="gelf_source"></a>`gelf_source`
+
+Data type: `String`
+
+
+
+Default value: `'icinga2'`
+
+##### <a name="gelf_send_perfdata"></a>`gelf_send_perfdata`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+### <a name="installicingadb"></a>`install::icingadb`
+
+Manage IcingaDB
+
+== Parameters:
+
+$icingadb::                   Enable the IcingaDB daemon. Otherwise, these parameters only apply to Icinga server and web.
+
+$db_type::                    Choose wether MySQL or PostgreSQL as database backend.
+
+$db_host::                    Database host to connect.
+
+$db_port::                    Database port to connect.
+
+$db_name::                    IcingaDB database name.
+
+$db_username::                Account to connect to database.
+
+$db_password::                Account password to connect to database.
+
+$create_database::            Install and configure the database on this host.
+
+$db_accesses::                Host with access to the IicngaDB databse, e.g. host running Icinga Web.
+
+$redis_host::                 Redis host to connect.
+
+$redis_bind::                 When Redis runs on a differnt host than Icinga, setting the listining interfaces.
+
+$redis_port::                 Port for Redis listening.
+
+$redis_password::             Password to authenticate against Redis.
+
+$create_redis::               Install and configure the IcingaDB Redis service also on this host.
+
+#### Parameters
+
+The following parameters are available in the `install::icingadb` class:
+
+* [`icingadb`](#icingadb)
+* [`db_type`](#db_type)
+* [`db_host`](#db_host)
+* [`db_port`](#db_port)
+* [`db_name`](#db_name)
+* [`db_username`](#db_username)
+* [`db_password`](#db_password)
+* [`create_database`](#create_database)
+* [`db_accesses`](#db_accesses)
+* [`redis_host`](#redis_host)
+* [`redis_bind`](#redis_bind)
+* [`redis_port`](#redis_port)
+* [`redis_password`](#redis_password)
+* [`create_redis`](#create_redis)
+
+##### <a name="icingadb"></a>`icingadb`
+
+Data type: `Boolean`
+
+
+
+Default value: ``true``
+
+##### <a name="db_type"></a>`db_type`
+
+Data type: `Enum['mysql', 'pgsql']`
+
+
+
+Default value: `'mysql'`
+
+##### <a name="db_host"></a>`db_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="db_port"></a>`db_port`
+
+Data type: `Optional[Stdlib::Port]`
+
+
+
+Default value: ``undef``
+
+##### <a name="db_name"></a>`db_name`
+
+Data type: `String`
+
+
+
+Default value: `'icingadb'`
+
+##### <a name="db_username"></a>`db_username`
+
+Data type: `String`
+
+
+
+Default value: `'icingadb'`
+
+##### <a name="db_password"></a>`db_password`
+
+Data type: `String`
+
+
+
+Default value: `$install::params::icingadb_db_password`
+
+##### <a name="create_database"></a>`create_database`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="db_accesses"></a>`db_accesses`
+
+Data type: `Array[Stdlib::Host]`
+
+
+
+Default value: `[]`
+
+##### <a name="redis_host"></a>`redis_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="redis_bind"></a>`redis_bind`
+
+Data type: `Optional[Array[Stdlib::Host]]`
+
+
+
+Default value: ``undef``
+
+##### <a name="redis_port"></a>`redis_port`
+
+Data type: `Optional[Stdlib::Port]`
+
+
+
+Default value: ``undef``
+
+##### <a name="redis_password"></a>`redis_password`
+
+Data type: `Optional[String]`
+
+
+
+Default value: ``undef``
+
+##### <a name="create_redis"></a>`create_redis`
+
+Data type: `Boolean`
+
+
+
+Default value: ``true``
 
 ### <a name="installparams"></a>`install::params`
 
@@ -377,6 +636,10 @@ Class for defaults and password cache data.
 ### <a name="installplugins"></a>`install::plugins`
 
 This class installs monitoring plugins.
+
+Parameters:
+
+$basic_plugins::               Manage what plugins have to be installed.
 
 #### Parameters
 
@@ -388,7 +651,7 @@ The following parameters are available in the `install::plugins` class:
 
 Data type: `Variant[String, Array[String]]`
 
-Manage what plugins have to be installed.
+
 
 Default value: `$install::params::basic_plugins`
 
@@ -396,6 +659,22 @@ Default value: `$install::params::basic_plugins`
 
 This class manages the stages stable, testing and snapshot of packages.icinga.com repository
 and depending on the operating system platform some other repositories.
+
+Parameters:
+
+$manage_stable::             Manage the Icinga stable repository.
+
+$manage_testing::            Manage the Icinga testing repository to get access to release candidates.
+
+$manage_nightly::            Manage the Icinga snapshot repository to get access to nightly snapshots.
+
+$configure_backports::       Enables or Disables the backports repository. Has only an effect on plattforms simular to Debian. To configure the backports repo uses apt::backports in hiera.
+
+$manage_epel::               Manage the EPEL (Extra Packages Enterprise Linux) repository. Has only an effect on plattforms simular to RedHat Enterprise.
+
+$manage_plugins::            Manage the NETWAYS plugins repository that provides some packages for additional plugins.
+
+$manage_extras::             Manage the NETWAYS extras repository that provides some packages for extras.
 
 #### Parameters
 
@@ -413,7 +692,7 @@ The following parameters are available in the `install::repos` class:
 
 Data type: `Boolean`
 
-Manage the Icinga stable repository. Disabled by setting to 'false'. Defaults to 'true'.
+
 
 Default value: ``true``
 
@@ -421,8 +700,7 @@ Default value: ``true``
 
 Data type: `Boolean`
 
-Manage the Icinga testing repository to get access to release candidates.
-Enabled by setting to 'true'. Defaults to 'false'.
+
 
 Default value: ``false``
 
@@ -430,8 +708,7 @@ Default value: ``false``
 
 Data type: `Boolean`
 
-Manage the Icinga snapshot repository to get access to nightly snapshots.
-Enabled by setting to 'true'. Defaults to 'false'.
+
 
 Default value: ``false``
 
@@ -439,8 +716,7 @@ Default value: ``false``
 
 Data type: `Boolean`
 
-Enables or Disables the backports repository. Has only an effect on plattforms
-simular to Debian. To configure the backports repo uses apt::backports in hiera.
+
 
 Default value: `$install::params::configure_backports`
 
@@ -448,8 +724,7 @@ Default value: `$install::params::configure_backports`
 
 Data type: `Boolean`
 
-Manage the EPEL (Extra Packages Enterprise Linux) repository that is needed for some package
-like newer Boost libraries. Has only an effect on plattforms simular to RedHat Enterprise.
+
 
 Default value: `$install::params::manage_epel`
 
@@ -457,7 +732,7 @@ Default value: `$install::params::manage_epel`
 
 Data type: `Boolean`
 
-Manage the NETWAYS plugins repository that provides some packages for additional plugins.
+
 
 Default value: ``true``
 
@@ -465,13 +740,31 @@ Default value: ``true``
 
 Data type: `Boolean`
 
-Manage the NETWAYS extras repository that provides some packages for extras.
+
 
 Default value: ``true``
 
 ### <a name="installserver"></a>`install::server`
 
 Setup a Icinga server.
+
+== Parameters:
+
+$ca::                        Enables a CA on this node.
+
+$zone::                      Name of the Icinga zone.
+
+$global_zones::              List of global zones to configure.
+
+$ticket_salt::               Set an alternate ticket salt to icinga::ticket_salt from Hiera.
+
+$web_api_pass::              Icinga API web user password.
+
+$director_api_pass::         Icinga API director user password.
+
+$logging_type::              Switch the log target.
+
+$logging_level::             Set the log level.
 
 #### Parameters
 
@@ -490,7 +783,7 @@ The following parameters are available in the `install::server` class:
 
 Data type: `Boolean`
 
-Enables a CA on this node.
+
 
 Default value: ``true``
 
@@ -498,7 +791,7 @@ Default value: ``true``
 
 Data type: `String`
 
-Name of the Icinga zone.
+
 
 Default value: `'main'`
 
@@ -506,7 +799,7 @@ Default value: `'main'`
 
 Data type: `Array[String]`
 
-List of global zones to configure.
+
 
 Default value: `['linux-commands', 'windows-commands', 'global-templates', 'director-global']`
 
@@ -514,7 +807,7 @@ Default value: `['linux-commands', 'windows-commands', 'global-templates', 'dire
 
 Data type: `String`
 
-Set an alternate ticket salt to icinga::ticket_salt from Hiera.
+
 
 Default value: `$install::params::ticket_salt`
 
@@ -522,7 +815,7 @@ Default value: `$install::params::ticket_salt`
 
 Data type: `String`
 
-Icinga API user password.
+
 
 Default value: `$install::params::web_api_password`
 
@@ -530,7 +823,7 @@ Default value: `$install::params::web_api_password`
 
 Data type: `String`
 
-Icinga API director user password.
+
 
 Default value: `$install::params::director_api_password`
 
@@ -538,7 +831,7 @@ Default value: `$install::params::director_api_password`
 
 Data type: `Enum['file', 'syslog']`
 
-Switch the log target. Only `file` is supported on Windows.
+
 
 Default value: `'syslog'`
 
@@ -549,27 +842,119 @@ Data type: `Enum[
     'notice', 'warning', 'critical'
   ]`
 
-Set the log level.
+
 
 Default value: `'critical'`
 
 ### <a name="installweb"></a>`install::web`
 
+Class to manage Icinga Web 2.
+
 == Parameters:
+
+== Icinga Web parameters:
+
+$icingaweb::                                  Eanable/disable installation of Icinga Web.
+
+=== IcingaWeb:                                condition: $icingaweb
+
+$initial_admin_username::                     Set initial admin username.
+
+$initial_admin_password::                     Set the inital password for the admin user.
+
+$db_type::                                    Set Icinga Web database type.
+
+$db_host::                                    Database host to connect.
+
+$db_port::                                    Database port to connect.
+
+$db_name::                                    Database to connect.
+
+$db_username::                                Account name to logon database.
+
+$db_password::                                Account password to logon database.
+
+$create_database::                            Enable initial creation of the database on this host.
+
+$api_host::                                   Icinga API endpoint to send commands.
+
+$api_password::                               Icinga API password.
+
+=== IcingaDB:                                 condition: $icingadb
+
+$icingadb_db_type::                           Set IcingaDB backend database type.
+
+$icingadb_db_host::                           IcingaDB Database host to connect.
+
+$icingadb_db_port::                           IcingaDB database port to connect.
+
+$icingadb_db_name::                           IcingaDB database name.
+
+$icingadb_db_username::                       Account name to logon database.
+
+$icingadb_db_password::                       Account password to logon database.
+
+$redis_host::                                 Redis host to connect.
+
+$redis_port::                                 Redis port to connect.
+
+$redis_password::                             Password for Redis connection.
+
+== Monitoring (IDO) parameters:
+
+$ido::                                        Enable the deprecated IDO based monitoring module.
+
+=== IDO:                                      condition: $ido
+
+$ido_db_type::                                Set IDO backend database type.
+
+$ido_db_host::                                IDO database host to connect.
+
+$ido_db_port::                                IDO database port to connect.
+
+$ido_db_name::                                Name of the IDO database to connect.
+
+$ido_db_username::                            Account name to logon database.
+
+$ido_db_password::                            Account password to logon database.
+
+$ido_create_database::                        Enable initial creation of the database on this host.
+
+== Director parameters:
+
+$director::                                   Enable the Director module.
+
+=== Director:                                 condition: $director
+
+$director_db_type::                           Type of your database. Either `mysql` or `pgsql`.
+
+$director_db_host::                           Hostname of the database.
+
+$director_db_port::                           Port of the database.
+
+$director_db_name::                           Name of the database.
+
+$director_db_username::                       Username for DB connection.
+
+$director_db_password::                       Password for DB connection.
+
+$director_endpoint::                          Endpoint object name of Icinga 2 API.
+
+$director_create_database::                   Create database and import schema.
+
+$director_api_host::                          Icinga 2 API hostname.
+
+$director_api_password::                      Icinga 2 API password.
+
+== Business Process parameters:
+
+$business_process::                           Enable the Business Process module.
 
 #### Parameters
 
 The following parameters are available in the `install::web` class:
 
-* [`manage_backend`](#manage_backend)
-* [`backend_db_type`](#backend_db_type)
-* [`backend_db_host`](#backend_db_host)
-* [`backend_db_port`](#backend_db_port)
-* [`backend_db_name`](#backend_db_name)
-* [`backend_db_username`](#backend_db_username)
-* [`backend_db_password`](#backend_db_password)
-* [`create_backend_database`](#create_backend_database)
-* [`manage_frontend`](#manage_frontend)
+* [`icingaweb`](#icingaweb)
 * [`initial_admin_username`](#initial_admin_username)
 * [`initial_admin_password`](#initial_admin_password)
 * [`db_type`](#db_type)
@@ -581,88 +966,41 @@ The following parameters are available in the `install::web` class:
 * [`create_database`](#create_database)
 * [`api_host`](#api_host)
 * [`api_password`](#api_password)
-* [`enable_director`](#enable_director)
+* [`icingadb_db_type`](#icingadb_db_type)
+* [`icingadb_db_host`](#icingadb_db_host)
+* [`icingadb_db_port`](#icingadb_db_port)
+* [`icingadb_db_name`](#icingadb_db_name)
+* [`icingadb_db_username`](#icingadb_db_username)
+* [`icingadb_db_password`](#icingadb_db_password)
+* [`redis_host`](#redis_host)
+* [`redis_port`](#redis_port)
+* [`redis_password`](#redis_password)
+* [`ido`](#ido)
+* [`ido_db_type`](#ido_db_type)
+* [`ido_db_host`](#ido_db_host)
+* [`ido_db_port`](#ido_db_port)
+* [`ido_db_name`](#ido_db_name)
+* [`ido_db_username`](#ido_db_username)
+* [`ido_db_password`](#ido_db_password)
+* [`ido_create_database`](#ido_create_database)
+* [`director`](#director)
 * [`director_db_type`](#director_db_type)
 * [`director_db_host`](#director_db_host)
 * [`director_db_port`](#director_db_port)
 * [`director_db_name`](#director_db_name)
 * [`director_db_username`](#director_db_username)
 * [`director_db_password`](#director_db_password)
+* [`director_create_database`](#director_create_database)
 * [`director_endpoint`](#director_endpoint)
-* [`create_director_database`](#create_director_database)
 * [`director_api_host`](#director_api_host)
 * [`director_api_password`](#director_api_password)
-* [`enable_business_process`](#enable_business_process)
+* [`business_process`](#business_process)
 
-##### <a name="manage_backend"></a>`manage_backend`
-
-Data type: `Boolean`
-
-Enable/disable feature IDO and Database
-
-Default value: ``false``
-
-##### <a name="backend_db_type"></a>`backend_db_type`
-
-Data type: `Enum['mysql', 'pgsql']`
-
-Set IDO backend database type.
-
-Default value: `'mysql'`
-
-##### <a name="backend_db_host"></a>`backend_db_host`
-
-Data type: `Stdlib::Host`
-
-IDO database host to connect.
-
-Default value: `'localhost'`
-
-##### <a name="backend_db_port"></a>`backend_db_port`
-
-Data type: `Optional[Stdlib::Port]`
-
-IDO database port to connect.
-
-Default value: ``undef``
-
-##### <a name="backend_db_name"></a>`backend_db_name`
-
-Data type: `String`
-
-Name of the IDO database to connect.
-
-Default value: `'icinga2'`
-
-##### <a name="backend_db_username"></a>`backend_db_username`
-
-Data type: `String`
-
-Account name to logon database.
-
-Default value: `'icinga2'`
-
-##### <a name="backend_db_password"></a>`backend_db_password`
-
-Data type: `String`
-
-Account password to logon database.
-
-Default value: `$install::params::backend_db_password`
-
-##### <a name="create_backend_database"></a>`create_backend_database`
+##### <a name="icingaweb"></a>`icingaweb`
 
 Data type: `Boolean`
 
-Enable/disable initial creation of the database for the backend.
 
-Default value: ``false``
-
-##### <a name="manage_frontend"></a>`manage_frontend`
-
-Data type: `Boolean`
-
-Eanable/disable installation of Icinga Web 2.
 
 Default value: ``false``
 
@@ -670,8 +1008,7 @@ Default value: ``false``
 
 Data type: `String`
 
-condition: $manage_frontend
-Set initial admin username.
+
 
 Default value: `'icingaadmin'`
 
@@ -679,8 +1016,7 @@ Default value: `'icingaadmin'`
 
 Data type: `String`
 
-condition: $manage_frontend
-Set the inital password for the admin user.
+
 
 Default value: `$install::params::initial_admin_password`
 
@@ -688,8 +1024,7 @@ Default value: `$install::params::initial_admin_password`
 
 Data type: `Enum['mysql', 'pgsql']`
 
-condition: $manage_frontend
-Set Icinga Web 2 database type.
+
 
 Default value: `'mysql'`
 
@@ -697,8 +1032,7 @@ Default value: `'mysql'`
 
 Data type: `Stdlib::Host`
 
-condition: $manage_frontend
-Database host to connect.
+
 
 Default value: `'localhost'`
 
@@ -706,8 +1040,7 @@ Default value: `'localhost'`
 
 Data type: `Optional[Stdlib::Port]`
 
-condition: $manage_frontend
-Database port to connect.
+
 
 Default value: ``undef``
 
@@ -715,8 +1048,7 @@ Default value: ``undef``
 
 Data type: `String`
 
-condition: $manage_frontend
-Database to connect.
+
 
 Default value: `'icingaweb2'`
 
@@ -724,8 +1056,7 @@ Default value: `'icingaweb2'`
 
 Data type: `String`
 
-condition: $manage_frontend
-Account name to logon database.
+
 
 Default value: `'icingaweb2'`
 
@@ -733,8 +1064,7 @@ Default value: `'icingaweb2'`
 
 Data type: `String`
 
-condition: $manage_frontend
-Account password to logon database.
+
 
 Default value: `$install::params::web_db_password`
 
@@ -742,8 +1072,7 @@ Default value: `$install::params::web_db_password`
 
 Data type: `Boolean`
 
-condition: $manage_frontend
-Enable/disable initial creation of the frontend database.
+
 
 Default value: ``false``
 
@@ -751,8 +1080,7 @@ Default value: ``false``
 
 Data type: `Stdlib::Host`
 
-condition: $manage_frontend
-Icinga API endpoint to send commands.
+
 
 Default value: `'localhost'`
 
@@ -760,17 +1088,151 @@ Default value: `'localhost'`
 
 Data type: `String`
 
-condition: $manage_frontend
-Icinga API password for user icingaweb2.
+
 
 Default value: `$install::params::web_api_password`
 
-##### <a name="enable_director"></a>`enable_director`
+##### <a name="icingadb_db_type"></a>`icingadb_db_type`
+
+Data type: `Enum['mysql', 'pgsql']`
+
+
+
+Default value: `'mysql'`
+
+##### <a name="icingadb_db_host"></a>`icingadb_db_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="icingadb_db_port"></a>`icingadb_db_port`
+
+Data type: `Optional[Stdlib::Port]`
+
+
+
+Default value: ``undef``
+
+##### <a name="icingadb_db_name"></a>`icingadb_db_name`
+
+Data type: `String`
+
+
+
+Default value: `'icingadb'`
+
+##### <a name="icingadb_db_username"></a>`icingadb_db_username`
+
+Data type: `String`
+
+
+
+Default value: `'icingadb'`
+
+##### <a name="icingadb_db_password"></a>`icingadb_db_password`
+
+Data type: `String`
+
+
+
+Default value: `$install::params::icingadb_db_password`
+
+##### <a name="redis_host"></a>`redis_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="redis_port"></a>`redis_port`
+
+Data type: `Optional[Stdlib::Port]`
+
+
+
+Default value: ``undef``
+
+##### <a name="redis_password"></a>`redis_password`
+
+Data type: `Optional['String']`
+
+
+
+Default value: ``undef``
+
+##### <a name="ido"></a>`ido`
 
 Data type: `Boolean`
 
-condition: $manage_frontend
-Enable/disable the Director module.
+
+
+Default value: ``false``
+
+##### <a name="ido_db_type"></a>`ido_db_type`
+
+Data type: `Enum['mysql', 'pgsql']`
+
+
+
+Default value: `'mysql'`
+
+##### <a name="ido_db_host"></a>`ido_db_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="ido_db_port"></a>`ido_db_port`
+
+Data type: `Optional[Stdlib::Port]`
+
+
+
+Default value: ``undef``
+
+##### <a name="ido_db_name"></a>`ido_db_name`
+
+Data type: `String`
+
+
+
+Default value: `'icinga2'`
+
+##### <a name="ido_db_username"></a>`ido_db_username`
+
+Data type: `String`
+
+
+
+Default value: `'icinga2'`
+
+##### <a name="ido_db_password"></a>`ido_db_password`
+
+Data type: `String`
+
+
+
+Default value: `$install::params::ido_db_password`
+
+##### <a name="ido_create_database"></a>`ido_create_database`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="director"></a>`director`
+
+Data type: `Boolean`
+
+
 
 Default value: ``false``
 
@@ -778,8 +1240,7 @@ Default value: ``false``
 
 Data type: `Enum['mysql', 'pgsql']`
 
-condition: $enable_director
-Type of your database. Either `mysql` or `pgsql`.
+
 
 Default value: `'mysql'`
 
@@ -787,8 +1248,7 @@ Default value: `'mysql'`
 
 Data type: `Stdlib::Host`
 
-condition: $enable_director
-Hostname of the database.
+
 
 Default value: `'localhost'`
 
@@ -796,8 +1256,7 @@ Default value: `'localhost'`
 
 Data type: `Optional[Stdlib::Port]`
 
-condition: $enable_director
-Port of the database.
+
 
 Default value: ``undef``
 
@@ -805,8 +1264,7 @@ Default value: ``undef``
 
 Data type: `String`
 
-condition: $enable_director
-Name of the database.
+
 
 Default value: `'director'`
 
@@ -814,8 +1272,7 @@ Default value: `'director'`
 
 Data type: `String`
 
-condition: $enable_director
-Username for DB connection.
+
 
 Default value: `'director'`
 
@@ -823,35 +1280,31 @@ Default value: `'director'`
 
 Data type: `String`
 
-condition: $enable_director
-Password for DB connection.
+
 
 Default value: `$install::params::director_db_password`
+
+##### <a name="director_create_database"></a>`director_create_database`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
 
 ##### <a name="director_endpoint"></a>`director_endpoint`
 
 Data type: `String`
 
-condition: $enable_director
-Endpoint object name of Icinga 2 API.
+
 
 Default value: `$install::params::director_endpoint`
-
-##### <a name="create_director_database"></a>`create_director_database`
-
-Data type: `Boolean`
-
-condition: $enable_director
-Create database and import schema.
-
-Default value: ``false``
 
 ##### <a name="director_api_host"></a>`director_api_host`
 
 Data type: `Stdlib::Host`
 
-condition: $enable_director
-Icinga 2 API hostname.
+
 
 Default value: `'localhost'`
 
@@ -859,17 +1312,15 @@ Default value: `'localhost'`
 
 Data type: `String`
 
-condition: $enable_director
-Icinga 2 API password.
+
 
 Default value: `$install::params::director_api_password`
 
-##### <a name="enable_business_process"></a>`enable_business_process`
+##### <a name="business_process"></a>`business_process`
 
 Data type: `Boolean`
 
-condition: $manage_frontend
-Eanable/disable installation of Icinga Web 2 module Business Process.
+
 
 Default value: ``false``
 
@@ -877,14 +1328,30 @@ Default value: ``false``
 
 Class to install Icinga worker
 
+Parameters:
+
+$ca_server::            The CA to send the certificate request to.
+
+$zone::                 Name of the Icinga zone.
+
+$parent_zone::          Name of the parent Icinga zone.
+
+$parent_endpoints::     Configures these endpoints of the parent zone.
+
+$global_zones::         List of global zones to configure.
+
+$logging_type::         Switch the log target. Only `file` is supported on Windows.
+
+$logging_level::        Set the log level.
+
 #### Parameters
 
 The following parameters are available in the `install::worker` class:
 
 * [`ca_server`](#ca_server)
 * [`zone`](#zone)
-* [`parent_zone`](#parent_zone)
 * [`parent_endpoints`](#parent_endpoints)
+* [`parent_zone`](#parent_zone)
 * [`global_zones`](#global_zones)
 * [`logging_type`](#logging_type)
 * [`logging_level`](#logging_level)
@@ -893,33 +1360,33 @@ The following parameters are available in the `install::worker` class:
 
 Data type: `Stdlib::Host`
 
-The CA to send the certificate request to.
+
 
 ##### <a name="zone"></a>`zone`
 
 Data type: `String`
 
-Name of the Icinga zone.
 
-##### <a name="parent_zone"></a>`parent_zone`
-
-Data type: `String`
-
-Name of the parent Icinga zone.
-
-Default value: `'main'`
 
 ##### <a name="parent_endpoints"></a>`parent_endpoints`
 
 Data type: `Hash[String, Hash]`
 
-Configures these endpoints of the parent zone.
+
+
+##### <a name="parent_zone"></a>`parent_zone`
+
+Data type: `String`
+
+
+
+Default value: `'main'`
 
 ##### <a name="global_zones"></a>`global_zones`
 
 Data type: `Array[String]`
 
-List of global zones to configure.
+
 
 Default value: `['linux-commands', 'windows-commands', 'global-templates', 'director-global']`
 
@@ -927,7 +1394,7 @@ Default value: `['linux-commands', 'windows-commands', 'global-templates', 'dire
 
 Data type: `Enum['file', 'syslog']`
 
-Switch the log target. Only `file` is supported on Windows.
+
 
 Default value: `'syslog'`
 
@@ -938,7 +1405,7 @@ Data type: `Enum[
     'notice', 'warning', 'critical'
   ]`
 
-Set the log level.
+
 
 Default value: `'critical'`
 

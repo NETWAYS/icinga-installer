@@ -17,6 +17,7 @@
 :low_priority_modules:
 - web
 - features
+- icingadb
 - server
 - repos
 :mapping:
@@ -28,6 +29,10 @@
     :dir_name: install
     :manifest_name: server
     :params_name: params
+  :install::icingadb:
+    :dir_name: install
+    :manifest_name: icingadb
+    :params_name: params
   :install::features:
     :dir_name: install
     :manifest_name: features
@@ -38,6 +43,7 @@
 :order:
 - install::repos
 - install::server
+- install::icingadb
 - install::features
 - install::web
 :parser_cache_path: "./_build/parser_cache/server-ido-mysql.yaml"

@@ -10,7 +10,7 @@ Requirements:
 The default Admin-Account for Icinga Web 2 is 'icingaadmin', the random initial password is displayed at the end of the installation process.
 
 ```bash
-icinga-installer [-i] -S server-ido-mysql|server-ido-pgsql|worker|agent
+icinga-installer [-i] -S server-db-mysql|server-db-pgsql|server-ido-mysql|server-ido-pgsql|worker|agent
 ```
 
 From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
@@ -19,6 +19,9 @@ From the second run onwards, the -S option must be omitted because the host is n
 ## Scenarios
 
 ### Servers
+
+* server-db-mysql|server-db-pgsql: Install Server based on MySQL|PostgreSQL with IcingaDB as Backend.
+* server-ido-mysql|server-ido-pgsql: same but with the deprecated IDO Backend instead of IcingaDB.
 
 If your server should have connected workers, you've to configure those in `/etc/icinga-installer/custom-hiera.yaml`:
 
@@ -61,7 +64,7 @@ yum install -y icinga-installer
 
 Example for RHEL/AlmaLinux/Rocky 8 and CentOS Stream 8:
 
-Icinga Web 2 >= v2.9 requires PHP 7.3 or higher, so we have to change the default package module for PHP!
+Icinga Web 2 >= v2.9 recommend PHP 7.3 or higher, so we have to change the default package module for PHP!
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
@@ -89,6 +92,33 @@ icinga::repos:
 
 Username `<user>` and password `<pass>` must be set according to your subscription.
 
+
+Example for RHEL/AlmaLinux/Rocky 9 and CentOS Stream 9:
+
+```bash
+dnf install -y https://packages.netways.de/extras/epel/9/noarch/netways-extras-release/netways-extras-release-9-1.el9.netways.noarch.rpm
+dnf install -y https://yum.puppet.com/puppet7/puppet7-release-el-9.noarch.rpm
+
+dnf install -y icinga-installer
+```
+
+**Notice**: For some time now, access to current RPM packages on Icinga has required a paid [subscription](https://icinga.com/subscription). Unfortunately, using older package versions for an Icinga server is not provided for in this project. However, for workers and agents, there should be no issues with the public repos and thus older versions of Icinga 2.
+
+A subscription is required, it is configured as follows:
+
+```bash
+cat /etc/icinga-installer/custom-hiera.yaml
+---
+icinga::repos:
+  icinga-stable-release:
+    baseurl: 'https://packages.icinga.com/subscription/rhel/$releasever/release/'
+    username: <username>
+    password: <password>
+```
+
+Username `<user>` and password `<pass>` must be set according to your subscription.
+
+
 Example on Debian Buster:
 
 ```
@@ -96,30 +126,6 @@ wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
 echo "deb http://apt.puppetlabs.com buster puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
-apt update
-
-apt install -y icinga-installer
-```
-
-Example on Debian Bullseye:
-
-```
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/debian bullseye main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com bullseye puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
-apt update
-
-apt install -y icinga-installer
-```
-
-Example on Ubuntu Bionic Beaver:
-
-```
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/ubuntu bionic main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com bionic puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
@@ -138,3 +144,14 @@ apt update
 apt install -y icinga-installer
 ```
 
+Example on Ubuntu Jammy Jellyfish:
+
+```
+wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
+echo "deb https://packages.netways.de/extras/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
+echo "deb http://apt.puppetlabs.com jammy puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+apt update
+
+apt install -y icinga-installer
+```

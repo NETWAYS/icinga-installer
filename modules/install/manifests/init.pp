@@ -1,8 +1,5 @@
-# @summary
 # Template class
 #
-class install(
-
+class install (
 ) inherits install::params {
-
 }

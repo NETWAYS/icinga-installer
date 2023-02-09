@@ -1,5 +1,19 @@
 # Change Log
 
+## [v1.0.0](https://github.com/netways/icinga-installer/tree/v1.0.0) (2023-02-09)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v0.7.1...v1.0.0)
+
+**Implemented enhancements:**
+
+- Rename head master branch to main [\#53](https://github.com/NETWAYS/icinga-installer/issues/53)
+- Add feature influxdb2 [\#31](https://github.com/NETWAYS/icinga-installer/issues/31)
+- Add support for IcingaDB [\#54](https://github.com/NETWAYS/icinga-installer/pull/54) ([lbetz](https://github.com/lbetz))
+- Rebuild interactive structure and change some parameter names [\#52](https://github.com/NETWAYS/icinga-installer/pull/52) ([lbetz](https://github.com/lbetz))
+
+**Merged pull requests:**
+
+- Bump puppet/php to v8.2.0 [\#51](https://github.com/NETWAYS/icinga-installer/pull/51) ([martialblog](https://github.com/martialblog))
+
 ## [v0.7.1](https://github.com/netways/icinga-installer/tree/v0.7.1) (2022-08-01)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.7.0...v0.7.1)
 
@@ -16,6 +30,7 @@
 - Update icinga module to v2.8.0 [\#46](https://github.com/NETWAYS/icinga-installer/issues/46)
 - Update icinga2 module to v3.4.0 [\#45](https://github.com/NETWAYS/icinga-installer/issues/45)
 - Add Alma and Rocky Linux support [\#38](https://github.com/NETWAYS/icinga-installer/issues/38)
+- Add management of powertools repo [\#37](https://github.com/NETWAYS/icinga-installer/issues/37)
 - Add a randomize initial icingaadmin password [\#26](https://github.com/NETWAYS/icinga-installer/issues/26)
 
 **Fixed bugs:**
