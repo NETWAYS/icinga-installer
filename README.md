@@ -131,6 +131,18 @@ apt update
 apt install -y icinga-installer
 ```
 
+Example on Debian Bullseye:
+
+```
+wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
+echo "deb https://packages.netways.de/extras/debian bullseye main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
+echo "deb http://apt.puppetlabs.com bullseye puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+apt update
+
+apt install -y icinga-installer
+```
+
 Example on Ubuntu Focal Fossa:
 
 ```
