@@ -49,5 +49,5 @@
 :parser_cache_path: "./_build/parser_cache/server-db-pgsql.yaml"
 :skip_puppet_version_check: false
 :store_dir: ''
-:verbose: false
+:verbose: true
 :verbose_log_level: notice

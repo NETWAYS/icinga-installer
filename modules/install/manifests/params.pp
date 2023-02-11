@@ -16,7 +16,7 @@ class install::params {
 
       case $facts['os']['name'] {
         'debian': {
-          if Integer($facts['os']['release']['major']) < 10 {
+          if Integer($facts['os']['release']['major']) < 11 and $facts['kafo']['scenario']['id'] =~ /^server-db-/ {
             $configure_backports = true
           } else {
             $configure_backports = false
