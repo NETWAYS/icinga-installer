@@ -57,7 +57,7 @@ Example on CentOS 7:
 yum install -y centos-release-scl
 
 yum install -y https://packages.netways.de/extras/epel/7/noarch/netways-extras-release/netways-extras-release-7-1.el7.netways.noarch.rpm
-yum install -y https://yum.puppet.com/puppet7/puppet7-release-el-7.noarch.rpm
+yum install -y https://yum.puppet.com/puppet7-release-el-7.noarch.rpm
 
 yum install -y icinga-installer
 ```
@@ -68,7 +68,7 @@ Icinga Web 2 >= v2.9 recommend PHP 7.3 or higher, so we have to change the defau
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
-dnf install -y https://yum.puppet.com/puppet7/puppet7-release-el-8.noarch.rpm
+dnf install -y https://yum.puppet.com/puppet7-release-el-8.noarch.rpm
 
 dnf module reset php
 dnf module enable php:7.4
@@ -97,7 +97,7 @@ Example for RHEL/AlmaLinux/Rocky 9 and CentOS Stream 9:
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/9/noarch/netways-extras-release/netways-extras-release-9-1.el9.netways.noarch.rpm
-dnf install -y https://yum.puppet.com/puppet7/puppet7-release-el-9.noarch.rpm
+dnf install -y https://yum.puppet.com/puppet7-release-el-9.noarch.rpm
 
 dnf install -y icinga-installer
 ```
