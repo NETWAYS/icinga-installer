@@ -950,6 +950,28 @@ $director_api_password::                      Icinga 2 API password.
 
 $business_process::                           Enable the Business Process module.
 
+== Reporting parameters:
+
+$reporting::                                  Enable the Reporting module.
+
+=== Reporting:                                condition: $reporting
+
+$reporting_db_type::                          Type of your database. Either `mysql` or `pgsql`.
+
+$reporting_db_host::                          Hostname of the database.
+
+$reporting_db_port::                          Port of the database.
+
+$reporting_db_name::                          Name of the database.
+
+$reporting_db_username::                      Username for DB connection.
+
+$reporting_db_password::                      Password for DB connection.
+
+$reporting_create_database::                  Create database and import schema.
+
+$reporting_mail::                             Mails are sent with this sender address.
+
 #### Parameters
 
 The following parameters are available in the `install::web` class:
@@ -995,6 +1017,15 @@ The following parameters are available in the `install::web` class:
 * [`director_api_host`](#director_api_host)
 * [`director_api_password`](#director_api_password)
 * [`business_process`](#business_process)
+* [`reporting`](#reporting)
+* [`reporting_db_type`](#reporting_db_type)
+* [`reporting_db_host`](#reporting_db_host)
+* [`reporting_db_port`](#reporting_db_port)
+* [`reporting_db_name`](#reporting_db_name)
+* [`reporting_db_username`](#reporting_db_username)
+* [`reporting_db_password`](#reporting_db_password)
+* [`reporting_create_database`](#reporting_create_database)
+* [`reporting_mail`](#reporting_mail)
 
 ##### <a name="icingaweb"></a>`icingaweb`
 
@@ -1323,6 +1354,78 @@ Data type: `Boolean`
 
 
 Default value: ``false``
+
+##### <a name="reporting"></a>`reporting`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="reporting_db_type"></a>`reporting_db_type`
+
+Data type: `Enum['mysql', 'pgsql']`
+
+
+
+Default value: `'mysql'`
+
+##### <a name="reporting_db_host"></a>`reporting_db_host`
+
+Data type: `Stdlib::Host`
+
+
+
+Default value: `'localhost'`
+
+##### <a name="reporting_db_port"></a>`reporting_db_port`
+
+Data type: `Optional[Stdlib::Port]`
+
+
+
+Default value: ``undef``
+
+##### <a name="reporting_db_name"></a>`reporting_db_name`
+
+Data type: `String`
+
+
+
+Default value: `'reporting'`
+
+##### <a name="reporting_db_username"></a>`reporting_db_username`
+
+Data type: `String`
+
+
+
+Default value: `'reporting'`
+
+##### <a name="reporting_db_password"></a>`reporting_db_password`
+
+Data type: `String`
+
+
+
+Default value: `$install::params::reporting_db_password`
+
+##### <a name="reporting_create_database"></a>`reporting_create_database`
+
+Data type: `Boolean`
+
+
+
+Default value: ``false``
+
+##### <a name="reporting_mail"></a>`reporting_mail`
+
+Data type: `Optional[String]`
+
+
+
+Default value: ``undef``
 
 ### <a name="installworker"></a>`install::worker`
 

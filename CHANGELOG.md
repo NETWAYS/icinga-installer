@@ -1,6 +1,17 @@
 # Change Log
 
-## [v1.0.0](https://github.com/netways/icinga-installer/tree/v1.0.0) (2023-02-09)
+## [v1.1.0](https://github.com/netways/icinga-installer/tree/v1.1.0) (2023-03-06)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- Add support for reporting [\#55](https://github.com/NETWAYS/icinga-installer/pull/55) ([lbetz](https://github.com/lbetz))
+
+**Closed issues:**
+
+- Add web modules for reporting [\#22](https://github.com/NETWAYS/icinga-installer/issues/22)
+
+## [v1.0.0](https://github.com/netways/icinga-installer/tree/v1.0.0) (2023-02-11)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.7.1...v1.0.0)
 
 **Implemented enhancements:**
