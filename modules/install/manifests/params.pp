@@ -9,6 +9,7 @@ class install::params {
   $ticket_salt            = extlib::cache_data('icinga_cache_data', 'server_ticket_salt', extlib::random_password(32))
   $web_api_password       = extlib::cache_data('icinga_cache_data', 'web_api_pass', extlib::random_password(32))
   $director_api_password  = extlib::cache_data('icinga_cache_data', 'director_api_pass', extlib::random_password(32))
+  $reporting_db_password  = extlib::cache_data('icinga_cache_data', 'reporting_db_pass', extlib::random_password(32))
 
   case $facts['os']['family'] {
     'debian': {

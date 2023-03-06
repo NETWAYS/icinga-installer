@@ -13,3 +13,5 @@ install::web:
   director: true
   director_db_type: pgsql
   director_create_database: true
+  reporting_db_type: pgsql
+  reporting_create_database: true

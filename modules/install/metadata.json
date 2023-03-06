@@ -1,6 +1,6 @@
 {
   "name": "icinga-installer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "NETWAYS",
   "summary": "Puppet Module for the Icinga-Installer.",
   "license": "Apache-2.0",
@@ -30,7 +30,8 @@
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
         "7",
-        "8"
+        "8",
+        "9"
       ]
     },
     {
@@ -44,19 +45,22 @@
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
         "7",
-        "8"
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "Rocky",
       "operatingsystemrelease": [
-        "8"
+        "8",
+        "9"
       ]
     },
     {
       "operatingsystem": "AlmaLinux",
       "operatingsystemrelease": [
-        "8"
+        "8",
+        "9"
       ]
     },
     {
@@ -69,7 +73,8 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "20.04"
+        "20.04",
+        "22.04"
       ]
     }
   ],
