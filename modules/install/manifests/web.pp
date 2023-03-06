@@ -100,48 +100,79 @@
 #
 # $business_process::                           Enable the Business Process module.
 #
+# == Reporting parameters:
+#
+# $reporting::                                  Enable the Reporting module.
+#
+# === Reporting:                                condition: $reporting
+#
+# $reporting_db_type::                          Type of your database. Either `mysql` or `pgsql`.
+#
+# $reporting_db_host::                          Hostname of the database.
+#
+# $reporting_db_port::                          Port of the database.
+#
+# $reporting_db_name::                          Name of the database.
+#
+# $reporting_db_username::                      Username for DB connection.
+#
+# $reporting_db_password::                      Password for DB connection.
+#
+# $reporting_create_database::                  Create database and import schema.
+#
+# $reporting_mail::                             Mails are sent with this sender address.
+#
 class install::web (
-  Boolean                  $icingaweb                = false,
-  String                   $initial_admin_username   = 'icingaadmin',
-  String                   $initial_admin_password   = $install::params::initial_admin_password,
-  Enum['mysql', 'pgsql']   $db_type                  = 'mysql',
-  Stdlib::Host             $db_host                  = 'localhost',
-  Optional[Stdlib::Port]   $db_port                  = undef,
-  String                   $db_name                  = 'icingaweb2',
-  String                   $db_username              = 'icingaweb2',
-  String                   $db_password              = $install::params::web_db_password,
-  Boolean                  $create_database          = false,  
-  Stdlib::Host             $api_host                 = 'localhost',
-  String                   $api_password             = $install::params::web_api_password,
-  Enum['mysql', 'pgsql']   $icingadb_db_type         = 'mysql',
-  Stdlib::Host             $icingadb_db_host         = 'localhost',
-  Optional[Stdlib::Port]   $icingadb_db_port         = undef,
-  String                   $icingadb_db_name         = 'icingadb',
-  String                   $icingadb_db_username     = 'icingadb',
-  String                   $icingadb_db_password     = $install::params::icingadb_db_password,
-  Stdlib::Host             $redis_host               = 'localhost',
-  Optional[Stdlib::Port]   $redis_port               = undef,
-  Optional['String']       $redis_password           = undef,
-  Boolean                  $ido                      = false,
-  Enum['mysql', 'pgsql']   $ido_db_type              = 'mysql',
-  Stdlib::Host             $ido_db_host              = 'localhost',
-  Optional[Stdlib::Port]   $ido_db_port              = undef,
-  String                   $ido_db_name              = 'icinga2',
-  String                   $ido_db_username          = 'icinga2',
-  String                   $ido_db_password          = $install::params::ido_db_password,
-  Boolean                  $ido_create_database      = false,
-  Boolean                  $director                 = false,
-  Enum['mysql', 'pgsql']   $director_db_type         = 'mysql',
-  Stdlib::Host             $director_db_host         = 'localhost',
-  Optional[Stdlib::Port]   $director_db_port         = undef,
-  String                   $director_db_name         = 'director',
-  String                   $director_db_username     = 'director',
-  String                   $director_db_password     = $install::params::director_db_password,
-  Boolean                  $director_create_database = false,
-  String                   $director_endpoint        = $install::params::director_endpoint,
-  Stdlib::Host             $director_api_host        = 'localhost',
-  String                   $director_api_password    = $install::params::director_api_password,
-  Boolean                  $business_process         = false,
+  Boolean                  $icingaweb                 = false,
+  String                   $initial_admin_username    = 'icingaadmin',
+  String                   $initial_admin_password    = $install::params::initial_admin_password,
+  Enum['mysql', 'pgsql']   $db_type                   = 'mysql',
+  Stdlib::Host             $db_host                   = 'localhost',
+  Optional[Stdlib::Port]   $db_port                   = undef,
+  String                   $db_name                   = 'icingaweb2',
+  String                   $db_username               = 'icingaweb2',
+  String                   $db_password               = $install::params::web_db_password,
+  Boolean                  $create_database           = false,  
+  Stdlib::Host             $api_host                  = 'localhost',
+  String                   $api_password              = $install::params::web_api_password,
+  Enum['mysql', 'pgsql']   $icingadb_db_type          = 'mysql',
+  Stdlib::Host             $icingadb_db_host          = 'localhost',
+  Optional[Stdlib::Port]   $icingadb_db_port          = undef,
+  String                   $icingadb_db_name          = 'icingadb',
+  String                   $icingadb_db_username      = 'icingadb',
+  String                   $icingadb_db_password      = $install::params::icingadb_db_password,
+  Stdlib::Host             $redis_host                = 'localhost',
+  Optional[Stdlib::Port]   $redis_port                = undef,
+  Optional['String']       $redis_password            = undef,
+  Boolean                  $ido                       = false,
+  Enum['mysql', 'pgsql']   $ido_db_type               = 'mysql',
+  Stdlib::Host             $ido_db_host               = 'localhost',
+  Optional[Stdlib::Port]   $ido_db_port               = undef,
+  String                   $ido_db_name               = 'icinga2',
+  String                   $ido_db_username           = 'icinga2',
+  String                   $ido_db_password           = $install::params::ido_db_password,
+  Boolean                  $ido_create_database       = false,
+  Boolean                  $director                  = false,
+  Enum['mysql', 'pgsql']   $director_db_type          = 'mysql',
+  Stdlib::Host             $director_db_host          = 'localhost',
+  Optional[Stdlib::Port]   $director_db_port          = undef,
+  String                   $director_db_name          = 'director',
+  String                   $director_db_username      = 'director',
+  String                   $director_db_password      = $install::params::director_db_password,
+  Boolean                  $director_create_database  = false,
+  String                   $director_endpoint         = $install::params::director_endpoint,
+  Stdlib::Host             $director_api_host         = 'localhost',
+  String                   $director_api_password     = $install::params::director_api_password,
+  Boolean                  $business_process          = false,
+  Boolean                  $reporting                 = false,
+  Enum['mysql', 'pgsql']   $reporting_db_type         = 'mysql',
+  Stdlib::Host             $reporting_db_host         = 'localhost',
+  Optional[Stdlib::Port]   $reporting_db_port         = undef,
+  String                   $reporting_db_name         = 'reporting',
+  String                   $reporting_db_username     = 'reporting',
+  String                   $reporting_db_password     = $install::params::reporting_db_password,
+  Boolean                  $reporting_create_database = false,
+  Optional[String]         $reporting_mail            = undef,
 ) inherits install::params {
   if $ido and defined(Class['install::server']) {
     class { 'icinga::ido':
@@ -210,7 +241,7 @@ class install::web (
       mode   => '0755',
     }
 
-    include ::apache::vhosts
+    include apache::vhosts
 
     # Update on RHEL systems
     # https://github.com/NETWAYS/icinga-installer/issues/24
@@ -242,7 +273,7 @@ class install::web (
     }
 
     if $director {
-      class { '::icinga::web::director':
+      class { 'icinga::web::director':
         db_type         => $director_db_type,
         db_host         => $director_db_host,
         db_user         => $director_db_username,
@@ -267,6 +298,26 @@ class install::web (
       }
     } else {
       file { "${icingaweb2::globals::conf_dir}/enabledModules/businessprocess":
+        ensure => absent,
+      }
+    }
+
+    if $reporting {
+      class { 'icinga::web::reporting':
+        db_type         => $reporting_db_type,
+        db_host         => $reporting_db_host,
+        db_port         => $reporting_db_port,
+        db_name         => $reporting_db_name,
+        db_user         => $reporting_db_username,
+        db_pass         => $reporting_db_password,
+        manage_database => $reporting_create_database,
+        mail            => $reporting_mail,
+      }
+    } else {
+      file { "${icingaweb2::globals::conf_dir}/enabledModules/reporting":
+        ensure => absent,
+      }
+      file { "${icingaweb2::globals::conf_dir}/enabledModules/idoreports":
         ensure => absent,
       }
     }
