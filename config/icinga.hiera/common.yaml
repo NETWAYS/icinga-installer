@@ -1,2 +1,9 @@
 ---
 icinga2::purge_features: true
+icingaweb2::globals::role_replace: false
+icingaweb2::module_path:
+  - /usr/local/share/icingaweb2-modules
+
+lookup_options:
+  icingaweb2::module_path:
+    merge: unique
