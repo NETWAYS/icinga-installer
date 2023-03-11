@@ -1,5 +1,15 @@
 # Change Log
 
+## [v1.2.0](https://github.com/netways/icinga-installer/tree/v1.2.0) (2023-03-11)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.1.0...v1.2.0)
+
+**Implemented enhancements:**
+
+- Add support for additional apache vhost configs [\#58](https://github.com/NETWAYS/icinga-installer/issues/58)
+- Install icingaweb2 model pdfexport by default [\#57](https://github.com/NETWAYS/icinga-installer/issues/57)
+- Do not manage roles.ini after default setup [\#56](https://github.com/NETWAYS/icinga-installer/issues/56)
+- Support auth method LDAP and Active Directory [\#23](https://github.com/NETWAYS/icinga-installer/issues/23)
+
 ## [v1.1.0](https://github.com/netways/icinga-installer/tree/v1.1.0) (2023-03-06)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.0.0...v1.1.0)
 
