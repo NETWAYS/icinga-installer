@@ -1,6 +1,6 @@
 forge 'https://forgeapi.puppetlabs.com/'
 
-mod 'puppetlabs/apache',	'9.1.1'
+mod 'puppetlabs/apache',	'9.1.2'
 mod 'puppetlabs/apt',		'9.0.1'
 mod 'puppet/archive',		'6.1.1'
 mod 'puppetlabs/concat',	'7.3.0'
