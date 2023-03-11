@@ -70,7 +70,7 @@ Alternatively, all settings can be made in interactive mode (`icinga-installer -
 
 ## Setup
 
-Example on RHEL 7:
+### on RHEL 7:
 
 ```bash
 subscription-manager repos --enable rhel-7-server-optional-rpms
@@ -82,7 +82,7 @@ yum install -y https://yum.puppet.com/puppet7/puppet7-release-el-7.noarch.rpm
 yum install -y icinga-installer
 ```
 
-Example on CentOS 7:
+### on CentOS 7:
 
 ```bash
 yum install -y centos-release-scl
@@ -93,7 +93,7 @@ yum install -y https://yum.puppet.com/puppet7-release-el-7.noarch.rpm
 yum install -y icinga-installer
 ```
 
-Example for RHEL/AlmaLinux/Rocky 8 and CentOS Stream 8:
+### on RHEL/AlmaLinux/Rocky 8 and CentOS Stream 8:
 
 Icinga Web 2 >= v2.9 recommend PHP 7.3 or higher, so we have to change the default package module for PHP!
 
@@ -124,7 +124,7 @@ icinga::repos:
 Username `<user>` and password `<pass>` must be set according to your subscription.
 
 
-Example for RHEL/AlmaLinux/Rocky 9 and CentOS Stream 9:
+### on RHEL/AlmaLinux/Rocky 9 and CentOS Stream 9:
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/9/noarch/netways-extras-release/netways-extras-release-9-1.el9.netways.noarch.rpm
@@ -150,7 +150,7 @@ icinga::repos:
 Username `<user>` and password `<pass>` must be set according to your subscription.
 
 
-Example on Debian Buster:
+### on Debian Buster:
 
 ```
 wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
@@ -162,7 +162,7 @@ apt update
 apt install -y icinga-installer
 ```
 
-Example on Debian Bullseye:
+### on Debian Bullseye:
 
 ```
 wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
@@ -174,7 +174,7 @@ apt update
 apt install -y icinga-installer
 ```
 
-Example on Ubuntu Focal Fossa:
+### on Ubuntu Focal Fossa:
 
 ```
 apt install -y ca-certificates
@@ -187,7 +187,7 @@ apt update
 apt install -y icinga-installer
 ```
 
-Example on Ubuntu Jammy Jellyfish:
+### on Ubuntu Jammy Jellyfish:
 
 ```
 wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
