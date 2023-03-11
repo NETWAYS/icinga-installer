@@ -46,5 +46,5 @@ class install::params {
     }
   }
 
-  $director_endpoint = lookup('icinga::cert_name', undef, undef, $::fqdn)
+  $director_endpoint = lookup('icinga::cert_name', undef, undef, $facts['networking']['fqdn'])
 }

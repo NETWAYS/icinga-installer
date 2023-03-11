@@ -14,8 +14,8 @@ mod 'puppetlabs/stdlib',	'8.5.0'
 mod 'puppet/systemd',		'4.0.1'
 mod 'icinga/icinga2',		'3.5.3'
 mod 'icinga/icingadb',		'1.0.0'
-mod 'icinga/icingaweb2',	'3.7.3'
-mod 'icinga/icinga',		'3.1.1'
+mod 'icinga/icingaweb2',	'3.8.0'
+mod 'icinga/icinga',		'3.2.0'
 
 mod 'install',
   :local => true
