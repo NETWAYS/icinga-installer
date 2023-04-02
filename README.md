@@ -3,7 +3,7 @@
 
 
 Requirements:
- * Puppet >= 6.1.0 < 8
+ * Puppet >= 6.24.0 < 8
 
 The default Admin-Account for Icinga Web 2 is 'icingaadmin', the random initial password is displayed at the end of the installation process.
 
