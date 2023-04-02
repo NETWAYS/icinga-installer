@@ -10,7 +10,7 @@ install::web:
   icingaweb: true
   db_type: mysql
   create_database: true
-  ido_db_type: pgsql
+  ido_db_type: mysql
   ido_create_database: true
   director: true
   director_db_type: mysql
