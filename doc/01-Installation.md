@@ -51,7 +51,7 @@ icinga::repos:
     password: <password>
 ```
 
-Username `<user>` and password `<pass>` must be set according to your subscription.
+Username `<username>` and password `<password>` must be set according to your subscription.
 
 
 ## RHEL/AlmaLinux/Rocky 9 and CentOS Stream 9:
@@ -77,7 +77,7 @@ icinga::repos:
     password: <password>
 ```
 
-Username `<user>` and password `<pass>` must be set according to your subscription.
+Username `<username>` and password `<password>` must be set according to your subscription.
 
 
 ## Debian Buster:
