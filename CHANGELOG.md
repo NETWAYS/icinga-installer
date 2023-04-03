@@ -1,5 +1,21 @@
 # Change Log
 
+## [v1.2.1](https://github.com/netways/icinga-installer/tree/v1.2.1) (2023-04-03)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.0...v1.2.1)
+
+**Fixed bugs:**
+
+- Updating Apache after installation breaks Apache config on RHEL 8/9 [\#61](https://github.com/NETWAYS/icinga-installer/issues/61)
+- Wrong default ido\_db\_type in scenario server-db-mysql  [\#59](https://github.com/NETWAYS/icinga-installer/issues/59)
+
+**Closed issues:**
+
+- Add example to custom hiera [\#27](https://github.com/NETWAYS/icinga-installer/issues/27)
+
+**Merged pull requests:**
+
+- Add more stuff to the documentation [\#60](https://github.com/NETWAYS/icinga-installer/pull/60) ([lbetz](https://github.com/lbetz))
+
 ## [v1.2.0](https://github.com/netways/icinga-installer/tree/v1.2.0) (2023-03-11)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.1.0...v1.2.0)
 

@@ -1,6 +1,6 @@
 {
   "name": "icinga-installer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "NETWAYS",
   "summary": "Puppet Module for the Icinga-Installer.",
   "license": "Apache-2.0",
