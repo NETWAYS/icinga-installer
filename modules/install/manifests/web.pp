@@ -249,22 +249,24 @@ class install::web (
       $new_file_content = "# content removed by icinga-installer\n# https://github.com/NETWAYS/icinga-installer/issues/24\n"
 
       file { prefix([
-        "/00-base.conf",
-        "/00-dav.conf",
-        "/00-lua.conf",
-        "/00-mpm.conf",
-        "/00-optional.conf",
-        "/00-proxy.conf",
-        "/00-ssl.conf",
-        "/00-systemd.conf",
-        "/01-cgi.conf"], $::apache::mod_dir):
+        '/00-base.conf',
+        '/00-dav.conf',
+        '/00-lua.conf',
+        '/00-mpm.conf',
+        '/00-optional.conf',
+        '/00-proxy.conf',
+        '/00-ssl.conf',
+        '/00-systemd.conf',
+        '/01-cgi.conf',
+        '/10-h2.conf',
+        '/10-proxy_h2.conf'], $::apache::mod_dir):
         ensure  => file,
         content => $new_file_content,
         notify => Class['apache::service'],
       }
   
       if Integer($facts['os']['release']['major']) < 8 {
-        file { prefix(["/autoindex.conf", "/userdir.conf", "/welcome.conf"], $::apache::confd_dir):
+        file { prefix(['/autoindex.conf', '/userdir.conf', '/welcome.conf'], $::apache::confd_dir):
           ensure  => file,
           content => $new_file_content,
           notify => Class['apache::service'],
