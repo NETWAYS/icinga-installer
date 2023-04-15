@@ -1,5 +1,5 @@
 # Release Workflow
-Before submitting a new release, make sure all relevant pull requests and local branches have been merged to the `master`
+Before submitting a new release, make sure all relevant pull requests and local branches have been merged to the `main`
 branch. All tests must pass before a release is tagged.
 
 
@@ -7,7 +7,7 @@ branch. All tests must pass before a release is tagged.
 Update the [AUTHORS] and [.mailmap] file
 
 ``` bash
-git checkout master
+git checkout main
 git log --use-mailmap | grep ^Author: | cut -f2- -d' ' | sort | uniq > AUTHORS
 git commit -am "Update AUTHORS"
 ```
@@ -46,7 +46,7 @@ github_changelog_generator -t <github-access-token> --future-release=v1.0.0 -u n
 ```
 
 ## 5. Git Tag
-Commit all changes to the `master` branch
+Commit all changes to the `main` branch
 
 ``` bash
 git commit -v -a -m "Release version <VERSION>"

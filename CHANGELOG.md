@@ -1,5 +1,13 @@
 # Change Log
 
+## [v1.2.2](https://github.com/netways/icinga-installer/tree/v1.2.2) (2023-04-15)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.1...v1.2.2)
+
+**Fixed bugs:**
+
+- Missing `UTF8` setting in database ressources for icingaweb2 [\#62](https://github.com/NETWAYS/icinga-installer/issues/62)
+- Update minor and bugfix releases of some puppet modules [\#63](https://github.com/NETWAYS/icinga-installer/pull/63) ([lbetz](https://github.com/lbetz))
+
 ## [v1.2.1](https://github.com/netways/icinga-installer/tree/v1.2.1) (2023-04-03)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.0...v1.2.1)
 
