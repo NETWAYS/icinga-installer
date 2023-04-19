@@ -1,5 +1,13 @@
 # Change Log
 
+## [v1.2.3](https://github.com/netways/icinga-installer/tree/v1.2.3) (2023-04-19)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.2...v1.2.3)
+
+**Fixed bugs:**
+
+- Mysql::Db\[icingadb\]: parameter 'tls\_options' expects a value of type Undef or Array, got String [\#64](https://github.com/NETWAYS/icinga-installer/issues/64)
+- Downgrade mysql module because of api changes for tis\_options in mysql::db [\#65](https://github.com/NETWAYS/icinga-installer/pull/65) ([lbetz](https://github.com/lbetz))
+
 ## [v1.2.2](https://github.com/netways/icinga-installer/tree/v1.2.2) (2023-04-15)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.1...v1.2.2)
 
