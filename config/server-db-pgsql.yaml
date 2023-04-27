@@ -3,8 +3,8 @@
 :color_of_background: :dark
 :colors: true
 :custom: {}
-:description: Install Icinga incl. Web GUI and  and configure it as a server with
-  a MySQL database as IDO backend
+:description: Install Icinga incl. Web GUI and configure it as a server with
+  a PostgreSQL database as backend for IcingaDB
 :enabled: true
 :facts: {}
 :hiera_config: "./config/icinga-hiera.yaml"
