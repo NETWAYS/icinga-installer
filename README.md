@@ -1,9 +1,12 @@
 # Simple installer for the Icinga software stack
 
+The `icinga-installer` installer is a tool to install and manage you Icinga instance. It is based on Puppet and uses `YAML` configuration.
 
-
-Requirements:
+## Requirements:
  * Puppet >= 6.24.0 < 8
+ * Rubygem `kafo`
+
+## Usage
 
 The default Admin-Account for Icinga Web 2 is 'icingaadmin', the random initial password is displayed at the end of the installation process.
 
@@ -13,7 +16,10 @@ icinga-installer [-i] -S server-db-mysql|server-db-pgsql|server-ido-mysql|server
 
 From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
 
+# Upgrade Guide
 
-## Breaking Changes
+## Upgrading to 1.0.0
 
-With version 1.0.0 the IcingaDB has been added and has led to the fact that the individual modules had to be repartitioned. With this, a smooth update is unfortunately not possible. All answer files for servers (e.g. /etc/icinga-installer/scenarios.d/server-ido-mysql-answers.yaml) have changed and need to be recreated. Likewise the config files for servers (e.g. /etc/icinga-installer/scenarios.d/server-ido-mysql.yaml) must be taken from the now current version. The agent and worker config and answers files have remained unchanged. 
+### Breaking Changes
+
+With version 1.0.0 the IcingaDB has been added and has led to the fact that the individual modules had to be repartitioned. With this, a smooth update is unfortunately not possible. All answer files for servers (e.g. /etc/icinga-installer/scenarios.d/server-ido-mysql-answers.yaml) have changed and need to be recreated. Likewise the config files for servers (e.g. /etc/icinga-installer/scenarios.d/server-ido-mysql.yaml) must be taken from the now current version. The agent and worker config and answers files have remained unchanged.
