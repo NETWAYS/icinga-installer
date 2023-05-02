@@ -1,5 +1,7 @@
 # Installation
 
+All commands have to be performed as user `root`.
+
 ## RHEL 7:
 
 ```bash
@@ -83,10 +85,11 @@ Username `<username>` and password `<password>` must be set according to your su
 ## Debian Buster:
 
 ```bash
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com buster puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+apt install apt-transport-https wget gpg
+wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
+echo "deb https://packages.netways.de/extras/debian buster main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
+echo "deb https://apt.puppetlabs.com buster puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
@@ -95,10 +98,11 @@ apt install -y icinga-installer
 ## Debian Bullseye:
 
 ```bash
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/debian bullseye main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com bullseye puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+apt install apt-transport-https wget gpg
+wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
+echo "deb https://packages.netways.de/extras/debian bullseye main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
+echo "deb https://apt.puppetlabs.com bullseye puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
@@ -107,11 +111,11 @@ apt install -y icinga-installer
 ## Ubuntu Focal Fossa:
 
 ```bash
-apt install -y ca-certificates
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com focal puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+apt install -y ca-certificates wget apt-transport-https gpg
+wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
+echo "deb https://packages.netways.de/extras/ubuntu focal main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
+echo "deb https://apt.puppetlabs.com focal puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
@@ -120,10 +124,11 @@ apt install -y icinga-installer
 ## Ubuntu Jammy Jellyfish:
 
 ```bash
-wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
-echo "deb https://packages.netways.de/extras/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
-wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | sudo apt-key add -
-echo "deb http://apt.puppetlabs.com jammy puppet7" | sudo tee /etc/apt/sources.list.d/puppet7.list
+apt install wget apt-transport-https gpg
+wget -O -  https://packages.netways.de/netways-repo.asc | gpg --dearmor -o /usr/share/keyrings/netways-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/netways-archive-keyring.gpg] https://packages.netways.de/extras/ubuntu jammy main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | gpg --dearmor -o /usr/share/keyrings/puppet-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com jammy puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
