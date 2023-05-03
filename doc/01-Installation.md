@@ -1,5 +1,10 @@
 # Installation
 
+## Prerequisites
+
+ * Puppet >= 6.24.0 < 8
+ * Rubygem `kafo`
+
 ## RHEL 7:
 
 ```bash
@@ -82,6 +87,8 @@ Username `<username>` and password `<password>` must be set according to your su
 
 ## Debian Buster:
 
+Prerequisites: wget, sudo and gnupg2.
+
 ```bash
 wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
 echo "deb https://packages.netways.de/extras/debian buster main" | sudo tee /etc/apt/sources.list.d/netways-extras-release.list
@@ -93,6 +100,8 @@ apt install -y icinga-installer
 ```
 
 ## Debian Bullseye:
+
+Prerequisites: wget, sudo and gnupg2.
 
 ```bash
 wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
@@ -106,6 +115,8 @@ apt install -y icinga-installer
 
 ## Ubuntu Focal Fossa:
 
+Prerequisites: wget, sudo and gnupg2.
+
 ```bash
 apt install -y ca-certificates
 wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -
@@ -118,6 +129,8 @@ apt install -y icinga-installer
 ```
 
 ## Ubuntu Jammy Jellyfish:
+
+Prerequisites: wget, sudo and gnupg2.
 
 ```bash
 wget -O - https://packages.netways.de/netways-repo.asc | sudo apt-key add -

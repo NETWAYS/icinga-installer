@@ -6,6 +6,10 @@ The `icinga-installer` installer is a tool to install and manage you Icinga inst
  * Puppet >= 6.24.0 < 8
  * Rubygem `kafo`
 
+## Installation
+
+Please refer to the [doc](https://github.com/NETWAYS/icinga-installer/tree/main/doc) directory for an installation guide.
+
 ## Usage
 
 The default Admin-Account for Icinga Web 2 is 'icingaadmin', the random initial password is displayed at the end of the installation process.
@@ -15,6 +19,8 @@ icinga-installer [-i] -S server-db-mysql|server-db-pgsql|server-ido-mysql|server
 ```
 
 From the second run onwards, the -S option must be omitted because the host is now set to this scenario.
+
+Further information can be found in the [doc](https://github.com/NETWAYS/icinga-installer/tree/main/doc) directory.
 
 # Upgrade Guide
 
