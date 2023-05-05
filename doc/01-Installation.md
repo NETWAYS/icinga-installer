@@ -85,7 +85,7 @@ Username `<username>` and password `<password>` must be set according to your su
 ## Debian Buster:
 
 ```bash
-apt install apt-transport-https wget gpg
+apt install wget apt-transport-https gpg
 wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
 echo "deb https://packages.netways.de/extras/debian buster main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
@@ -98,7 +98,7 @@ apt install -y icinga-installer
 ## Debian Bullseye:
 
 ```bash
-apt install apt-transport-https wget gpg
+apt install wget apt-transport-https gpg
 wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
 echo "deb https://packages.netways.de/extras/debian bullseye main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -

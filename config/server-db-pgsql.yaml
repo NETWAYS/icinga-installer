@@ -38,7 +38,7 @@
     :manifest_name: features
     :params_name: params
 :module_dirs: "./_build/modules/"
-:name: Server-IcingaDB-MySQL
+:name: Server-IcingaDB-pgSQL
 :no_prefix: true
 :order:
 - install::repos
