@@ -10,22 +10,22 @@
 #
 # $ticket_salt::               Set an alternate ticket salt to icinga::ticket_salt from Hiera.
 #
-# $web_api_pass::              Icinga API web user password.
+# $web_api_password::          Icinga API web user password.
 #
-# $director_api_pass::         Icinga API director user password.
+# $director_api_password::     Icinga API director user password.
 #
 # $logging_type::              Switch the log target.
 #
 # $logging_level::             Set the log level.
 #
 class install::server (
-  Boolean                  $ca                 = true,
-  String                   $zone               = 'main',
-  Array[String]            $global_zones       = ['linux-commands', 'windows-commands', 'global-templates', 'director-global'],
-  String                   $ticket_salt        = $install::params::ticket_salt,
-  String                   $web_api_pass       = $install::params::web_api_password,
-  String                   $director_api_pass  = $install::params::director_api_password,
-  Enum['file', 'syslog']   $logging_type       = 'syslog',
+  Boolean                  $ca                    = true,
+  String                   $zone                  = 'main',
+  Array[String]            $global_zones          = ['linux-commands', 'windows-commands', 'global-templates', 'director-global'],
+  String                   $ticket_salt           = $install::params::ticket_salt,
+  String                   $web_api_password      = $install::params::web_api_password,
+  String                   $director_api_password = $install::params::director_api_password,
+  Enum['file', 'syslog']   $logging_type          = 'syslog',
   Enum[
     'debug', 'information',
     'notice', 'warning', 'critical'
