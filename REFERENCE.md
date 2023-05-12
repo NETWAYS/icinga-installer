@@ -758,9 +758,9 @@ $global_zones::              List of global zones to configure.
 
 $ticket_salt::               Set an alternate ticket salt to icinga::ticket_salt from Hiera.
 
-$web_api_pass::              Icinga API web user password.
+$web_api_password::          Icinga API web user password.
 
-$director_api_pass::         Icinga API director user password.
+$director_api_password::     Icinga API director user password.
 
 $logging_type::              Switch the log target.
 
@@ -774,8 +774,8 @@ The following parameters are available in the `install::server` class:
 * [`zone`](#zone)
 * [`global_zones`](#global_zones)
 * [`ticket_salt`](#ticket_salt)
-* [`web_api_pass`](#web_api_pass)
-* [`director_api_pass`](#director_api_pass)
+* [`web_api_password`](#web_api_password)
+* [`director_api_password`](#director_api_password)
 * [`logging_type`](#logging_type)
 * [`logging_level`](#logging_level)
 
@@ -811,7 +811,7 @@ Data type: `String`
 
 Default value: `$install::params::ticket_salt`
 
-##### <a name="web_api_pass"></a>`web_api_pass`
+##### <a name="web_api_password"></a>`web_api_password`
 
 Data type: `String`
 
@@ -819,7 +819,7 @@ Data type: `String`
 
 Default value: `$install::params::web_api_password`
 
-##### <a name="director_api_pass"></a>`director_api_pass`
+##### <a name="director_api_password"></a>`director_api_password`
 
 Data type: `String`
 

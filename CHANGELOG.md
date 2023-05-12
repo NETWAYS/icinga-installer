@@ -1,5 +1,21 @@
 # Change Log
 
+## [v1.2.4](https://github.com/netways/icinga-installer/tree/v1.2.4) (2023-05-12)
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.3...v1.2.4)
+
+**Fixed bugs:**
+
+- Wrong description in all four server scenarios [\#67](https://github.com/NETWAYS/icinga-installer/issues/67)
+- Set value of ldap\_nested\_group\_search for groupbackend in examples [\#66](https://github.com/NETWAYS/icinga-installer/issues/66)
+- fix wrong params in server [\#73](https://github.com/NETWAYS/icinga-installer/pull/73) ([lbetz](https://github.com/lbetz))
+- change naming of scenario listing  [\#68](https://github.com/NETWAYS/icinga-installer/pull/68) ([carraroj](https://github.com/carraroj))
+
+**Merged pull requests:**
+
+- Extend setup doc with required additional packages [\#72](https://github.com/NETWAYS/icinga-installer/pull/72) ([lbetz](https://github.com/lbetz))
+- Update README and installation docs [\#71](https://github.com/NETWAYS/icinga-installer/pull/71) ([martialblog](https://github.com/martialblog))
+- Update README [\#70](https://github.com/NETWAYS/icinga-installer/pull/70) ([martialblog](https://github.com/martialblog))
+
 ## [v1.2.3](https://github.com/netways/icinga-installer/tree/v1.2.3) (2023-04-19)
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.2...v1.2.3)
 
