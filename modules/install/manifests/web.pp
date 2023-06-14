@@ -259,7 +259,8 @@ class install::web (
         '/00-systemd.conf',
         '/01-cgi.conf',
         '/10-h2.conf',
-        '/10-proxy_h2.conf'], $::apache::mod_dir):
+        '/10-proxy_h2.conf',
+        '/15-php.conf'], $::apache::mod_dir):
         ensure  => file,
         content => $new_file_content,
         notify => Class['apache::service'],
