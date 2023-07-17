@@ -7,15 +7,15 @@
 ### Classes
 
 * [`install`](#install): Template class
-* [`install::agent`](#installagent): Class to install Icinga agent  Parameters:  $ca_server::            The CA to send the certificate request to.  $parent_zone::          Name 
-* [`install::features`](#installfeatures): Manage Icinga 2 features  == Parameters:  == Graphite parameters:  $graphite::                  Enable graphite feature?  === Graphite:      
-* [`install::icingadb`](#installicingadb): Manage IcingaDB  == Parameters:  $icingadb::                   Enable the IcingaDB daemon. Otherwise, these parameters only apply to Icinga s
-* [`install::params`](#installparams): Class for defaults and password cache data.
-* [`install::plugins`](#installplugins): This class installs monitoring plugins.  Parameters:  $basic_plugins::               Manage what plugins have to be installed.
-* [`install::repos`](#installrepos): This class manages the stages stable, testing and snapshot of packages.icinga.com repository and depending on the operating system platform s
-* [`install::server`](#installserver): Setup a Icinga server.  == Parameters:  $ca::                        Enables a CA on this node.  $zone::                      Name of the Ici
-* [`install::web`](#installweb): Class to manage Icinga Web 2.  == Parameters:  == Icinga Web parameters:  $icingaweb::                                  Eanable/disable insta
-* [`install::worker`](#installworker): Class to install Icinga worker  Parameters:  $ca_server::            The CA to send the certificate request to.  $zone::                 Name
+* [`install::agent`](#install--agent): Class to install Icinga agent  Parameters:  $ca_server::            The CA to send the certificate request to.  $parent_zone::          Name 
+* [`install::features`](#install--features): Manage Icinga 2 features  == Parameters:  == Graphite parameters:  $graphite::                  Enable graphite feature?  === Graphite:      
+* [`install::icingadb`](#install--icingadb): Manage IcingaDB  == Parameters:  $icingadb::                   Enable the IcingaDB daemon. Otherwise, these parameters only apply to Icinga s
+* [`install::params`](#install--params): Class for defaults and password cache data.
+* [`install::plugins`](#install--plugins): This class installs monitoring plugins.  Parameters:  $basic_plugins::               Manage what plugins have to be installed.
+* [`install::repos`](#install--repos): This class manages the stages stable, testing and snapshot of packages.icinga.com repository and depending on the operating system platform s
+* [`install::server`](#install--server): Setup a Icinga server.  == Parameters:  $ca::                        Enables a CA on this node.  $zone::                      Name of the Ici
+* [`install::web`](#install--web): Class to manage Icinga Web 2.  == Parameters:  == Icinga Web parameters:  $icingaweb::                                  Eanable/disable insta
+* [`install::worker`](#install--worker): Class to install Icinga worker  Parameters:  $ca_server::            The CA to send the certificate request to.  $zone::                 Name
 
 ## Classes
 
@@ -23,7 +23,7 @@
 
 Template class
 
-### <a name="installagent"></a>`install::agent`
+### <a name="install--agent"></a>`install::agent`
 
 Class to install Icinga agent
 
@@ -45,26 +45,26 @@ $logging_level::        Set the log level.
 
 The following parameters are available in the `install::agent` class:
 
-* [`ca_server`](#ca_server)
-* [`parent_endpoints`](#parent_endpoints)
-* [`parent_zone`](#parent_zone)
-* [`global_zones`](#global_zones)
-* [`logging_type`](#logging_type)
-* [`logging_level`](#logging_level)
+* [`ca_server`](#-install--agent--ca_server)
+* [`parent_endpoints`](#-install--agent--parent_endpoints)
+* [`parent_zone`](#-install--agent--parent_zone)
+* [`global_zones`](#-install--agent--global_zones)
+* [`logging_type`](#-install--agent--logging_type)
+* [`logging_level`](#-install--agent--logging_level)
 
-##### <a name="ca_server"></a>`ca_server`
+##### <a name="-install--agent--ca_server"></a>`ca_server`
 
 Data type: `Stdlib::Host`
 
 
 
-##### <a name="parent_endpoints"></a>`parent_endpoints`
+##### <a name="-install--agent--parent_endpoints"></a>`parent_endpoints`
 
 Data type: `Hash[String, Hash]`
 
 
 
-##### <a name="parent_zone"></a>`parent_zone`
+##### <a name="-install--agent--parent_zone"></a>`parent_zone`
 
 Data type: `String`
 
@@ -72,7 +72,7 @@ Data type: `String`
 
 Default value: `'main'`
 
-##### <a name="global_zones"></a>`global_zones`
+##### <a name="-install--agent--global_zones"></a>`global_zones`
 
 Data type: `Array[String]`
 
@@ -80,7 +80,7 @@ Data type: `Array[String]`
 
 Default value: `['linux-commands']`
 
-##### <a name="logging_type"></a>`logging_type`
+##### <a name="-install--agent--logging_type"></a>`logging_type`
 
 Data type: `Enum['file', 'syslog']`
 
@@ -88,18 +88,22 @@ Data type: `Enum['file', 'syslog']`
 
 Default value: `'syslog'`
 
-##### <a name="logging_level"></a>`logging_level`
+##### <a name="-install--agent--logging_level"></a>`logging_level`
 
-Data type: `Enum[
+Data type:
+
+```puppet
+Enum[
     'debug', 'information',
     'notice', 'warning', 'critical'
-  ]`
+  ]
+```
 
 
 
 Default value: `'critical'`
 
-### <a name="installfeatures"></a>`install::features`
+### <a name="install--features"></a>`install::features`
 
 Manage Icinga 2 features
 
@@ -193,46 +197,46 @@ $gelf_send_perfdata::        Enable performance data for 'CHECK RESULT' events.
 
 The following parameters are available in the `install::features` class:
 
-* [`graphite`](#graphite)
-* [`graphite_host`](#graphite_host)
-* [`graphite_port`](#graphite_port)
-* [`graphite_send_thresholds`](#graphite_send_thresholds)
-* [`graphite_send_metadata`](#graphite_send_metadata)
-* [`influxdb2`](#influxdb2)
-* [`influxdb2_host`](#influxdb2_host)
-* [`influxdb2_port`](#influxdb2_port)
-* [`influxdb2_bucket`](#influxdb2_bucket)
-* [`influxdb2_organization`](#influxdb2_organization)
-* [`influxdb2_auth_token`](#influxdb2_auth_token)
-* [`influxdb2_send_thresholds`](#influxdb2_send_thresholds)
-* [`influxdb2_send_metadata`](#influxdb2_send_metadata)
-* [`livestatus`](#livestatus)
-* [`livestatus_socket_type`](#livestatus_socket_type)
-* [`livestatus_bind_host`](#livestatus_bind_host)
-* [`livestatus_bind_port`](#livestatus_bind_port)
-* [`livestatus_socket_path`](#livestatus_socket_path)
-* [`elasticsearch`](#elasticsearch)
-* [`elastic_host`](#elastic_host)
-* [`elastic_port`](#elastic_port)
-* [`elastic_index`](#elastic_index)
-* [`elastic_username`](#elastic_username)
-* [`elastic_password`](#elastic_password)
-* [`elastic_send_perfdata`](#elastic_send_perfdata)
-* [`gelf`](#gelf)
-* [`gelf_host`](#gelf_host)
-* [`gelf_port`](#gelf_port)
-* [`gelf_source`](#gelf_source)
-* [`gelf_send_perfdata`](#gelf_send_perfdata)
+* [`graphite`](#-install--features--graphite)
+* [`graphite_host`](#-install--features--graphite_host)
+* [`graphite_port`](#-install--features--graphite_port)
+* [`graphite_send_thresholds`](#-install--features--graphite_send_thresholds)
+* [`graphite_send_metadata`](#-install--features--graphite_send_metadata)
+* [`influxdb2`](#-install--features--influxdb2)
+* [`influxdb2_host`](#-install--features--influxdb2_host)
+* [`influxdb2_port`](#-install--features--influxdb2_port)
+* [`influxdb2_bucket`](#-install--features--influxdb2_bucket)
+* [`influxdb2_organization`](#-install--features--influxdb2_organization)
+* [`influxdb2_auth_token`](#-install--features--influxdb2_auth_token)
+* [`influxdb2_send_thresholds`](#-install--features--influxdb2_send_thresholds)
+* [`influxdb2_send_metadata`](#-install--features--influxdb2_send_metadata)
+* [`livestatus`](#-install--features--livestatus)
+* [`livestatus_socket_type`](#-install--features--livestatus_socket_type)
+* [`livestatus_bind_host`](#-install--features--livestatus_bind_host)
+* [`livestatus_bind_port`](#-install--features--livestatus_bind_port)
+* [`livestatus_socket_path`](#-install--features--livestatus_socket_path)
+* [`elasticsearch`](#-install--features--elasticsearch)
+* [`elastic_host`](#-install--features--elastic_host)
+* [`elastic_port`](#-install--features--elastic_port)
+* [`elastic_index`](#-install--features--elastic_index)
+* [`elastic_username`](#-install--features--elastic_username)
+* [`elastic_password`](#-install--features--elastic_password)
+* [`elastic_send_perfdata`](#-install--features--elastic_send_perfdata)
+* [`gelf`](#-install--features--gelf)
+* [`gelf_host`](#-install--features--gelf_host)
+* [`gelf_port`](#-install--features--gelf_port)
+* [`gelf_source`](#-install--features--gelf_source)
+* [`gelf_send_perfdata`](#-install--features--gelf_send_perfdata)
 
-##### <a name="graphite"></a>`graphite`
+##### <a name="-install--features--graphite"></a>`graphite`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="graphite_host"></a>`graphite_host`
+##### <a name="-install--features--graphite_host"></a>`graphite_host`
 
 Data type: `Stdlib::Host`
 
@@ -240,7 +244,7 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="graphite_port"></a>`graphite_port`
+##### <a name="-install--features--graphite_port"></a>`graphite_port`
 
 Data type: `Stdlib::Port::Unprivileged`
 
@@ -248,31 +252,31 @@ Data type: `Stdlib::Port::Unprivileged`
 
 Default value: `2003`
 
-##### <a name="graphite_send_thresholds"></a>`graphite_send_thresholds`
+##### <a name="-install--features--graphite_send_thresholds"></a>`graphite_send_thresholds`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="graphite_send_metadata"></a>`graphite_send_metadata`
-
-Data type: `Boolean`
-
-
-
-Default value: ``false``
-
-##### <a name="influxdb2"></a>`influxdb2`
+##### <a name="-install--features--graphite_send_metadata"></a>`graphite_send_metadata`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="influxdb2_host"></a>`influxdb2_host`
+##### <a name="-install--features--influxdb2"></a>`influxdb2`
+
+Data type: `Boolean`
+
+
+
+Default value: `false`
+
+##### <a name="-install--features--influxdb2_host"></a>`influxdb2_host`
 
 Data type: `Stdlib::Host`
 
@@ -280,7 +284,7 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="influxdb2_port"></a>`influxdb2_port`
+##### <a name="-install--features--influxdb2_port"></a>`influxdb2_port`
 
 Data type: `Stdlib::Port`
 
@@ -288,7 +292,7 @@ Data type: `Stdlib::Port`
 
 Default value: `8086`
 
-##### <a name="influxdb2_bucket"></a>`influxdb2_bucket`
+##### <a name="-install--features--influxdb2_bucket"></a>`influxdb2_bucket`
 
 Data type: `String`
 
@@ -296,7 +300,7 @@ Data type: `String`
 
 Default value: `'icinga2'`
 
-##### <a name="influxdb2_organization"></a>`influxdb2_organization`
+##### <a name="-install--features--influxdb2_organization"></a>`influxdb2_organization`
 
 Data type: `String`
 
@@ -304,7 +308,7 @@ Data type: `String`
 
 Default value: `'CHANGEME'`
 
-##### <a name="influxdb2_auth_token"></a>`influxdb2_auth_token`
+##### <a name="-install--features--influxdb2_auth_token"></a>`influxdb2_auth_token`
 
 Data type: `String`
 
@@ -312,31 +316,31 @@ Data type: `String`
 
 Default value: `'CHANGEME'`
 
-##### <a name="influxdb2_send_thresholds"></a>`influxdb2_send_thresholds`
+##### <a name="-install--features--influxdb2_send_thresholds"></a>`influxdb2_send_thresholds`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="influxdb2_send_metadata"></a>`influxdb2_send_metadata`
-
-Data type: `Boolean`
-
-
-
-Default value: ``false``
-
-##### <a name="livestatus"></a>`livestatus`
+##### <a name="-install--features--influxdb2_send_metadata"></a>`influxdb2_send_metadata`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="livestatus_socket_type"></a>`livestatus_socket_type`
+##### <a name="-install--features--livestatus"></a>`livestatus`
+
+Data type: `Boolean`
+
+
+
+Default value: `false`
+
+##### <a name="-install--features--livestatus_socket_type"></a>`livestatus_socket_type`
 
 Data type: `Enum['tcp', 'unix']`
 
@@ -344,7 +348,7 @@ Data type: `Enum['tcp', 'unix']`
 
 Default value: `unix`
 
-##### <a name="livestatus_bind_host"></a>`livestatus_bind_host`
+##### <a name="-install--features--livestatus_bind_host"></a>`livestatus_bind_host`
 
 Data type: `Stdlib::Host`
 
@@ -352,7 +356,7 @@ Data type: `Stdlib::Host`
 
 Default value: `'127.0.0.1'`
 
-##### <a name="livestatus_bind_port"></a>`livestatus_bind_port`
+##### <a name="-install--features--livestatus_bind_port"></a>`livestatus_bind_port`
 
 Data type: `Stdlib::Port::Unprivileged`
 
@@ -360,7 +364,7 @@ Data type: `Stdlib::Port::Unprivileged`
 
 Default value: `6558`
 
-##### <a name="livestatus_socket_path"></a>`livestatus_socket_path`
+##### <a name="-install--features--livestatus_socket_path"></a>`livestatus_socket_path`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -368,15 +372,15 @@ Data type: `Stdlib::Absolutepath`
 
 Default value: `'/var/run/icinga2/cmd/livestatus'`
 
-##### <a name="elasticsearch"></a>`elasticsearch`
+##### <a name="-install--features--elasticsearch"></a>`elasticsearch`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="elastic_host"></a>`elastic_host`
+##### <a name="-install--features--elastic_host"></a>`elastic_host`
 
 Data type: `Stdlib::Host`
 
@@ -384,7 +388,7 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="elastic_port"></a>`elastic_port`
+##### <a name="-install--features--elastic_port"></a>`elastic_port`
 
 Data type: `Stdlib::Port::Unprivileged`
 
@@ -392,7 +396,7 @@ Data type: `Stdlib::Port::Unprivileged`
 
 Default value: `9200`
 
-##### <a name="elastic_index"></a>`elastic_index`
+##### <a name="-install--features--elastic_index"></a>`elastic_index`
 
 Data type: `String`
 
@@ -400,39 +404,39 @@ Data type: `String`
 
 Default value: `'icinga2'`
 
-##### <a name="elastic_username"></a>`elastic_username`
+##### <a name="-install--features--elastic_username"></a>`elastic_username`
 
 Data type: `Optional[String]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="elastic_password"></a>`elastic_password`
+##### <a name="-install--features--elastic_password"></a>`elastic_password`
 
 Data type: `Optional[String]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="elastic_send_perfdata"></a>`elastic_send_perfdata`
-
-Data type: `Boolean`
-
-
-
-Default value: ``false``
-
-##### <a name="gelf"></a>`gelf`
+##### <a name="-install--features--elastic_send_perfdata"></a>`elastic_send_perfdata`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="gelf_host"></a>`gelf_host`
+##### <a name="-install--features--gelf"></a>`gelf`
+
+Data type: `Boolean`
+
+
+
+Default value: `false`
+
+##### <a name="-install--features--gelf_host"></a>`gelf_host`
 
 Data type: `Stdlib::Host`
 
@@ -440,7 +444,7 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="gelf_port"></a>`gelf_port`
+##### <a name="-install--features--gelf_port"></a>`gelf_port`
 
 Data type: `Stdlib::Port::Unprivileged`
 
@@ -448,7 +452,7 @@ Data type: `Stdlib::Port::Unprivileged`
 
 Default value: `12201`
 
-##### <a name="gelf_source"></a>`gelf_source`
+##### <a name="-install--features--gelf_source"></a>`gelf_source`
 
 Data type: `String`
 
@@ -456,15 +460,15 @@ Data type: `String`
 
 Default value: `'icinga2'`
 
-##### <a name="gelf_send_perfdata"></a>`gelf_send_perfdata`
+##### <a name="-install--features--gelf_send_perfdata"></a>`gelf_send_perfdata`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-### <a name="installicingadb"></a>`install::icingadb`
+### <a name="install--icingadb"></a>`install::icingadb`
 
 Manage IcingaDB
 
@@ -502,30 +506,30 @@ $create_redis::               Install and configure the IcingaDB Redis service a
 
 The following parameters are available in the `install::icingadb` class:
 
-* [`icingadb`](#icingadb)
-* [`db_type`](#db_type)
-* [`db_host`](#db_host)
-* [`db_port`](#db_port)
-* [`db_name`](#db_name)
-* [`db_username`](#db_username)
-* [`db_password`](#db_password)
-* [`create_database`](#create_database)
-* [`db_accesses`](#db_accesses)
-* [`redis_host`](#redis_host)
-* [`redis_bind`](#redis_bind)
-* [`redis_port`](#redis_port)
-* [`redis_password`](#redis_password)
-* [`create_redis`](#create_redis)
+* [`icingadb`](#-install--icingadb--icingadb)
+* [`db_type`](#-install--icingadb--db_type)
+* [`db_host`](#-install--icingadb--db_host)
+* [`db_port`](#-install--icingadb--db_port)
+* [`db_name`](#-install--icingadb--db_name)
+* [`db_username`](#-install--icingadb--db_username)
+* [`db_password`](#-install--icingadb--db_password)
+* [`create_database`](#-install--icingadb--create_database)
+* [`db_accesses`](#-install--icingadb--db_accesses)
+* [`redis_host`](#-install--icingadb--redis_host)
+* [`redis_bind`](#-install--icingadb--redis_bind)
+* [`redis_port`](#-install--icingadb--redis_port)
+* [`redis_password`](#-install--icingadb--redis_password)
+* [`create_redis`](#-install--icingadb--create_redis)
 
-##### <a name="icingadb"></a>`icingadb`
+##### <a name="-install--icingadb--icingadb"></a>`icingadb`
 
 Data type: `Boolean`
 
 
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="db_type"></a>`db_type`
+##### <a name="-install--icingadb--db_type"></a>`db_type`
 
 Data type: `Enum['mysql', 'pgsql']`
 
@@ -533,7 +537,7 @@ Data type: `Enum['mysql', 'pgsql']`
 
 Default value: `'mysql'`
 
-##### <a name="db_host"></a>`db_host`
+##### <a name="-install--icingadb--db_host"></a>`db_host`
 
 Data type: `Stdlib::Host`
 
@@ -541,23 +545,15 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="db_port"></a>`db_port`
+##### <a name="-install--icingadb--db_port"></a>`db_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="db_name"></a>`db_name`
-
-Data type: `String`
-
-
-
-Default value: `'icingadb'`
-
-##### <a name="db_username"></a>`db_username`
+##### <a name="-install--icingadb--db_name"></a>`db_name`
 
 Data type: `String`
 
@@ -565,7 +561,15 @@ Data type: `String`
 
 Default value: `'icingadb'`
 
-##### <a name="db_password"></a>`db_password`
+##### <a name="-install--icingadb--db_username"></a>`db_username`
+
+Data type: `String`
+
+
+
+Default value: `'icingadb'`
+
+##### <a name="-install--icingadb--db_password"></a>`db_password`
 
 Data type: `String`
 
@@ -573,15 +577,15 @@ Data type: `String`
 
 Default value: `$install::params::icingadb_db_password`
 
-##### <a name="create_database"></a>`create_database`
+##### <a name="-install--icingadb--create_database"></a>`create_database`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="db_accesses"></a>`db_accesses`
+##### <a name="-install--icingadb--db_accesses"></a>`db_accesses`
 
 Data type: `Array[Stdlib::Host]`
 
@@ -589,7 +593,7 @@ Data type: `Array[Stdlib::Host]`
 
 Default value: `[]`
 
-##### <a name="redis_host"></a>`redis_host`
+##### <a name="-install--icingadb--redis_host"></a>`redis_host`
 
 Data type: `Stdlib::Host`
 
@@ -597,43 +601,43 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="redis_bind"></a>`redis_bind`
+##### <a name="-install--icingadb--redis_bind"></a>`redis_bind`
 
 Data type: `Optional[Array[Stdlib::Host]]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="redis_port"></a>`redis_port`
+##### <a name="-install--icingadb--redis_port"></a>`redis_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="redis_password"></a>`redis_password`
+##### <a name="-install--icingadb--redis_password"></a>`redis_password`
 
 Data type: `Optional[String]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="create_redis"></a>`create_redis`
+##### <a name="-install--icingadb--create_redis"></a>`create_redis`
 
 Data type: `Boolean`
 
 
 
-Default value: ``true``
+Default value: `true`
 
-### <a name="installparams"></a>`install::params`
+### <a name="install--params"></a>`install::params`
 
 Class for defaults and password cache data.
 
-### <a name="installplugins"></a>`install::plugins`
+### <a name="install--plugins"></a>`install::plugins`
 
 This class installs monitoring plugins.
 
@@ -645,9 +649,9 @@ $basic_plugins::               Manage what plugins have to be installed.
 
 The following parameters are available in the `install::plugins` class:
 
-* [`basic_plugins`](#basic_plugins)
+* [`basic_plugins`](#-install--plugins--basic_plugins)
 
-##### <a name="basic_plugins"></a>`basic_plugins`
+##### <a name="-install--plugins--basic_plugins"></a>`basic_plugins`
 
 Data type: `Variant[String, Array[String]]`
 
@@ -655,7 +659,7 @@ Data type: `Variant[String, Array[String]]`
 
 Default value: `$install::params::basic_plugins`
 
-### <a name="installrepos"></a>`install::repos`
+### <a name="install--repos"></a>`install::repos`
 
 This class manages the stages stable, testing and snapshot of packages.icinga.com repository
 and depending on the operating system platform some other repositories.
@@ -680,39 +684,39 @@ $manage_extras::             Manage the NETWAYS extras repository that provides 
 
 The following parameters are available in the `install::repos` class:
 
-* [`manage_stable`](#manage_stable)
-* [`manage_testing`](#manage_testing)
-* [`manage_nightly`](#manage_nightly)
-* [`configure_backports`](#configure_backports)
-* [`manage_epel`](#manage_epel)
-* [`manage_plugins`](#manage_plugins)
-* [`manage_extras`](#manage_extras)
+* [`manage_stable`](#-install--repos--manage_stable)
+* [`manage_testing`](#-install--repos--manage_testing)
+* [`manage_nightly`](#-install--repos--manage_nightly)
+* [`configure_backports`](#-install--repos--configure_backports)
+* [`manage_epel`](#-install--repos--manage_epel)
+* [`manage_plugins`](#-install--repos--manage_plugins)
+* [`manage_extras`](#-install--repos--manage_extras)
 
-##### <a name="manage_stable"></a>`manage_stable`
-
-Data type: `Boolean`
-
-
-
-Default value: ``true``
-
-##### <a name="manage_testing"></a>`manage_testing`
+##### <a name="-install--repos--manage_stable"></a>`manage_stable`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `true`
 
-##### <a name="manage_nightly"></a>`manage_nightly`
+##### <a name="-install--repos--manage_testing"></a>`manage_testing`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="configure_backports"></a>`configure_backports`
+##### <a name="-install--repos--manage_nightly"></a>`manage_nightly`
+
+Data type: `Boolean`
+
+
+
+Default value: `false`
+
+##### <a name="-install--repos--configure_backports"></a>`configure_backports`
 
 Data type: `Boolean`
 
@@ -720,7 +724,7 @@ Data type: `Boolean`
 
 Default value: `$install::params::configure_backports`
 
-##### <a name="manage_epel"></a>`manage_epel`
+##### <a name="-install--repos--manage_epel"></a>`manage_epel`
 
 Data type: `Boolean`
 
@@ -728,23 +732,23 @@ Data type: `Boolean`
 
 Default value: `$install::params::manage_epel`
 
-##### <a name="manage_plugins"></a>`manage_plugins`
+##### <a name="-install--repos--manage_plugins"></a>`manage_plugins`
 
 Data type: `Boolean`
 
 
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="manage_extras"></a>`manage_extras`
+##### <a name="-install--repos--manage_extras"></a>`manage_extras`
 
 Data type: `Boolean`
 
 
 
-Default value: ``true``
+Default value: `true`
 
-### <a name="installserver"></a>`install::server`
+### <a name="install--server"></a>`install::server`
 
 Setup a Icinga server.
 
@@ -770,24 +774,24 @@ $logging_level::             Set the log level.
 
 The following parameters are available in the `install::server` class:
 
-* [`ca`](#ca)
-* [`zone`](#zone)
-* [`global_zones`](#global_zones)
-* [`ticket_salt`](#ticket_salt)
-* [`web_api_password`](#web_api_password)
-* [`director_api_password`](#director_api_password)
-* [`logging_type`](#logging_type)
-* [`logging_level`](#logging_level)
+* [`ca`](#-install--server--ca)
+* [`zone`](#-install--server--zone)
+* [`global_zones`](#-install--server--global_zones)
+* [`ticket_salt`](#-install--server--ticket_salt)
+* [`web_api_password`](#-install--server--web_api_password)
+* [`director_api_password`](#-install--server--director_api_password)
+* [`logging_type`](#-install--server--logging_type)
+* [`logging_level`](#-install--server--logging_level)
 
-##### <a name="ca"></a>`ca`
+##### <a name="-install--server--ca"></a>`ca`
 
 Data type: `Boolean`
 
 
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="zone"></a>`zone`
+##### <a name="-install--server--zone"></a>`zone`
 
 Data type: `String`
 
@@ -795,7 +799,7 @@ Data type: `String`
 
 Default value: `'main'`
 
-##### <a name="global_zones"></a>`global_zones`
+##### <a name="-install--server--global_zones"></a>`global_zones`
 
 Data type: `Array[String]`
 
@@ -803,7 +807,7 @@ Data type: `Array[String]`
 
 Default value: `['linux-commands', 'windows-commands', 'global-templates', 'director-global']`
 
-##### <a name="ticket_salt"></a>`ticket_salt`
+##### <a name="-install--server--ticket_salt"></a>`ticket_salt`
 
 Data type: `String`
 
@@ -811,7 +815,7 @@ Data type: `String`
 
 Default value: `$install::params::ticket_salt`
 
-##### <a name="web_api_password"></a>`web_api_password`
+##### <a name="-install--server--web_api_password"></a>`web_api_password`
 
 Data type: `String`
 
@@ -819,7 +823,7 @@ Data type: `String`
 
 Default value: `$install::params::web_api_password`
 
-##### <a name="director_api_password"></a>`director_api_password`
+##### <a name="-install--server--director_api_password"></a>`director_api_password`
 
 Data type: `String`
 
@@ -827,7 +831,7 @@ Data type: `String`
 
 Default value: `$install::params::director_api_password`
 
-##### <a name="logging_type"></a>`logging_type`
+##### <a name="-install--server--logging_type"></a>`logging_type`
 
 Data type: `Enum['file', 'syslog']`
 
@@ -835,18 +839,22 @@ Data type: `Enum['file', 'syslog']`
 
 Default value: `'syslog'`
 
-##### <a name="logging_level"></a>`logging_level`
+##### <a name="-install--server--logging_level"></a>`logging_level`
 
-Data type: `Enum[
+Data type:
+
+```puppet
+Enum[
     'debug', 'information',
     'notice', 'warning', 'critical'
-  ]`
+  ]
+```
 
 
 
 Default value: `'critical'`
 
-### <a name="installweb"></a>`install::web`
+### <a name="install--web"></a>`install::web`
 
 Class to manage Icinga Web 2.
 
@@ -976,66 +984,66 @@ $reporting_mail::                             Mails are sent with this sender ad
 
 The following parameters are available in the `install::web` class:
 
-* [`icingaweb`](#icingaweb)
-* [`initial_admin_username`](#initial_admin_username)
-* [`initial_admin_password`](#initial_admin_password)
-* [`db_type`](#db_type)
-* [`db_host`](#db_host)
-* [`db_port`](#db_port)
-* [`db_name`](#db_name)
-* [`db_username`](#db_username)
-* [`db_password`](#db_password)
-* [`create_database`](#create_database)
-* [`api_host`](#api_host)
-* [`api_password`](#api_password)
-* [`icingadb_db_type`](#icingadb_db_type)
-* [`icingadb_db_host`](#icingadb_db_host)
-* [`icingadb_db_port`](#icingadb_db_port)
-* [`icingadb_db_name`](#icingadb_db_name)
-* [`icingadb_db_username`](#icingadb_db_username)
-* [`icingadb_db_password`](#icingadb_db_password)
-* [`redis_host`](#redis_host)
-* [`redis_port`](#redis_port)
-* [`redis_password`](#redis_password)
-* [`ido`](#ido)
-* [`ido_db_type`](#ido_db_type)
-* [`ido_db_host`](#ido_db_host)
-* [`ido_db_port`](#ido_db_port)
-* [`ido_db_name`](#ido_db_name)
-* [`ido_db_username`](#ido_db_username)
-* [`ido_db_password`](#ido_db_password)
-* [`ido_create_database`](#ido_create_database)
-* [`director`](#director)
-* [`director_db_type`](#director_db_type)
-* [`director_db_host`](#director_db_host)
-* [`director_db_port`](#director_db_port)
-* [`director_db_name`](#director_db_name)
-* [`director_db_username`](#director_db_username)
-* [`director_db_password`](#director_db_password)
-* [`director_create_database`](#director_create_database)
-* [`director_endpoint`](#director_endpoint)
-* [`director_api_host`](#director_api_host)
-* [`director_api_password`](#director_api_password)
-* [`business_process`](#business_process)
-* [`reporting`](#reporting)
-* [`reporting_db_type`](#reporting_db_type)
-* [`reporting_db_host`](#reporting_db_host)
-* [`reporting_db_port`](#reporting_db_port)
-* [`reporting_db_name`](#reporting_db_name)
-* [`reporting_db_username`](#reporting_db_username)
-* [`reporting_db_password`](#reporting_db_password)
-* [`reporting_create_database`](#reporting_create_database)
-* [`reporting_mail`](#reporting_mail)
+* [`icingaweb`](#-install--web--icingaweb)
+* [`initial_admin_username`](#-install--web--initial_admin_username)
+* [`initial_admin_password`](#-install--web--initial_admin_password)
+* [`db_type`](#-install--web--db_type)
+* [`db_host`](#-install--web--db_host)
+* [`db_port`](#-install--web--db_port)
+* [`db_name`](#-install--web--db_name)
+* [`db_username`](#-install--web--db_username)
+* [`db_password`](#-install--web--db_password)
+* [`create_database`](#-install--web--create_database)
+* [`api_host`](#-install--web--api_host)
+* [`api_password`](#-install--web--api_password)
+* [`icingadb_db_type`](#-install--web--icingadb_db_type)
+* [`icingadb_db_host`](#-install--web--icingadb_db_host)
+* [`icingadb_db_port`](#-install--web--icingadb_db_port)
+* [`icingadb_db_name`](#-install--web--icingadb_db_name)
+* [`icingadb_db_username`](#-install--web--icingadb_db_username)
+* [`icingadb_db_password`](#-install--web--icingadb_db_password)
+* [`redis_host`](#-install--web--redis_host)
+* [`redis_port`](#-install--web--redis_port)
+* [`redis_password`](#-install--web--redis_password)
+* [`ido`](#-install--web--ido)
+* [`ido_db_type`](#-install--web--ido_db_type)
+* [`ido_db_host`](#-install--web--ido_db_host)
+* [`ido_db_port`](#-install--web--ido_db_port)
+* [`ido_db_name`](#-install--web--ido_db_name)
+* [`ido_db_username`](#-install--web--ido_db_username)
+* [`ido_db_password`](#-install--web--ido_db_password)
+* [`ido_create_database`](#-install--web--ido_create_database)
+* [`director`](#-install--web--director)
+* [`director_db_type`](#-install--web--director_db_type)
+* [`director_db_host`](#-install--web--director_db_host)
+* [`director_db_port`](#-install--web--director_db_port)
+* [`director_db_name`](#-install--web--director_db_name)
+* [`director_db_username`](#-install--web--director_db_username)
+* [`director_db_password`](#-install--web--director_db_password)
+* [`director_create_database`](#-install--web--director_create_database)
+* [`director_endpoint`](#-install--web--director_endpoint)
+* [`director_api_host`](#-install--web--director_api_host)
+* [`director_api_password`](#-install--web--director_api_password)
+* [`business_process`](#-install--web--business_process)
+* [`reporting`](#-install--web--reporting)
+* [`reporting_db_type`](#-install--web--reporting_db_type)
+* [`reporting_db_host`](#-install--web--reporting_db_host)
+* [`reporting_db_port`](#-install--web--reporting_db_port)
+* [`reporting_db_name`](#-install--web--reporting_db_name)
+* [`reporting_db_username`](#-install--web--reporting_db_username)
+* [`reporting_db_password`](#-install--web--reporting_db_password)
+* [`reporting_create_database`](#-install--web--reporting_create_database)
+* [`reporting_mail`](#-install--web--reporting_mail)
 
-##### <a name="icingaweb"></a>`icingaweb`
+##### <a name="-install--web--icingaweb"></a>`icingaweb`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="initial_admin_username"></a>`initial_admin_username`
+##### <a name="-install--web--initial_admin_username"></a>`initial_admin_username`
 
 Data type: `String`
 
@@ -1043,7 +1051,7 @@ Data type: `String`
 
 Default value: `'icingaadmin'`
 
-##### <a name="initial_admin_password"></a>`initial_admin_password`
+##### <a name="-install--web--initial_admin_password"></a>`initial_admin_password`
 
 Data type: `String`
 
@@ -1051,7 +1059,7 @@ Data type: `String`
 
 Default value: `$install::params::initial_admin_password`
 
-##### <a name="db_type"></a>`db_type`
+##### <a name="-install--web--db_type"></a>`db_type`
 
 Data type: `Enum['mysql', 'pgsql']`
 
@@ -1059,7 +1067,7 @@ Data type: `Enum['mysql', 'pgsql']`
 
 Default value: `'mysql'`
 
-##### <a name="db_host"></a>`db_host`
+##### <a name="-install--web--db_host"></a>`db_host`
 
 Data type: `Stdlib::Host`
 
@@ -1067,23 +1075,15 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="db_port"></a>`db_port`
+##### <a name="-install--web--db_port"></a>`db_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="db_name"></a>`db_name`
-
-Data type: `String`
-
-
-
-Default value: `'icingaweb2'`
-
-##### <a name="db_username"></a>`db_username`
+##### <a name="-install--web--db_name"></a>`db_name`
 
 Data type: `String`
 
@@ -1091,7 +1091,15 @@ Data type: `String`
 
 Default value: `'icingaweb2'`
 
-##### <a name="db_password"></a>`db_password`
+##### <a name="-install--web--db_username"></a>`db_username`
+
+Data type: `String`
+
+
+
+Default value: `'icingaweb2'`
+
+##### <a name="-install--web--db_password"></a>`db_password`
 
 Data type: `String`
 
@@ -1099,15 +1107,15 @@ Data type: `String`
 
 Default value: `$install::params::web_db_password`
 
-##### <a name="create_database"></a>`create_database`
+##### <a name="-install--web--create_database"></a>`create_database`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="api_host"></a>`api_host`
+##### <a name="-install--web--api_host"></a>`api_host`
 
 Data type: `Stdlib::Host`
 
@@ -1115,7 +1123,7 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="api_password"></a>`api_password`
+##### <a name="-install--web--api_password"></a>`api_password`
 
 Data type: `String`
 
@@ -1123,7 +1131,7 @@ Data type: `String`
 
 Default value: `$install::params::web_api_password`
 
-##### <a name="icingadb_db_type"></a>`icingadb_db_type`
+##### <a name="-install--web--icingadb_db_type"></a>`icingadb_db_type`
 
 Data type: `Enum['mysql', 'pgsql']`
 
@@ -1131,7 +1139,7 @@ Data type: `Enum['mysql', 'pgsql']`
 
 Default value: `'mysql'`
 
-##### <a name="icingadb_db_host"></a>`icingadb_db_host`
+##### <a name="-install--web--icingadb_db_host"></a>`icingadb_db_host`
 
 Data type: `Stdlib::Host`
 
@@ -1139,23 +1147,15 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="icingadb_db_port"></a>`icingadb_db_port`
+##### <a name="-install--web--icingadb_db_port"></a>`icingadb_db_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="icingadb_db_name"></a>`icingadb_db_name`
-
-Data type: `String`
-
-
-
-Default value: `'icingadb'`
-
-##### <a name="icingadb_db_username"></a>`icingadb_db_username`
+##### <a name="-install--web--icingadb_db_name"></a>`icingadb_db_name`
 
 Data type: `String`
 
@@ -1163,7 +1163,15 @@ Data type: `String`
 
 Default value: `'icingadb'`
 
-##### <a name="icingadb_db_password"></a>`icingadb_db_password`
+##### <a name="-install--web--icingadb_db_username"></a>`icingadb_db_username`
+
+Data type: `String`
+
+
+
+Default value: `'icingadb'`
+
+##### <a name="-install--web--icingadb_db_password"></a>`icingadb_db_password`
 
 Data type: `String`
 
@@ -1171,7 +1179,7 @@ Data type: `String`
 
 Default value: `$install::params::icingadb_db_password`
 
-##### <a name="redis_host"></a>`redis_host`
+##### <a name="-install--web--redis_host"></a>`redis_host`
 
 Data type: `Stdlib::Host`
 
@@ -1179,31 +1187,31 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="redis_port"></a>`redis_port`
+##### <a name="-install--web--redis_port"></a>`redis_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="redis_password"></a>`redis_password`
+##### <a name="-install--web--redis_password"></a>`redis_password`
 
 Data type: `Optional['String']`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="ido"></a>`ido`
+##### <a name="-install--web--ido"></a>`ido`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="ido_db_type"></a>`ido_db_type`
+##### <a name="-install--web--ido_db_type"></a>`ido_db_type`
 
 Data type: `Enum['mysql', 'pgsql']`
 
@@ -1211,7 +1219,7 @@ Data type: `Enum['mysql', 'pgsql']`
 
 Default value: `'mysql'`
 
-##### <a name="ido_db_host"></a>`ido_db_host`
+##### <a name="-install--web--ido_db_host"></a>`ido_db_host`
 
 Data type: `Stdlib::Host`
 
@@ -1219,23 +1227,15 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="ido_db_port"></a>`ido_db_port`
+##### <a name="-install--web--ido_db_port"></a>`ido_db_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="ido_db_name"></a>`ido_db_name`
-
-Data type: `String`
-
-
-
-Default value: `'icinga2'`
-
-##### <a name="ido_db_username"></a>`ido_db_username`
+##### <a name="-install--web--ido_db_name"></a>`ido_db_name`
 
 Data type: `String`
 
@@ -1243,7 +1243,15 @@ Data type: `String`
 
 Default value: `'icinga2'`
 
-##### <a name="ido_db_password"></a>`ido_db_password`
+##### <a name="-install--web--ido_db_username"></a>`ido_db_username`
+
+Data type: `String`
+
+
+
+Default value: `'icinga2'`
+
+##### <a name="-install--web--ido_db_password"></a>`ido_db_password`
 
 Data type: `String`
 
@@ -1251,23 +1259,23 @@ Data type: `String`
 
 Default value: `$install::params::ido_db_password`
 
-##### <a name="ido_create_database"></a>`ido_create_database`
+##### <a name="-install--web--ido_create_database"></a>`ido_create_database`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="director"></a>`director`
+##### <a name="-install--web--director"></a>`director`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="director_db_type"></a>`director_db_type`
+##### <a name="-install--web--director_db_type"></a>`director_db_type`
 
 Data type: `Enum['mysql', 'pgsql']`
 
@@ -1275,7 +1283,7 @@ Data type: `Enum['mysql', 'pgsql']`
 
 Default value: `'mysql'`
 
-##### <a name="director_db_host"></a>`director_db_host`
+##### <a name="-install--web--director_db_host"></a>`director_db_host`
 
 Data type: `Stdlib::Host`
 
@@ -1283,23 +1291,15 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="director_db_port"></a>`director_db_port`
+##### <a name="-install--web--director_db_port"></a>`director_db_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="director_db_name"></a>`director_db_name`
-
-Data type: `String`
-
-
-
-Default value: `'director'`
-
-##### <a name="director_db_username"></a>`director_db_username`
+##### <a name="-install--web--director_db_name"></a>`director_db_name`
 
 Data type: `String`
 
@@ -1307,7 +1307,15 @@ Data type: `String`
 
 Default value: `'director'`
 
-##### <a name="director_db_password"></a>`director_db_password`
+##### <a name="-install--web--director_db_username"></a>`director_db_username`
+
+Data type: `String`
+
+
+
+Default value: `'director'`
+
+##### <a name="-install--web--director_db_password"></a>`director_db_password`
 
 Data type: `String`
 
@@ -1315,15 +1323,15 @@ Data type: `String`
 
 Default value: `$install::params::director_db_password`
 
-##### <a name="director_create_database"></a>`director_create_database`
+##### <a name="-install--web--director_create_database"></a>`director_create_database`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="director_endpoint"></a>`director_endpoint`
+##### <a name="-install--web--director_endpoint"></a>`director_endpoint`
 
 Data type: `String`
 
@@ -1331,7 +1339,7 @@ Data type: `String`
 
 Default value: `$install::params::director_endpoint`
 
-##### <a name="director_api_host"></a>`director_api_host`
+##### <a name="-install--web--director_api_host"></a>`director_api_host`
 
 Data type: `Stdlib::Host`
 
@@ -1339,7 +1347,7 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="director_api_password"></a>`director_api_password`
+##### <a name="-install--web--director_api_password"></a>`director_api_password`
 
 Data type: `String`
 
@@ -1347,23 +1355,23 @@ Data type: `String`
 
 Default value: `$install::params::director_api_password`
 
-##### <a name="business_process"></a>`business_process`
+##### <a name="-install--web--business_process"></a>`business_process`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="reporting"></a>`reporting`
+##### <a name="-install--web--reporting"></a>`reporting`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="reporting_db_type"></a>`reporting_db_type`
+##### <a name="-install--web--reporting_db_type"></a>`reporting_db_type`
 
 Data type: `Enum['mysql', 'pgsql']`
 
@@ -1371,7 +1379,7 @@ Data type: `Enum['mysql', 'pgsql']`
 
 Default value: `'mysql'`
 
-##### <a name="reporting_db_host"></a>`reporting_db_host`
+##### <a name="-install--web--reporting_db_host"></a>`reporting_db_host`
 
 Data type: `Stdlib::Host`
 
@@ -1379,23 +1387,15 @@ Data type: `Stdlib::Host`
 
 Default value: `'localhost'`
 
-##### <a name="reporting_db_port"></a>`reporting_db_port`
+##### <a name="-install--web--reporting_db_port"></a>`reporting_db_port`
 
 Data type: `Optional[Stdlib::Port]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="reporting_db_name"></a>`reporting_db_name`
-
-Data type: `String`
-
-
-
-Default value: `'reporting'`
-
-##### <a name="reporting_db_username"></a>`reporting_db_username`
+##### <a name="-install--web--reporting_db_name"></a>`reporting_db_name`
 
 Data type: `String`
 
@@ -1403,7 +1403,15 @@ Data type: `String`
 
 Default value: `'reporting'`
 
-##### <a name="reporting_db_password"></a>`reporting_db_password`
+##### <a name="-install--web--reporting_db_username"></a>`reporting_db_username`
+
+Data type: `String`
+
+
+
+Default value: `'reporting'`
+
+##### <a name="-install--web--reporting_db_password"></a>`reporting_db_password`
 
 Data type: `String`
 
@@ -1411,23 +1419,23 @@ Data type: `String`
 
 Default value: `$install::params::reporting_db_password`
 
-##### <a name="reporting_create_database"></a>`reporting_create_database`
+##### <a name="-install--web--reporting_create_database"></a>`reporting_create_database`
 
 Data type: `Boolean`
 
 
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="reporting_mail"></a>`reporting_mail`
+##### <a name="-install--web--reporting_mail"></a>`reporting_mail`
 
 Data type: `Optional[String]`
 
 
 
-Default value: ``undef``
+Default value: `undef`
 
-### <a name="installworker"></a>`install::worker`
+### <a name="install--worker"></a>`install::worker`
 
 Class to install Icinga worker
 
@@ -1451,33 +1459,33 @@ $logging_level::        Set the log level.
 
 The following parameters are available in the `install::worker` class:
 
-* [`ca_server`](#ca_server)
-* [`zone`](#zone)
-* [`parent_endpoints`](#parent_endpoints)
-* [`parent_zone`](#parent_zone)
-* [`global_zones`](#global_zones)
-* [`logging_type`](#logging_type)
-* [`logging_level`](#logging_level)
+* [`ca_server`](#-install--worker--ca_server)
+* [`zone`](#-install--worker--zone)
+* [`parent_endpoints`](#-install--worker--parent_endpoints)
+* [`parent_zone`](#-install--worker--parent_zone)
+* [`global_zones`](#-install--worker--global_zones)
+* [`logging_type`](#-install--worker--logging_type)
+* [`logging_level`](#-install--worker--logging_level)
 
-##### <a name="ca_server"></a>`ca_server`
+##### <a name="-install--worker--ca_server"></a>`ca_server`
 
 Data type: `Stdlib::Host`
 
 
 
-##### <a name="zone"></a>`zone`
+##### <a name="-install--worker--zone"></a>`zone`
 
 Data type: `String`
 
 
 
-##### <a name="parent_endpoints"></a>`parent_endpoints`
+##### <a name="-install--worker--parent_endpoints"></a>`parent_endpoints`
 
 Data type: `Hash[String, Hash]`
 
 
 
-##### <a name="parent_zone"></a>`parent_zone`
+##### <a name="-install--worker--parent_zone"></a>`parent_zone`
 
 Data type: `String`
 
@@ -1485,7 +1493,7 @@ Data type: `String`
 
 Default value: `'main'`
 
-##### <a name="global_zones"></a>`global_zones`
+##### <a name="-install--worker--global_zones"></a>`global_zones`
 
 Data type: `Array[String]`
 
@@ -1493,7 +1501,7 @@ Data type: `Array[String]`
 
 Default value: `['linux-commands', 'windows-commands', 'global-templates', 'director-global']`
 
-##### <a name="logging_type"></a>`logging_type`
+##### <a name="-install--worker--logging_type"></a>`logging_type`
 
 Data type: `Enum['file', 'syslog']`
 
@@ -1501,12 +1509,16 @@ Data type: `Enum['file', 'syslog']`
 
 Default value: `'syslog'`
 
-##### <a name="logging_level"></a>`logging_level`
+##### <a name="-install--worker--logging_level"></a>`logging_level`
 
-Data type: `Enum[
+Data type:
+
+```puppet
+Enum[
     'debug', 'information',
     'notice', 'warning', 'critical'
-  ]`
+  ]
+```
 
 
 
