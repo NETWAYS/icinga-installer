@@ -47,4 +47,11 @@ class install::params {
   }
 
   $director_endpoint = lookup('icinga::cert_name', undef, undef, $facts['networking']['fqdn'])
+
+  if lookup('puppet::disable', undef, undef, true) {
+    service { 'puppet':
+      ensure => stopped,
+      enable => false,
+    }
+  }
 }
