@@ -260,7 +260,12 @@ class install::web (
         '/01-cgi.conf',
         '/10-h2.conf',
         '/10-proxy_h2.conf',
-        '/15-php.conf'], $::apache::mod_dir):
+        '/15-php.conf'], $::apache::mod_dir) + prefix([
+        '/autoindex.conf',
+        '/php.conf',
+        '/ssl.conf',
+        '/userdir.conf',
+        '/wellcome.conf'], $::apache::confd_dir):
         ensure  => file,
         content => $new_file_content,
         notify => Class['apache::service'],
