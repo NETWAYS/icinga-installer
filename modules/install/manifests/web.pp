@@ -30,6 +30,10 @@
 #
 # $api_password::                               Icinga API password.
 #
+# == IcingaDB parameters:
+#
+# $icingadb::                                   Enable the deprecated IDO based monitoring module.
+#
 # === IcingaDB:                                 condition: $icingadb
 #
 # $icingadb_db_type::                           Set IcingaDB backend database type.
@@ -135,6 +139,7 @@ class install::web (
   Boolean                  $create_database           = false,  
   Stdlib::Host             $api_host                  = 'localhost',
   String                   $api_password              = $install::params::web_api_password,
+  Boolean                  $icingadb                  = false,
   Enum['mysql', 'pgsql']   $icingadb_db_type          = 'mysql',
   Stdlib::Host             $icingadb_db_host          = 'localhost',
   Optional[Stdlib::Port]   $icingadb_db_port          = undef,
@@ -201,17 +206,31 @@ class install::web (
       api_pass           => $api_password,
     }
 
-    if defined(Class['install::icingadb']) {
-      class { 'icinga::web::icingadb':
-        db_type    => $install::icingadb::db_type,
-        db_host    => $install::icingadb::db_host,
-        db_port    => $install::icingadb::db_port,
-        db_name    => $install::icingadb::db_name,
-        db_user    => $install::icingadb::db_username,
-        db_pass    => $install::icingadb::db_password,
-        redis_host => $install::icingadb::redis_host,
-        redis_port => $install::icingadb::redis_port,
-        redis_pass => $install::icingadb::redis_password,
+    if $icingadb {
+      if defined(Class['install::icingadb']) {
+        class { 'icinga::web::icingadb':
+          db_type    => $install::icingadb::db_type,
+          db_host    => $install::icingadb::db_host,
+          db_port    => $install::icingadb::db_port,
+          db_name    => $install::icingadb::db_name,
+          db_user    => $install::icingadb::db_username,
+          db_pass    => $install::icingadb::db_password,
+          redis_host => $install::icingadb::redis_host,
+          redis_port => $install::icingadb::redis_port,
+          redis_pass => $install::icingadb::redis_password,
+        }
+      } else {
+        class { 'icinga::web::icingadb':
+          db_type    => $icingadb_db_type,
+          db_host    => $icingadb_db_host,
+          db_port    => $icingadb_db_port,
+          db_name    => $icingadb_db_name,
+          db_user    => $icingadb_db_username,
+          db_pass    => $icingadb_db_password,
+          redis_host => $redis_host,
+          redis_port => $redis_port,
+          redis_pass => $redis_password,
+        }
       }
     } else {
       file { "${icingaweb2::globals::conf_dir}/enabledModules/icingadb":
@@ -289,7 +308,7 @@ class install::web (
         manage_database => $director_create_database,
         endpoint        => $director_endpoint,
         api_host        => $director_api_host,
-        api_pass        => $icinga::server::director_api_pass,
+        api_pass        => pick($icinga::server::director_api_pass, $director_api_password),
       }
     } else {
       file { "${icingaweb2::globals::conf_dir}/enabledModules/director":
