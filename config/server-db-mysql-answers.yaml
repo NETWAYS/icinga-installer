@@ -10,8 +10,9 @@ install::web:
   icingaweb: true
   db_type: mysql
   create_database: true
-  ido_db_type: mysql
-  ido_create_database: true
+  icingadb: true
+  icingadb_db_type: mysql
+  ido: false
   director: true
   director_db_type: mysql
   director_create_database: true

@@ -1,6 +1,7 @@
-# Change Log
+# Changelog
 
 ## [v1.2.5](https://github.com/netways/icinga-installer/tree/v1.2.5) (2023-07-17)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.4...v1.2.5)
 
 **Fixed bugs:**
@@ -10,6 +11,7 @@
 - Manage PHP apache config file  as empty to protect apache updates [\#75](https://github.com/NETWAYS/icinga-installer/pull/75) ([lbetz](https://github.com/lbetz))
 
 ## [v1.2.4](https://github.com/netways/icinga-installer/tree/v1.2.4) (2023-05-12)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.3...v1.2.4)
 
 **Fixed bugs:**
@@ -26,6 +28,7 @@
 - Update README [\#70](https://github.com/NETWAYS/icinga-installer/pull/70) ([martialblog](https://github.com/martialblog))
 
 ## [v1.2.3](https://github.com/netways/icinga-installer/tree/v1.2.3) (2023-04-19)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.2...v1.2.3)
 
 **Fixed bugs:**
@@ -34,6 +37,7 @@
 - Downgrade mysql module because of api changes for tis\_options in mysql::db [\#65](https://github.com/NETWAYS/icinga-installer/pull/65) ([lbetz](https://github.com/lbetz))
 
 ## [v1.2.2](https://github.com/netways/icinga-installer/tree/v1.2.2) (2023-04-15)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.1...v1.2.2)
 
 **Fixed bugs:**
@@ -42,6 +46,7 @@
 - Update minor and bugfix releases of some puppet modules [\#63](https://github.com/NETWAYS/icinga-installer/pull/63) ([lbetz](https://github.com/lbetz))
 
 ## [v1.2.1](https://github.com/netways/icinga-installer/tree/v1.2.1) (2023-04-03)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.0...v1.2.1)
 
 **Fixed bugs:**
@@ -58,6 +63,7 @@
 - Add more stuff to the documentation [\#60](https://github.com/NETWAYS/icinga-installer/pull/60) ([lbetz](https://github.com/lbetz))
 
 ## [v1.2.0](https://github.com/netways/icinga-installer/tree/v1.2.0) (2023-03-11)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.1.0...v1.2.0)
 
 **Implemented enhancements:**
@@ -68,6 +74,7 @@
 - Support auth method LDAP and Active Directory [\#23](https://github.com/NETWAYS/icinga-installer/issues/23)
 
 ## [v1.1.0](https://github.com/netways/icinga-installer/tree/v1.1.0) (2023-03-06)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.0.0...v1.1.0)
 
 **Implemented enhancements:**
@@ -79,6 +86,7 @@
 - Add web modules for reporting [\#22](https://github.com/NETWAYS/icinga-installer/issues/22)
 
 ## [v1.0.0](https://github.com/netways/icinga-installer/tree/v1.0.0) (2023-02-11)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.7.1...v1.0.0)
 
 **Implemented enhancements:**
@@ -93,6 +101,7 @@
 - Bump puppet/php to v8.2.0 [\#51](https://github.com/NETWAYS/icinga-installer/pull/51) ([martialblog](https://github.com/martialblog))
 
 ## [v0.7.1](https://github.com/netways/icinga-installer/tree/v0.7.1) (2022-08-01)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.7.0...v0.7.1)
 
 **Fixed bugs:**
@@ -100,6 +109,7 @@
 - Scenario server-ido-mysql failed on RHEL/CentOS 7 [\#49](https://github.com/NETWAYS/icinga-installer/issues/49)
 
 ## [v0.7.0](https://github.com/netways/icinga-installer/tree/v0.7.0) (2022-07-26)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.3...v0.7.0)
 
 **Implemented enhancements:**
@@ -116,6 +126,7 @@
 - Missing epel repo for AlmaLinux und Rocky [\#48](https://github.com/NETWAYS/icinga-installer/issues/48)
 
 ## [v0.6.3](https://github.com/netways/icinga-installer/tree/v0.6.3) (2022-06-08)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.2...v0.6.3)
 
 **Fixed bugs:**
@@ -123,6 +134,7 @@
 - Update puppet module icinga2 to bugfix release 3.3.1 [\#41](https://github.com/NETWAYS/icinga-installer/issues/41)
 
 ## [v0.6.2](https://github.com/netways/icinga-installer/tree/v0.6.2) (2022-05-31)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.1...v0.6.2)
 
 **Implemented enhancements:**
@@ -140,6 +152,7 @@
 - Add how to install on RHEL to documentation [\#34](https://github.com/NETWAYS/icinga-installer/issues/34)
 
 ## [v0.6.1](https://github.com/netways/icinga-installer/tree/v0.6.1) (2022-01-29)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.0...v0.6.1)
 
 **Fixed bugs:**
@@ -148,6 +161,7 @@
 - Add misisng class apache::vhosts [\#30](https://github.com/NETWAYS/icinga-installer/issues/30)
 
 ## [v0.6.0](https://github.com/netways/icinga-installer/tree/v0.6.0) (2022-01-18)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.5.0...v0.6.0)
 
 **Implemented enhancements:**
@@ -164,6 +178,7 @@
 - Updating Apache after installation breaks Apache config on RHEL [\#24](https://github.com/NETWAYS/icinga-installer/issues/24)
 
 ## [v0.5.0](https://github.com/netways/icinga-installer/tree/v0.5.0) (2021-11-08)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.5...v0.5.0)
 
 **Implemented enhancements:**
@@ -176,6 +191,7 @@
 - Small fixes to documentation [\#17](https://github.com/NETWAYS/icinga-installer/pull/17) ([widhalmt](https://github.com/widhalmt))
 
 ## [v0.4.5](https://github.com/netways/icinga-installer/tree/v0.4.5) (2021-09-03)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.3...v0.4.5)
 
 **Fixed bugs:**
@@ -184,6 +200,7 @@
 - Cannot install PostgreSQL IDO with Puppet 5 [\#14](https://github.com/NETWAYS/icinga-installer/issues/14)
 
 ## [v0.4.3](https://github.com/netways/icinga-installer/tree/v0.4.3) (2021-08-17)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.2...v0.4.3)
 
 **Fixed bugs:**
@@ -191,6 +208,7 @@
 - Resource type not found Icinga2::LogSeverity [\#13](https://github.com/NETWAYS/icinga-installer/issues/13)
 
 ## [v0.4.2](https://github.com/netways/icinga-installer/tree/v0.4.2) (2021-07-16)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.1...v0.4.2)
 
 **Implemented enhancements:**
@@ -200,9 +218,11 @@
 - Re-add scenario server-pgsql [\#9](https://github.com/NETWAYS/icinga-installer/issues/9)
 
 ## [v0.4.1](https://github.com/netways/icinga-installer/tree/v0.4.1) (2021-06-21)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.0...v0.4.1)
 
 ## [v0.4.0](https://github.com/netways/icinga-installer/tree/v0.4.0) (2021-06-18)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.3.0...v0.4.0)
 
 **Implemented enhancements:**
@@ -213,6 +233,7 @@
 - add feature graphite [\#4](https://github.com/NETWAYS/icinga-installer/issues/4)
 
 ## [v0.3.0](https://github.com/netways/icinga-installer/tree/v0.3.0) (2021-03-15)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.2.1...v0.3.0)
 
 **Implemented enhancements:**
@@ -221,18 +242,25 @@
 - pin puppetfile versions [\#1](https://github.com/NETWAYS/icinga-installer/issues/1)
 
 ## [v0.2.1](https://github.com/netways/icinga-installer/tree/v0.2.1) (2021-03-04)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.2.0...v0.2.1)
 
 ## [v0.2.0](https://github.com/netways/icinga-installer/tree/v0.2.0) (2021-03-04)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.1.3...v0.2.0)
 
 ## [v0.1.3](https://github.com/netways/icinga-installer/tree/v0.1.3) (2021-02-26)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.1.2...v0.1.3)
 
 ## [v0.1.2](https://github.com/netways/icinga-installer/tree/v0.1.2) (2021-02-23)
+
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.1.1...v0.1.2)
 
 ## [v0.1.1](https://github.com/netways/icinga-installer/tree/v0.1.1) (2021-02-22)
 
+[Full Changelog](https://github.com/netways/icinga-installer/compare/6e626639c049c3a984213f614902a4e031060dca...v0.1.1)
 
-\* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*

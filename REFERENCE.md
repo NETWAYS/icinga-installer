@@ -888,6 +888,10 @@ $api_host::                                   Icinga API endpoint to send comman
 
 $api_password::                               Icinga API password.
 
+== IcingaDB parameters:
+
+$icingadb::                                   Enable the deprecated IDO based monitoring module.
+
 === IcingaDB:                                 condition: $icingadb
 
 $icingadb_db_type::                           Set IcingaDB backend database type.
@@ -996,6 +1000,7 @@ The following parameters are available in the `install::web` class:
 * [`create_database`](#-install--web--create_database)
 * [`api_host`](#-install--web--api_host)
 * [`api_password`](#-install--web--api_password)
+* [`icingadb`](#-install--web--icingadb)
 * [`icingadb_db_type`](#-install--web--icingadb_db_type)
 * [`icingadb_db_host`](#-install--web--icingadb_db_host)
 * [`icingadb_db_port`](#-install--web--icingadb_db_port)
@@ -1130,6 +1135,14 @@ Data type: `String`
 
 
 Default value: `$install::params::web_api_password`
+
+##### <a name="-install--web--icingadb"></a>`icingadb`
+
+Data type: `Boolean`
+
+
+
+Default value: `false`
 
 ##### <a name="-install--web--icingadb_db_type"></a>`icingadb_db_type`
 
