@@ -303,6 +303,7 @@ class install::web (
       class { 'icinga::web::director':
         db_type         => $director_db_type,
         db_host         => $director_db_host,
+        db_port         => $director_db_port,
         db_user         => $director_db_username,
         db_pass         => $director_db_password,
         manage_database => $director_create_database,
