@@ -1,5 +1,26 @@
 # Changelog
 
+## [v1.2.7](https://github.com/netways/icinga-installer/tree/v1.2.7) (2023-11-21)
+
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.6...v1.2.7)
+
+**Implemented enhancements:**
+
+- Update to icingaweb2 module v3.10.0 [\#81](https://github.com/NETWAYS/icinga-installer/pull/81) ([lbetz](https://github.com/lbetz))
+
+**Fixed bugs:**
+
+- Port for director db connection is not passed [\#80](https://github.com/NETWAYS/icinga-installer/issues/80)
+- Add missing general monitoring settings [\#82](https://github.com/NETWAYS/icinga-installer/pull/82) ([lbetz](https://github.com/lbetz))
+
+## [v1.2.6](https://github.com/netways/icinga-installer/tree/v1.2.6) (2023-10-04)
+
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.5...v1.2.6)
+
+**Fixed bugs:**
+
+- Some fixes to install only icingaweb2 with icingadb module [\#79](https://github.com/NETWAYS/icinga-installer/issues/79)
+
 ## [v1.2.5](https://github.com/netways/icinga-installer/tree/v1.2.5) (2023-07-17)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.4...v1.2.5)
