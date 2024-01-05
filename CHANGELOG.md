@@ -1,17 +1,29 @@
 # Changelog
 
+## [v1.2.8](https://github.com/netways/icinga-installer/tree/v1.2.8) (2024-01-05)
+
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.7...v1.2.8)
+
+**Fixed bugs:**
+
+- \[Bug\]: Redis password isn't set in Icinga2 feature [\#84](https://github.com/NETWAYS/icinga-installer/issues/84)
+
+**Merged pull requests:**
+
+- Add Issue Templates [\#83](https://github.com/NETWAYS/icinga-installer/pull/83) ([martialblog](https://github.com/martialblog))
+
 ## [v1.2.7](https://github.com/netways/icinga-installer/tree/v1.2.7) (2023-11-21)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.6...v1.2.7)
-
-**Implemented enhancements:**
-
-- Update to icingaweb2 module v3.10.0 [\#81](https://github.com/NETWAYS/icinga-installer/pull/81) ([lbetz](https://github.com/lbetz))
 
 **Fixed bugs:**
 
 - Port for director db connection is not passed [\#80](https://github.com/NETWAYS/icinga-installer/issues/80)
 - Add missing general monitoring settings [\#82](https://github.com/NETWAYS/icinga-installer/pull/82) ([lbetz](https://github.com/lbetz))
+
+**Merged pull requests:**
+
+- Update to icingaweb2 module v3.10.0 [\#81](https://github.com/NETWAYS/icinga-installer/pull/81) ([lbetz](https://github.com/lbetz))
 
 ## [v1.2.6](https://github.com/netways/icinga-installer/tree/v1.2.6) (2023-10-04)
 
@@ -87,7 +99,7 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.1.0...v1.2.0)
 
-**Implemented enhancements:**
+**Closed issues:**
 
 - Add support for additional apache vhost configs [\#58](https://github.com/NETWAYS/icinga-installer/issues/58)
 - Install icingaweb2 model pdfexport by default [\#57](https://github.com/NETWAYS/icinga-installer/issues/57)
@@ -98,28 +110,28 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.0.0...v1.1.0)
 
-**Implemented enhancements:**
-
-- Add support for reporting [\#55](https://github.com/NETWAYS/icinga-installer/pull/55) ([lbetz](https://github.com/lbetz))
-
 **Closed issues:**
 
 - Add web modules for reporting [\#22](https://github.com/NETWAYS/icinga-installer/issues/22)
+
+**Merged pull requests:**
+
+- Add support for reporting [\#55](https://github.com/NETWAYS/icinga-installer/pull/55) ([lbetz](https://github.com/lbetz))
 
 ## [v1.0.0](https://github.com/netways/icinga-installer/tree/v1.0.0) (2023-02-11)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.7.1...v1.0.0)
 
-**Implemented enhancements:**
+**Closed issues:**
 
 - Rename head master branch to main [\#53](https://github.com/NETWAYS/icinga-installer/issues/53)
 - Add feature influxdb2 [\#31](https://github.com/NETWAYS/icinga-installer/issues/31)
-- Add support for IcingaDB [\#54](https://github.com/NETWAYS/icinga-installer/pull/54) ([lbetz](https://github.com/lbetz))
-- Rebuild interactive structure and change some parameter names [\#52](https://github.com/NETWAYS/icinga-installer/pull/52) ([lbetz](https://github.com/lbetz))
 
 **Merged pull requests:**
 
 - Bump puppet/php to v8.2.0 [\#51](https://github.com/NETWAYS/icinga-installer/pull/51) ([martialblog](https://github.com/martialblog))
+- Add support for IcingaDB [\#54](https://github.com/NETWAYS/icinga-installer/pull/54) ([lbetz](https://github.com/lbetz))
+- Rebuild interactive structure and change some parameter names [\#52](https://github.com/NETWAYS/icinga-installer/pull/52) ([lbetz](https://github.com/lbetz))
 
 ## [v0.7.1](https://github.com/netways/icinga-installer/tree/v0.7.1) (2022-08-01)
 
@@ -133,7 +145,11 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.3...v0.7.0)
 
-**Implemented enhancements:**
+**Fixed bugs:**
+
+- Missing epel repo for AlmaLinux und Rocky [\#48](https://github.com/NETWAYS/icinga-installer/issues/48)
+
+**Closed issues:**
 
 - Update icingaweb2 module to v3.4.1 [\#47](https://github.com/NETWAYS/icinga-installer/issues/47)
 - Update icinga module to v2.8.0 [\#46](https://github.com/NETWAYS/icinga-installer/issues/46)
@@ -141,10 +157,6 @@
 - Add Alma and Rocky Linux support [\#38](https://github.com/NETWAYS/icinga-installer/issues/38)
 - Add management of powertools repo [\#37](https://github.com/NETWAYS/icinga-installer/issues/37)
 - Add a randomize initial icingaadmin password [\#26](https://github.com/NETWAYS/icinga-installer/issues/26)
-
-**Fixed bugs:**
-
-- Missing epel repo for AlmaLinux und Rocky [\#48](https://github.com/NETWAYS/icinga-installer/issues/48)
 
 ## [v0.6.3](https://github.com/netways/icinga-installer/tree/v0.6.3) (2022-06-08)
 
@@ -158,16 +170,13 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.6.1...v0.6.2)
 
-**Implemented enhancements:**
-
-- Add additional module path for icingaweb2 [\#40](https://github.com/NETWAYS/icinga-installer/issues/40)
-
 **Fixed bugs:**
 
 - Apache does not start on RHEL7 because of unknown option CGIPassAuth [\#33](https://github.com/NETWAYS/icinga-installer/issues/33)
 
 **Closed issues:**
 
+- Add additional module path for icingaweb2 [\#40](https://github.com/NETWAYS/icinga-installer/issues/40)
 - Add the requirement of Icinga subscription on RHEL 8 based systems [\#39](https://github.com/NETWAYS/icinga-installer/issues/39)
 - Add to documentation how to setup PHP 7.4 on CentOS8 [\#35](https://github.com/NETWAYS/icinga-installer/issues/35)
 - Add how to install on RHEL to documentation [\#34](https://github.com/NETWAYS/icinga-installer/issues/34)
@@ -185,12 +194,6 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.5.0...v0.6.0)
 
-**Implemented enhancements:**
-
-- Drop Debian stretch support [\#29](https://github.com/NETWAYS/icinga-installer/issues/29)
-- Add web module fileshipper [\#21](https://github.com/NETWAYS/icinga-installer/issues/21)
-- Support puppet7, drop puppet5 [\#20](https://github.com/NETWAYS/icinga-installer/issues/20)
-
 **Fixed bugs:**
 
 - new apt key for puppet repo [\#19](https://github.com/NETWAYS/icinga-installer/issues/19)
@@ -198,18 +201,24 @@
 - Disable director does not disable the module [\#25](https://github.com/NETWAYS/icinga-installer/issues/25)
 - Updating Apache after installation breaks Apache config on RHEL [\#24](https://github.com/NETWAYS/icinga-installer/issues/24)
 
+**Closed issues:**
+
+- Drop Debian stretch support [\#29](https://github.com/NETWAYS/icinga-installer/issues/29)
+- Add web module fileshipper [\#21](https://github.com/NETWAYS/icinga-installer/issues/21)
+- Support puppet7, drop puppet5 [\#20](https://github.com/NETWAYS/icinga-installer/issues/20)
+
 ## [v0.5.0](https://github.com/netways/icinga-installer/tree/v0.5.0) (2021-11-08)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.5...v0.5.0)
 
-**Implemented enhancements:**
-
-- Add support for Debian Bullseye [\#16](https://github.com/NETWAYS/icinga-installer/issues/16)
-- add icingaweb2-module-director [\#7](https://github.com/NETWAYS/icinga-installer/issues/7)
-
 **Fixed bugs:**
 
 - Small fixes to documentation [\#17](https://github.com/NETWAYS/icinga-installer/pull/17) ([widhalmt](https://github.com/widhalmt))
+
+**Closed issues:**
+
+- Add support for Debian Bullseye [\#16](https://github.com/NETWAYS/icinga-installer/issues/16)
+- add icingaweb2-module-director [\#7](https://github.com/NETWAYS/icinga-installer/issues/7)
 
 ## [v0.4.5](https://github.com/netways/icinga-installer/tree/v0.4.5) (2021-09-03)
 
@@ -232,7 +241,7 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.4.1...v0.4.2)
 
-**Implemented enhancements:**
+**Closed issues:**
 
 - Add module businessprocess [\#11](https://github.com/NETWAYS/icinga-installer/issues/11)
 - Rename scenario server to server-ido-mysql [\#10](https://github.com/NETWAYS/icinga-installer/issues/10)
@@ -246,7 +255,7 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.3.0...v0.4.0)
 
-**Implemented enhancements:**
+**Closed issues:**
 
 - add icingaweb2-module-businessprocess [\#3](https://github.com/NETWAYS/icinga-installer/issues/3)
 - add feature livestatus [\#6](https://github.com/NETWAYS/icinga-installer/issues/6)
@@ -257,7 +266,7 @@
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v0.2.1...v0.3.0)
 
-**Implemented enhancements:**
+**Closed issues:**
 
 - add new scenario server-pgsql [\#2](https://github.com/NETWAYS/icinga-installer/issues/2)
 - pin puppetfile versions [\#1](https://github.com/NETWAYS/icinga-installer/issues/1)

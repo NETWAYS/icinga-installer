@@ -12,9 +12,9 @@ mod 'puppet/php',		'8.2.0'
 mod 'puppetlabs/postgresql',	'8.2.1'
 mod 'puppetlabs/stdlib',	'8.5.0'
 mod 'puppet/systemd',		'4.1.0'
-mod 'icinga/icinga2',		'3.6.2'
-mod 'icinga/icingadb',		'1.0.0'
-mod 'icinga/icingaweb2',	'3.10.0'
+mod 'icinga/icinga2',		'3.7.0'
+mod 'icinga/icingadb',		'1.0.1'
+mod 'icinga/icingaweb2',	'3.10.1'
 mod 'icinga/icinga',		'3.2.1'
 
 mod 'install',
