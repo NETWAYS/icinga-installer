@@ -50,7 +50,7 @@ class install::icingadb (
     class { 'icinga2::feature::icingadb':
       host     => $redis_host,
       port     => $redis_port,
-      password => $redis_pass,
+      password => $redis_password,
     }
   }
 
