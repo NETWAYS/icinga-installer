@@ -7,3 +7,7 @@ icingaweb2::module_path:
 lookup_options:
   icingaweb2::module_path:
     merge: unique
+  mysql::server::override_options:
+    merge:
+      strategy: deep
+      merge_hash_arrays: true
