@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.3.0](https://github.com/netways/icinga-installer/tree/v1.3.0) (2024-02-16)
+
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.8...v1.3.0)
+
+**Closed issues:**
+
+- Add Debian Bookworm Support [\#74](https://github.com/NETWAYS/icinga-installer/issues/74)
+
 ## [v1.2.8](https://github.com/netways/icinga-installer/tree/v1.2.8) (2024-01-05)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.7...v1.2.8)
