@@ -15,7 +15,7 @@ mod 'puppet/systemd',		'6.0.0'
 mod 'icinga/icinga2',		'4.1.1'
 mod 'icinga/icingadb',		'1.0.1'
 mod 'icinga/icingaweb2',	'3.10.1'
-mod 'icinga/icinga',		'4.1.1'
+mod 'icinga/icinga',		'4.2.0'
 
 mod 'install',
   :local => true
