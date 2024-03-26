@@ -87,7 +87,7 @@ Username `<username>` and password `<password>` must be set according to your su
 ```bash
 apt install wget apt-transport-https gpg
 get -O - https://packages.netways.de/netways-repo.asc | apt-key add -
-echo "deb https://packages.netways.de/extras/ubuntu bullseye main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+echo "deb https://packages.netways.de/extras/debian bullseye main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
 echo "deb https://apt.puppetlabs.com bullseye puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
@@ -97,14 +97,12 @@ apt install -y icinga-installer
 
 ## Debian Bookworm:
 
-For bookworm still exists no puppet-agent package. But we can use the Bullseye version.
-
 ```bash
-apt install wget apt-transport-https gpg
-wget -O -  https://packages.netways.de/netways-repo.asc | gpg --dearmor -o /usr/share/keyrings/netways-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/netways-archive-keyring.gpg] https://packages.netways.de/extras/ubuntu bookworm main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+apt install -y wget apt-transport-https gpg
+wget -O /etc/apt/keyrings/netways-repo.asc  https://packages.netways.de/netways-repo.asc
+echo "deb [signed-by=/etc/apt/keyrings/netways-repo.asc] https://packages.netways.de/extras/debian bookworm main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | gpg --dearmor -o /usr/share/keyrings/puppet-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com bullseye puppet7" | tee /etc/apt/sources.list.d/puppet7.list
+echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com bookworm puppet7" | tee /etc/apt/sources.list.d/puppet7.list
 apt update
 
 apt install -y icinga-installer
