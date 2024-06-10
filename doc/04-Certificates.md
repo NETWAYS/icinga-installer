@@ -1,10 +1,20 @@
 # Certificates
 
-This section shows how to transfer certificates or even the CA, e.g. from a previous installation. The adjustments for this goes to file `/etc/icinga-installer/custom-hiera.yaml`.
+This section descibe how to handle certificates and the CA. All customizations are done in file `/etc/icinga-installer/custom-hiera.yaml`.
 
-NOTICE: The indentation here (multiline string) is intentionally just a blank!
+## Certificate Name
+
+All certificates have the FQDN by default. To replace the name with an own choice add the following line:
+
+```yaml
+icinga::cert_name: "%{facts.networking.hostname}"
+```
+
+The example above using a fact to set the certname to the short host name. Any scalar string is of course also permitted.
 
 ## CA Transfer
+
+Here`s shown how to transfer the CA, e.g. from a previous installation.
 
 ```yaml
 icinga2::pki::ca::ca_key: |
@@ -15,7 +25,11 @@ icinga2::pki::ca::ca_cert: |
  ...
 ```
 
+NOTICE: The indentation here (multiline string) is intentionally just a blank!
+
 ## Certificate Transfer
+
+The contant of the certicate for Icinga itself can also be set or transfered.
 
 ```yaml
 icinga2::feature::api::ssl_cacert: |
@@ -28,3 +42,5 @@ icinga2::feature::api::ssl_cert: |
  -----BEGIN CERTIFICATE-----
  ...
 ```
+
+NOTICE: The indentation here (multiline string) is intentionally just a blank!
