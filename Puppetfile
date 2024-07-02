@@ -12,10 +12,10 @@ mod 'puppet/php',		'10.1.0'
 mod 'puppetlabs/postgresql',	'10.0.2'
 mod 'puppetlabs/stdlib',	'8.6.0'
 mod 'puppet/systemd',		'6.0.0'
-mod 'icinga/icinga2',		'4.1.1'
-mod 'icinga/icingadb',		'1.0.1'
+mod 'icinga/icinga2',		'4.2.1'
+mod 'puppet/icingadb',		'2.0.1'
 mod 'icinga/icingaweb2',	'3.10.1'
-mod 'icinga/icinga',		'4.2.0'
+mod 'icinga/icinga',		'4.2.1'
 
 mod 'install',
   :local => true
