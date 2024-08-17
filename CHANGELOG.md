@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.3.1](https://github.com/netways/icinga-installer/tree/v1.3.1) (2024-07-02)
+
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.3.0...v1.3.1)
+
+**Fixed bugs:**
+
+- Update icingadb module to fix a bug with the new icingadb-redis package from Icinga [\#88](https://github.com/NETWAYS/icinga-installer/issues/88)
+
+**Merged pull requests:**
+
+- Add doc how to change the default certifacte name. [\#87](https://github.com/NETWAYS/icinga-installer/pull/87) ([lbetz](https://github.com/lbetz))
+- Fix documentation for debian [\#85](https://github.com/NETWAYS/icinga-installer/pull/85) ([RincewindsHat](https://github.com/RincewindsHat))
+
 ## [v1.3.0](https://github.com/netways/icinga-installer/tree/v1.3.0) (2024-02-16)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.2.8...v1.3.0)
