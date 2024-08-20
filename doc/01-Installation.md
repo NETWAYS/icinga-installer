@@ -10,7 +10,7 @@ Icinga Web 2 >= v2.9 recommend PHP 7.3 or higher, so we have to change the defau
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm
-dnf install -y https://yum.puppet.com/puppet7-release-el-8.noarch.rpm
+dnf install -y https://yum.puppet.com/puppet8-release-el-8.noarch.rpm
 
 dnf module reset php
 dnf module enable php:7.4
@@ -41,7 +41,7 @@ Username `<username>` and password `<password>` must be set according to your su
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/9/noarch/netways-extras-release/netways-extras-release-9-1.el9.netways.noarch.rpm
-dnf install -y https://yum.puppet.com/puppet7-release-el-9.noarch.rpm
+dnf install -y https://yum.puppet.com/puppet8-release-el-9.noarch.rpm
 
 dnf install -y icinga-installer
 ```
@@ -70,7 +70,7 @@ apt install wget apt-transport-https gpg
 get -O - https://packages.netways.de/netways-repo.asc | apt-key add -
 echo "deb https://packages.netways.de/extras/debian bullseye main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
-echo "deb https://apt.puppetlabs.com bullseye puppet7" | tee /etc/apt/sources.list.d/puppet7.list
+echo "deb https://apt.puppetlabs.com bullseye puppet8" | tee /etc/apt/sources.list.d/puppet8.list
 apt update
 
 apt install -y icinga-installer
@@ -83,7 +83,7 @@ apt install -y wget apt-transport-https gpg
 wget -O /etc/apt/keyrings/netways-repo.asc  https://packages.netways.de/netways-repo.asc
 echo "deb [signed-by=/etc/apt/keyrings/netways-repo.asc] https://packages.netways.de/extras/debian bookworm main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | gpg --dearmor -o /usr/share/keyrings/puppet-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com bookworm puppet7" | tee /etc/apt/sources.list.d/puppet7.list
+echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com bookworm puppet8" | tee /etc/apt/sources.list.d/puppet8.list
 apt update
 
 apt install -y icinga-installer
@@ -96,7 +96,7 @@ apt install -y ca-certificates wget apt-transport-https gpg
 wget -O - https://packages.netways.de/netways-repo.asc | apt-key add -
 echo "deb https://packages.netways.de/extras/ubuntu focal main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O - https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | apt-key add -
-echo "deb https://apt.puppetlabs.com focal puppet7" | tee /etc/apt/sources.list.d/puppet7.list
+echo "deb https://apt.puppetlabs.com focal puppet8" | tee /etc/apt/sources.list.d/puppet8.list
 apt update
 
 apt install -y icinga-installer
@@ -109,7 +109,20 @@ apt install wget apt-transport-https gpg
 wget -O -  https://packages.netways.de/netways-repo.asc | gpg --dearmor -o /usr/share/keyrings/netways-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/netways-archive-keyring.gpg] https://packages.netways.de/extras/ubuntu jammy main" | tee /etc/apt/sources.list.d/netways-extras-release.list
 wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | gpg --dearmor -o /usr/share/keyrings/puppet-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com jammy puppet7" | tee /etc/apt/sources.list.d/puppet7.list
+echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com jammy puppet8" | tee /etc/apt/sources.list.d/puppet8.list
+apt update
+
+apt install -y icinga-installer
+```
+
+## Ubuntu Noble Numbat
+
+```bash
+apt install wget apt-transport-https gpg
+wget -O -  https://packages.netways.de/netways-repo.asc | gpg --dearmor -o /usr/share/keyrings/netways-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/netways-archive-keyring.gpg] https://packages.netways.de/extras/ubuntu noble main" | tee /etc/apt/sources.list.d/netways-extras-release.list
+wget -O -  https://apt.puppetlabs.com/DEB-GPG-KEY-puppet-20250406 | gpg --dearmor -o /usr/share/keyrings/puppet-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/puppet-archive-keyring.gpg] https://apt.puppetlabs.com noble puppet8" | tee /etc/apt/sources.list.d/puppet8.list
 apt update
 
 apt install -y icinga-installer

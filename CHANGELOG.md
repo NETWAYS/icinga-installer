@@ -1,5 +1,22 @@
 # Changelog
 
+## [v2.0.0](https://github.com/netways/icinga-installer/tree/v2.0.0) (2024-08-20)
+
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.3.2...v2.0.0)
+
+**Fixed bugs:**
+
+- \[Bug\]:  packages.icinga.com gpg gets placed in the legacy location \(debian bookworm at least\) [\#86](https://github.com/NETWAYS/icinga-installer/issues/86)
+
+**Closed issues:**
+
+- Drop EOL EL7 support [\#90](https://github.com/NETWAYS/icinga-installer/issues/90)
+- Add SELinux support for Agent and Worker [\#89](https://github.com/NETWAYS/icinga-installer/issues/89)
+
+## [v1.3.2](https://github.com/netways/icinga-installer/tree/v1.3.2) (2024-08-17)
+
+[Full Changelog](https://github.com/netways/icinga-installer/compare/v1.3.1...v1.3.2)
+
 ## [v1.3.1](https://github.com/netways/icinga-installer/tree/v1.3.1) (2024-07-02)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.3.0...v1.3.1)
