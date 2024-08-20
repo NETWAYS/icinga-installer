@@ -2,30 +2,9 @@
 
 All commands have to be performed as user `root`.
 
-## RHEL 7:
+## RHEL/AlmaLinux/Rocky 8:
 
-```bash
-subscription-manager repos --enable rhel-7-server-optional-rpms
-subscription-manager repos --enable rhel-server-rhscl-7-rpms
-
-yum install -y https://packages.netways.de/extras/epel/7/noarch/netways-extras-release/netways-extras-release-7-1.el7.netways.noarch.rpm
-yum install -y https://yum.puppet.com/puppet7/puppet7-release-el-7.noarch.rpm
-
-yum install -y icinga-installer
-```
-
-## CentOS 7:
-
-```bash
-yum install -y centos-release-scl
-
-yum install -y https://packages.netways.de/extras/epel/7/noarch/netways-extras-release/netways-extras-release-7-1.el7.netways.noarch.rpm
-yum install -y https://yum.puppet.com/puppet7-release-el-7.noarch.rpm
-
-yum install -y icinga-installer
-```
-
-## RHEL/AlmaLinux/Rocky 8 and CentOS Stream 8:
+**Notice**: The Installer supports SELinux only for Icinga 2 out of the box. So it makes no sense to set SELinux to `enforce` for server systems but you are able to do that for agents or workers.
 
 Icinga Web 2 >= v2.9 recommend PHP 7.3 or higher, so we have to change the default package module for PHP!
 
@@ -57,6 +36,8 @@ Username `<username>` and password `<password>` must be set according to your su
 
 
 ## RHEL/AlmaLinux/Rocky 9 and CentOS Stream 9:
+
+**Notice**: The Installer supports SELinux only for Icinga 2 out of the box. So it makes no sense to set SELinux to `enforce` for server systems but you are able to do that for agents or workers.
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/9/noarch/netways-extras-release/netways-extras-release-9-1.el9.netways.noarch.rpm

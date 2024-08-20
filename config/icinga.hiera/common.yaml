@@ -1,11 +1,9 @@
 ---
 icinga2::purge_features: true
+icinga2::manage_selinux: true
 icingaweb2::globals::role_replace: false
 icingaweb2::module_path:
   - /usr/local/share/icingaweb2-modules
-
-icingaweb2::module::director::package_name: icinga-director
-icingaweb2::module::businessprocess::package_name: icinga-businessprocess
 
 lookup_options:
   icingaweb2::module_path:
