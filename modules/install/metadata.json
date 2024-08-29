@@ -10,7 +10,7 @@
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 5.0.0 < 9.0.0"
+      "version_requirement": ">= 5.0.0 < 10.0.0"
     },
     {
       "name": "puppet/icinga",
@@ -63,14 +63,15 @@
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
         "20.04",
-        "22.04"
+        "22.04",
+	"24.04"
       ]
     }
   ],
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 7.9.0 < 8.0.0"
+      "version_requirement": ">= 7.9.0 < 9.0.0"
     }
   ],
   "tags": [

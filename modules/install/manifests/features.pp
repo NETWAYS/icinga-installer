@@ -153,7 +153,7 @@ class install::features (
     log_dir => $_compat_log_path,
   }
 
-  if $socket_type == 'unix' {
+  if $livestatus_socket_type == 'unix' {
     class { 'icinga2::feature::livestatus':
       ensure          => if $livestatus { 'present' } else { 'absent' },
       socket_type     => $livestatus_socket_type,
@@ -174,12 +174,12 @@ class install::features (
   #
   class { 'icinga2::feature::elasticsearch':
     ensure               => if $elasticsearch { 'present' } else { 'absent' },
-    host                 => $elasic_host,
-    port                 => $elasic_port,
-    index                => $elasic_index,
-    username             => $elasic_username,
-    password             => $elasic_password,
-    enable_send_perfdata => $elasic_send_perfdata,
+    host                 => $elastic_host,
+    port                 => $elastic_port,
+    index                => $elastic_index,
+    username             => $elastic_username,
+    password             => $elastic_password,
+    enable_send_perfdata => $elastic_send_perfdata,
   }
 
   #
