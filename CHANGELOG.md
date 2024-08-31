@@ -1,6 +1,6 @@
 # Changelog
 
-## [v2.0.0](https://github.com/netways/icinga-installer/tree/v2.0.0) (2024-08-29)
+## [v2.0.0](https://github.com/netways/icinga-installer/tree/v2.0.0) (2024-08-31)
 
 [Full Changelog](https://github.com/netways/icinga-installer/compare/v1.3.2...v2.0.0)
 
@@ -10,12 +10,9 @@
 
 **Closed issues:**
 
+- Use Ruby of Puppet AIO package [\#92](https://github.com/NETWAYS/icinga-installer/issues/92)
 - Drop EOL EL7 support [\#90](https://github.com/NETWAYS/icinga-installer/issues/90)
 - Add SELinux support for Agent and Worker [\#89](https://github.com/NETWAYS/icinga-installer/issues/89)
-
-**Merged pull requests:**
-
-- Add Puppet 8 and Ubuntu Noble support [\#91](https://github.com/NETWAYS/icinga-installer/pull/91) ([lbetz](https://github.com/lbetz))
 
 ## [v1.3.2](https://github.com/netways/icinga-installer/tree/v1.3.2) (2024-08-17)
 
