@@ -1,6 +1,6 @@
 # Simple installer for the Icinga software stack
 
-The `icinga-installer` installer is a tool to install and manage you Icinga instance. It is based on Puppet and uses `YAML` configuration.
+The `icinga-installer` installer is a tool to install and manage your Icinga instance. It is based on Puppet and uses `YAML` configuration.
 
 ## Requirements:
 
@@ -9,7 +9,7 @@ The `icinga-installer` installer is a tool to install and manage you Icinga inst
 
 ## Installation
 
-Please refer to the [doc](https://github.com/NETWAYS/icinga-installer/tree/main/doc) directory for an installation guide and further information how to configure the Installer.
+Please refer to the [doc](https://github.com/NETWAYS/icinga-installer/tree/main/doc) directory for an installation guide and further information on how to configure the installer.
 
 ## Usage
 
