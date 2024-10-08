@@ -9,7 +9,7 @@ The `icinga-installer` installer is a tool to install and manage your Icinga ins
 
 ## Installation
 
-Please refer to the [doc](https://github.com/NETWAYS/icinga-installer/tree/main/doc) directory for an installation guide and further information how to configure the installer.
+Please refer to the [doc](https://github.com/NETWAYS/icinga-installer/tree/main/doc) directory for an installation guide and further information on how to configure the installer.
 
 ## Usage
 
