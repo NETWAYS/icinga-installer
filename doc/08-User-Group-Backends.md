@@ -1,6 +1,6 @@
 # Access Backends
 
-The user and group backends or their configuration files (`authentication.ini` and `groups.ini`) are also managed exclusively by the Installer. Extensions must also be added in `/etc/icinga-installer/custo-hiera.yaml`.
+The user and group backends or their configuration files (`authentication.ini` and `groups.ini`) are also managed exclusively by the Installer. Extensions must also be added in `/etc/icinga-installer/custom-hiera.yaml`.
 
 For full parameter list see [icingaweb2::config::authmethod](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2configauthmethod) and [icingaweb2::config::groupbackend](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2configgroupbackend).
 
