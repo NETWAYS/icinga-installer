@@ -23,7 +23,7 @@ apache::vhosts::vhosts:
 
 For more details, check out the [documentation of the apache puppet module](https://github.com/puppetlabs/puppetlabs-apache/blob/main/REFERENCE.md).
 
-To hardening your Apache setup, disable tracing and restricts HTTPS to the TLS 1.2 and 1.3 protocol families:
+To harden your Apache setup, disable tracing and restrict HTTPS to the TLS 1.2 and 1.3 protocol families:
 
 ```yaml
 apache::trace_enable: 'Off'
@@ -33,7 +33,7 @@ apache::mod::ssl::ssl_protocol:
   - '+TLSv1.3'
 ```
 
-Or maybe be we won't use the default Apache config of Icinga Web and make it available directly via a vhost:
+Or maybe we don't want to use the default Apache config of Icinga Web and make it available directly via a vhost:
 
 ```yaml
 icinga::web::apache_config: false

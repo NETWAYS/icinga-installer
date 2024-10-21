@@ -14,7 +14,7 @@ icinga::repos:
 
 ## Installing from Non-Upstream Repositories
 
-o change to a non upstream repository, e.g. a local mirror, the repos can be customized via hiera. The module does a deep merge lookup for a hash named icinga::repos. Allowed keys are:
+To change to a non upstream repository, e.g. a local mirror, the repos can be customized via hiera. The module does a deep merge lookup for a hash named icinga::repos. Allowed keys are:
 
 * icinga-stable-release
 * epel (only on RHEL platforms)
@@ -51,7 +51,7 @@ icinga::repos:
     
 Also the Backports repo on Debian can be configured like the apt class of course, see [apt::backports](https://github.com/puppetlabs/puppetlabs-apt/blob/main/REFERENCE.md#apt--backports).
 
-NOTICE: Backports is required for Debian Bustser!
+NOTICE: Backports is required for Debian Buster!
 
 ```yaml
 apt::backports::location: https://repo.example.com/debian
