@@ -6,7 +6,7 @@ All commands have to be performed as user `root`.
 
 **Notice**: The Installer supports SELinux only for Icinga 2 out of the box. So it makes no sense to set SELinux to `enforce` for server systems but you are able to do that for agents or workers.
 
-Icinga Web 2 >= v2.9 recommend PHP 7.3 or higher, so we have to change the default package module for PHP!
+Icinga Web 2 >= v2.9 recommends PHP 7.3 or higher, so we have to change the default package module for PHP!
 
 ```bash
 dnf install -y https://packages.netways.de/extras/epel/8/noarch/netways-extras-release/netways-extras-release-8-1.el8.netways.noarch.rpm

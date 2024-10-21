@@ -17,7 +17,7 @@ icingaweb2::resources:
 
 The parameters available for databases (types: mysql, pgsql, oracle, oci, mysql, ibm or sqlite) are explained in [icingaweb2::resource::database](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2resourcedatabase).
 
-Authentication to an LDAP or Active Director also requires an additional resource (type: ldap), the list of allowed or required parameters can be found in [icingaweb2::resource::ldap](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2resourceldap).
+Authentication to an LDAP or Active Directory server also requires an additional resource (type: ldap), the list of allowed or required parameters can be found in [icingaweb2::resource::ldap](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2resourceldap).
 
 ```yaml
 icingaweb2::resources:
@@ -31,4 +31,4 @@ icingaweb2::resources:
     bind_pw: supersecret
 ```
 
-NOTICE: When using encryption, either the RootCA certificate must be stored in the system and/or the system's LDAP client must be configured accordingly (e.g., dedicated specification of the RootCA or disabling of verification).
+NOTICE: When using encryption, either the RootCA certificate must be stored in the system and/or the system's LDAP client must be configured accordingly (e.g. dedicated specification of the RootCA or disabling of verification).

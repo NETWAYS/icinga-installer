@@ -2,7 +2,7 @@
 
 ## External database examples
 
-The following parameters, except for TLS, can of course also be set via CLI or in interactive mode. That mean the optional TLS parameters have to be stored into `/etc/icinga-installer/custom-hiera.yaml`!
+The following parameters, except for TLS, can of course also be set via CLI or in interactive mode. That means the optional TLS parameters have to be stored in `/etc/icinga-installer/custom-hiera.yaml`!
 
 ### Icinga Web
 
@@ -18,7 +18,7 @@ Optional for TLS secured connections add:
 ```yaml
 icingaweb2::use_tls: true
 icingaweb2::tls_noverify: false
-icingaweb2::tls_cacert_file: <localtion of cacert, if tls_noverify = false>
+icingaweb2::tls_cacert_file: <location of cacert, if tls_noverify = false>
 ```
 
 For more details, see class [icingaweb2](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2).
@@ -40,10 +40,10 @@ Optional for TLS secured connections add:
 ```yaml
 icingadb::db_use_tls: true
 icingadb::db_tls_insecure: true
-icingadb::db_tls_cacert_file: <localtion of cacert, if db_tls_insecure = true>
+icingadb::db_tls_cacert_file: <location of cacert, if db_tls_insecure = true>
 icingaweb2::module::icingadb::db_use_tls: true
 icingaweb2::module::icingadb::db_tls_noverify: false
-icingaweb2::module::icingadb::db_tls_cacert_file: <localtion of cacert, if db_tls_noverify = false>
+icingaweb2::module::icingadb::db_tls_cacert_file: <location of cacert, if db_tls_noverify = false>
 ```
 
 For more details, see classes [icingadb](https://github.com/Icinga/puppet-icingadb/blob/main/REFERENCE.md#icingadb) and [icingaweb2::module::icingadb](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2moduleicingadb).
@@ -71,7 +71,7 @@ Optional for TLS secured connections add:
 ```yaml
 icingaweb2::module::director::use_tls: true
 icingaweb2::module::director::tls_noverify: false
-icingaweb2::module::director::tls_cacert_file: <localtion of cacert, if tls_noverify = false>
+icingaweb2::module::director::tls_cacert_file: <location of cacert, if tls_noverify = false>
 ```
 
 For more details, see class [icingaweb2::module::director](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2moduledirector).
@@ -90,7 +90,7 @@ Optional for TLS secured connections add:
 ```yaml
 icingaweb2::module::reporting::use_tls: true
 icingaweb2::module::reporting::tls_noverify: false
-icingaweb2::module::reporting::tls_cacert_file: <localtion of cacert, if tls_noverify = false>
+icingaweb2::module::reporting::tls_cacert_file: <location of cacert, if tls_noverify = false>
 ```
 
 For more details, see class [icingaweb2::module::reporting](https://github.com/Icinga/puppet-icingaweb2/blob/master/REFERENCE.md#icingaweb2modulereporting).

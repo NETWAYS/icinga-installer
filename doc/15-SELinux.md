@@ -6,4 +6,4 @@ SELinux is only enabled by default for the Worker and Agent scenarios on RedHat 
 icinga2::manage_selinux: false
 ```
 
-For Icinga servers the additinal Puppet modules icingaweb2 and icingadb don't support SELinux. To setup an Icinga server set SELinux to `disabled` or `permessive`.
+For Icinga servers the additional Puppet modules icingaweb2 and icingadb don't support SELinux. To setup an Icinga server set SELinux to `disabled` or `permissive`.
